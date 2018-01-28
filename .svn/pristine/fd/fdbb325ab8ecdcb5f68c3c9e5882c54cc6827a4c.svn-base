@@ -1,0 +1,117 @@
+package com.yucitms.action.netLesson;
+
+import java.util.Date;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.netLesson.ExcellentCourse;
+import com.yucitms.util.HqlHelper;
+import com.yucitms.util.PageBean;
+
+/**
+ * 精品课程action
+ * @author qiangzi
+ *
+ */
+public class ExcellentCourseAction extends BaseAction<ExcellentCourse>{
+	public String index(){
+		List<ExcellentCourse> courses= excellentCourseService.findAll();
+		if(courses.size()>0){
+			ActionContext.getContext().getValueStack().push(courses.get(0));
+		}
+		return "index";
+	}
+	/**
+	 * 课程介绍
+	 */
+	public String courseIntroduce(){
+		
+		return "courseIntroduce";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//////////////////////////////后台/////////////////////
+	private String name;
+	/**
+	 *课程列表 
+	 */
+	public String getCourseList(){
+		HqlHelper hqlHelper = new HqlHelper(ExcellentCourse.class, "ec");
+		hqlHelper.addOrderByProperty("ec.createDate", false).
+		addWhereCondition(name!=null&&!name.equals(""), "ec.name like ?","%"+name+"%");
+		PageBean pageBean=excellentCourseService.getCourseList(pageNum,10,hqlHelper);
+		ActionContext.getContext().getValueStack().push(pageBean);
+		return "getCourseList";
+	}
+	/**
+	 * 添加
+	 */
+	public String addCoursePage(){
+		return "addCoursePage";
+	}
+	public String addCourse(){
+		model.setCreateDate(new Date());
+		excellentCourseService.addCourse(model);
+		return "courseList";
+	}
+	/**
+	 * 删除
+	 */
+	public String deleteCourse(){
+		excellentCourseService.deleteCourse(model.getId());
+		return "courseList";
+	}
+	/**
+	 * 更新
+	 */
+	public String updateCoursePage(){
+		ExcellentCourse course= excellentCourseService.getById(model.getId());
+		ActionContext.getContext().getValueStack().push(course);
+		return "updateCoursePage";
+	}
+	public String updateCourse(){
+		ExcellentCourse course= excellentCourseService.getById(model.getId());
+		course.setName(model.getName());
+		course.setTeachingThought(model.getTeachingThought());
+		course.setTeachingContent(model.getTeachingContent());
+		course.setCourseParsing(model.getCourseParsing());
+		course.setTeachingTeam(model.getTeachingTeam());
+		course.setTeachingAim(model.getTeachingAim());
+		course.setTeachingRequire(model.getTeachingRequire());
+		course.setPractice(model.getPractice());
+		course.setWork(model.getWork());
+		course.setScheduling(model.getScheduling());
+		excellentCourseService.updateCourse(course);
+		return "courseList";
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}

@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+html, body {
+    font: 14px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+    color: #14191E;
+}
+  body{
+    padding-top: 70px;
+    background: #EDEFF0;
+  }
+  .brand-img{
+    height: 50px;
+    width: 250px;
+    margin-top: -15px;
+  }
+  .nnnnnn{
+    border-radius: 0px;
+  }
+  .carousel {
+    height: 400px;
+    margin-bottom: 50px;
+  }
+  .carousel .item {
+    height: 400px;
+  }
+  .carousel .item img {
+    width: 100%;
+  }      
+  #carousel-example-generic{
+    margin-top: -20px;
+  }
+  .tx{
+    width:100px;
+    height: 100px;
+    border: solid 6px rgba(99,99,99,0.2);
+    border-radius: 50px;
+    transition: border 1s;
+  }
+  .tx:hover{
+    border: solid 10px rgba(20,20,20,0.6);
+  }
+  #tx-row{
+    text-align: center;
+  }
+  .navbar-oracle{
+    background-color: white;
+  }
+  .dtx{
+    border-radius: 105px;
+    border:solid 10px #aaa;
+    float: left;
+  }
+  label h1{
+    float: left;
+    margin-left: 100px;
+    margin-top: 100px;
+  }

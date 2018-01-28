@@ -1,0 +1,219 @@
+package com.yucitms.service;
+
+import javax.annotation.Resource;
+
+import com.yucitms.dao.bbs.PostDAO;
+import com.yucitms.dao.bbs.ResponseDAO;
+import com.yucitms.dao.bbs.TypeDAO;
+import com.yucitms.dao.netLesson.DifficultyGuidanceDAO;
+import com.yucitms.dao.netLesson.ExcellentCourseDAO;
+import com.yucitms.dao.netLesson.ExcellentTeacherDAO;
+import com.yucitms.dao.netLesson.ExcellentVideoDAO;
+import com.yucitms.dao.netLesson.ExpandApplicationDAO;
+import com.yucitms.dao.netLesson.ExperimentCaseDAO;
+import com.yucitms.dao.netLesson.LessionBookDAO;
+import com.yucitms.dao.netLesson.ReferenceDataDAO;
+import com.yucitms.dao.school.ClassRoomDAO;
+import com.yucitms.dao.school.CourseDAO;
+import com.yucitms.dao.school.DepartmentDAO;
+import com.yucitms.dao.school.MajorDao;
+import com.yucitms.dao.school.StudentDao;
+import com.yucitms.dao.school.TeacherDao;
+import com.yucitms.orm.school.Teacher;
+import com.yucitms.service.bbs.PostService;
+import com.yucitms.service.bbs.TypeService;
+import com.yucitms.service.netLesson.ExcellentCourseService;
+import com.yucitms.service.netLesson.ExcellentTeacherService;
+import com.yucitms.service.netLesson.ExpandApplicationService;
+import com.yucitms.service.netLesson.ExperimentCaseService;
+import com.yucitms.service.netLesson.LessionBookService;
+import com.yucitms.service.netLesson.ReferenceDataService;
+import com.yucitms.service.school.CourseService;
+
+public class BaseServiceImpl implements BaseService{
+	/**
+	 * 精品课程
+	 */
+	@Resource
+	private DifficultyGuidanceDAO difficultyGuidanceDAO;
+	@Resource
+	private ExcellentTeacherDAO excellentTeacherDAO;
+	@Resource
+	private ExpandApplicationDAO expandApplicationDAO;
+	@Resource
+	private ExcellentCourseDAO excellentCourseDAO;
+	@Resource
+	private ExperimentCaseDAO experimentCaseDAO;
+	@Resource
+	private LessionBookDAO lessionBookDAO;
+	@Resource
+	private ReferenceDataDAO referenceDataDAO;
+	@Resource
+	private ExcellentVideoDAO excellentVideoDAO;
+	/**
+	 * 帖子论坛
+	 */
+	
+	@Resource
+	private PostDAO postDAO;
+	@Resource
+	private ResponseDAO responseDAO;
+	@Resource
+	private TypeDAO typeDAO;
+	/**
+	 * 学校基本信息
+	 */
+	@Resource
+	private ClassRoomDAO classRoomDAO;
+	@Resource
+	private CourseDAO courseDAO;
+	@Resource
+	private DepartmentDAO departmentDAO;
+	@Resource
+	private MajorDao majorDao;
+	@Resource
+	private StudentDao studentDao;
+	@Resource
+	private TeacherDao teacherDao;
+	/**
+	 * 封装
+	 * @return
+	 */
+	public DifficultyGuidanceDAO getDifficultyGuidanceDAO() {
+		return difficultyGuidanceDAO;
+	}
+
+	public void setDifficultyGuidanceDAO(DifficultyGuidanceDAO difficultyGuidanceDAO) {
+		this.difficultyGuidanceDAO = difficultyGuidanceDAO;
+	}
+
+	public ExcellentTeacherDAO getExcellentTeacherDAO() {
+		return excellentTeacherDAO;
+	}
+
+	public void setExcellentTeacherDAO(ExcellentTeacherDAO excellentTeacherDAO) {
+		this.excellentTeacherDAO = excellentTeacherDAO;
+	}
+
+	public ExpandApplicationDAO getExpandApplicationDAO() {
+		return expandApplicationDAO;
+	}
+
+	public void setExpandApplicationDAO(ExpandApplicationDAO expandApplicationDAO) {
+		this.expandApplicationDAO = expandApplicationDAO;
+	}
+
+	public ExcellentCourseDAO getExcellentCourseDAO() {
+		return excellentCourseDAO;
+	}
+
+	public void setExcellentCourseDAO(ExcellentCourseDAO excellentCourseDAO) {
+		this.excellentCourseDAO = excellentCourseDAO;
+	}
+
+	public ExperimentCaseDAO getExperimentCaseDAO() {
+		return experimentCaseDAO;
+	}
+
+	public void setExperimentCaseDAO(ExperimentCaseDAO experimentCaseDAO) {
+		this.experimentCaseDAO = experimentCaseDAO;
+	}
+
+	public LessionBookDAO getLessionBookDAO() {
+		return lessionBookDAO;
+	}
+
+	public void setLessionBookDAO(LessionBookDAO lessionBookDAO) {
+		this.lessionBookDAO = lessionBookDAO;
+	}
+
+	public ReferenceDataDAO getReferenceDataDAO() {
+		return referenceDataDAO;
+	}
+
+	public void setReferenceDataDAO(ReferenceDataDAO referenceDataDAO) {
+		this.referenceDataDAO = referenceDataDAO;
+	}
+
+	public PostDAO getPostDAO() {
+		return postDAO;
+	}
+
+	public void setPostDAO(PostDAO postDAO) {
+		this.postDAO = postDAO;
+	}
+
+	public ExcellentVideoDAO getExcellentVideoDAO() {
+		return excellentVideoDAO;
+	}
+
+	public void setExcellentVideoDAO(ExcellentVideoDAO excellentVideoDAO) {
+		this.excellentVideoDAO = excellentVideoDAO;
+	}
+
+	public ClassRoomDAO getClassRoomDAO() {
+		return classRoomDAO;
+	}
+
+	public void setClassRoomDAO(ClassRoomDAO classRoomDAO) {
+		this.classRoomDAO = classRoomDAO;
+	}
+
+	public CourseDAO getCourseDAO() {
+		return courseDAO;
+	}
+
+	public void setCourseDAO(CourseDAO courseDAO) {
+		this.courseDAO = courseDAO;
+	}
+
+	public DepartmentDAO getDepartmentDAO() {
+		return departmentDAO;
+	}
+
+	public void setDepartmentDAO(DepartmentDAO departmentDAO) {
+		this.departmentDAO = departmentDAO;
+	}
+
+	public ResponseDAO getResponseDAO() {
+		return responseDAO;
+	}
+
+	public void setResponseDAO(ResponseDAO responseDAO) {
+		this.responseDAO = responseDAO;
+	}
+
+	public TypeDAO getTypeDAO() {
+		return typeDAO;
+	}
+
+	public void setTypeDAO(TypeDAO typeDAO) {
+		this.typeDAO = typeDAO;
+	}
+
+	public MajorDao getMajorDao() {
+		return majorDao;
+	}
+
+	public void setMajorDao(MajorDao majorDao) {
+		this.majorDao = majorDao;
+	}
+
+	public StudentDao getStudentDao() {
+		return studentDao;
+	}
+
+	public void setStudentDao(StudentDao studentDao) {
+		this.studentDao = studentDao;
+	}
+
+	public TeacherDao getTeacherDao() {
+		return teacherDao;
+	}
+
+	public void setTeacherDao(TeacherDao teacherDao) {
+		this.teacherDao = teacherDao;
+	}
+
+	
+}

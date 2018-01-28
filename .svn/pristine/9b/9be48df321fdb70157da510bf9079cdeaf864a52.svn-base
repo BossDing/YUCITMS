@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!--学校基本信息 -->
+	<!-- bean dao -->
+    <bean id="computerRoomDao" class="com.yucitms.dao.impl.attendance.ComputerRoomDaoImpl" parent="baseDao" />
+    <bean id="attendanceMainDAO" class="com.yucitms.dao.impl.attendance.AttendanceMainDaoImpl" parent="baseDao" />
+    <bean id="attendanceListDAO" class="com.yucitms.dao.impl.attendance.AttendanceListDaoImpl" parent="baseDao" />
+    
+    <!--  service -->
+    <bean id="computerRoomService" class="com.yucitms.service.impl.attendance.ComputerRoomServiceImpl" />
+    <bean id="attendanceMainService" class="com.yucitms.service.impl.attendance.AttendanceMainServiceImpl" />
+    <bean id="attendanceListService" class="com.yucitms.service.impl.attendance.AttendanceListServiceImpl" />
+   
+	</beans>

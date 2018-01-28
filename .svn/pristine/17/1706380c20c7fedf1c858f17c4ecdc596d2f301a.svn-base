@@ -1,0 +1,16 @@
+package com.yucitms.service.impl.netLesson;
+
+import java.util.Date;
+
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.netLesson.ExperimentCaseService;
+
+/**
+ * 实训案例			
+ * @author qiangzi
+ *
+ */
+public class ExperimentCaseServiceImpl extends BaseServiceImpl implements ExperimentCaseService{
+	
+}

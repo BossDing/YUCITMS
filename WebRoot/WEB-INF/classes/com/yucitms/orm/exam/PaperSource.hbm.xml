@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-23 20:01:11 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.PaperSource" table="exam_PAPERSOURCE">
+        <id name="id" type="java.lang.Integer">
+            <column name="paperSourceId" />
+            <generator class="native" />
+        </id>
+        <property name="paperSource" type="java.lang.String">
+            <column name="PAPERSOURCE" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <property name="state" type="boolean">
+            <column name="STATE" />
+        </property>
+        <set name="examPapers" table="EXAMPAPER" inverse="false" lazy="true">
+            <key>
+                <column name="paperSourceId" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.ExamPaper" />
+        </set>
+    </class>
+</hibernate-mapping>

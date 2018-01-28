@@ -1,0 +1,98 @@
+
+.video-left span {
+    padding: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana;
+    border-top: 1px solid #c5c6c4;
+    background-color: #20abdf;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+}
+
+h2 {
+    width: 100%;
+    color: #20abdf;
+}
+
+.play-area {
+    width: 80%;
+    float: left;
+}
+#mainBox{ min-width:100px; height:500px;position:relative; overflow:hidden;}
+#content{  height:2500px;padding-top:5px;position:absolute; left:0; top:0;}
+.scrollDiv{ width:18px;  position:absolute; top:0; background:#666; border-radius:10px;}
+#content>div {
+	padding:1px;
+	height:25px;
+}
+
+.gray {
+	background: #adadad;
+}
+
+#content>div span {
+	display:block;
+	background:#87cecb;
+	cursor:pointer;
+	padding: 3px;
+}
+#content>div span:hover {
+	display:block;
+	background:#00acb0;
+}
+.play-list {
+    width: 20%;
+    float: left;
+    background: blue;
+    max-height: 400px;
+    overflow-y:scroll;
+}
+.video-shadow{  
+  -webkit-box-shadow: 5px 0px 5px black;
+  -moz-box-shadow: 5px 0px 5px black;
+  box-shadow: 5px 0px 5px black;
+}  
+.video-left {
+    position: absolute;
+    width: 15%;
+    left: 0px;
+    padding-left: 4%;
+    padding-right: 5%;
+    height: 100%;
+    min-width: 200px;
+    border-right: 1px solid #30b9e0;
+    overflow: hidden;
+}
+
+.play-list span {
+    display: block;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    background: gray;
+    cursor: pointer;
+}
+
+.play-list span:hover {
+    background: black;
+}
+
+.video-left span:hover {
+    background: #138fec;
+}
+
+.video-right {
+    position: absolute;
+    width: 70%;
+    padding-right: 5%;
+    right: 0px;
+    background: #bdbdbd;
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}

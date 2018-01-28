@@ -1,0 +1,14 @@
+package com.yucitms.dao.impl.school;
+
+import com.yucitms.dao.BaseDaoImpl;
+import com.yucitms.dao.school.MajorDao;
+import com.yucitms.orm.bbs.Post;
+import com.yucitms.orm.school.Major;
+/**
+ * 专业
+ * @author woxiaxiangyang
+ *
+ */
+public class MajorDaoImpl extends BaseDaoImpl<Major> implements MajorDao{
+
+}

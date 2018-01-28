@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-24 10:28:06 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.QuestionsGrouping" table="exam_qgrouping">
+        <id name="id" type="int">
+            <column name="qgrouping_id" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="index" type="int">
+            <column name="INDEX_" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE_" />
+        </property>
+        <property name="zongfen" type="float">
+            <column name="ZONGFEN" />
+        </property>
+        <set name="questions"  inverse="false" lazy="true" cascade="all" order-by="code ASC">
+            <key>
+                <column name="qgrouping_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions" />
+        </set>
+        <many-to-one name="examPaper" class="com.yucitms.orm.exam.ExamPaper">
+        <column name="examPaperId"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

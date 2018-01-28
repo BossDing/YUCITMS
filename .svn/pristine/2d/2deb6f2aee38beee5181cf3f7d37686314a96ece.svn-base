@@ -1,0 +1,19 @@
+package com.yucitms.dao.impl.school;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.dao.BaseDao;
+import com.yucitms.dao.BaseDaoImpl;
+import com.yucitms.dao.school.DepartmentDAO;
+import com.yucitms.orm.school.Department;
+
+/**
+ * 院系
+ * @author qiangzi
+ *
+ */
+public class DepartmentDAOImpl extends BaseDaoImpl<Department> implements DepartmentDAO{
+	
+}

@@ -1,0 +1,96 @@
+<%@page import="com.yucitms.config.Config"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css" />
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<style type="text/css">
+.sys_content tr:hover {
+	background-color: #FFF;
+}
+
+#sys_content_s td:hover {
+	background-color: #EEE;
+}
+</style>
+	<script type="text/javascript">
+	function showPreview(source) {
+		var file = source.files[0];
+		if (window.FileReader) {
+			var fr = new FileReader();
+			fr.onloadend = function(e) {
+				document.getElementById("portrait").src = e.target.result;
+			};
+			fr.readAsDataURL(file);
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="sys_content" align="center">
+		<form
+			action="excellentTeacher_updateExcellentTeacher.action?courseId=${courseId}&id=${id}"
+			method="post" enctype="multipart/form-data">
+			<table id="sys_content_s" cellSpacing=0 cellPadding=0 width="70%"
+				border=0>
+				<thead>
+					<tr>
+						<th colspan="2" style="line-height:150%"><h2>修改</h2></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: left;">教师头像： <input type="file"
+							name="upload" onchange="showPreview(this);" />
+							<div id="taskNameTip" style="width: 170px">
+								<img id="portrait" src="<%=Config.EXCELLENTCOURSE_ImgPath%>/${imgPath}" width="70" height="75" style="">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">教师姓名： <s:textfield type="text"
+							name="teacherName" />
+							<div id="taskNameTip" style="width: 170px"></div>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">教师职称： <s:textfield type="text"
+							name="jobTitle" />
+							<div id="taskNameTip" style="width: 170px"></div>
+						</td>
+					</tr>
+
+					<tr>
+					<tr>
+						<td style="text-align: left;">教师简介： <s:textarea cssClass="ipt"
+								cssStyle=" width: 500px;height: 50px;" name="content"></s:textarea>
+							<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th><input type="submit" value="确&nbsp;&nbsp;认" class="btn"
+							style="border: 1px solid #787d82;" /> <input type="submit"
+							value="重&nbsp;&nbsp;置" class="btn"
+							style="border: 1px solid #787d82;" /></th>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

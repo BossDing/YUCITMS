@@ -1,0 +1,14 @@
+package com.yucitms.service.impl.netLesson;
+
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.netLesson.ExcellentTeacherService;
+
+/**
+ * 精品课程教师
+ * @author qiangzi
+ *
+ */
+public class ExcellentTeacherServiceImpl extends BaseServiceImpl implements ExcellentTeacherService{
+	
+}

@@ -1,0 +1,104 @@
+package com.yucitms.service;
+
+import javax.annotation.Resource;
+
+import com.yucitms.dao.bbs.PostDAO;
+import com.yucitms.dao.netLesson.DifficultyGuidanceDAO;
+import com.yucitms.dao.netLesson.ExcellentCourseDAO;
+import com.yucitms.dao.netLesson.ExcellentTeacherDAO;
+import com.yucitms.dao.netLesson.ExpandApplicationDAO;
+import com.yucitms.dao.netLesson.ExperimentCaseDAO;
+import com.yucitms.dao.netLesson.LessionBookDAO;
+import com.yucitms.dao.netLesson.ReferenceDataDAO;
+import com.yucitms.service.bbs.PostService;
+import com.yucitms.service.netLesson.ExcellentCourseService;
+import com.yucitms.service.netLesson.ExcellentTeacherService;
+import com.yucitms.service.netLesson.ExpandApplicationService;
+import com.yucitms.service.netLesson.ExperimentCaseService;
+import com.yucitms.service.netLesson.LessionBookService;
+import com.yucitms.service.netLesson.ReferenceDataService;
+
+public class BaseServiceImpl implements BaseService{
+	@Resource
+	private DifficultyGuidanceDAO difficultyGuidanceDAO;
+	@Resource
+	private ExcellentTeacherDAO excellentTeacherDAO;
+	@Resource
+	private ExpandApplicationDAO expandApplicationDAO;
+	@Resource
+	private ExcellentCourseDAO excellentCourseDAO;
+	@Resource
+	private ExperimentCaseDAO experimentCaseDAO;
+	@Resource
+	private LessionBookDAO lessionBookDAO;
+	@Resource
+	private ReferenceDataDAO referenceDataDAO;
+	@Resource
+	private PostDAO postDAO;
+	/////封装
+	public DifficultyGuidanceDAO getDifficultyGuidanceDAO() {
+		return difficultyGuidanceDAO;
+	}
+
+	public void setDifficultyGuidanceDAO(DifficultyGuidanceDAO difficultyGuidanceDAO) {
+		this.difficultyGuidanceDAO = difficultyGuidanceDAO;
+	}
+
+	public ExcellentTeacherDAO getExcellentTeacherDAO() {
+		return excellentTeacherDAO;
+	}
+
+	public void setExcellentTeacherDAO(ExcellentTeacherDAO excellentTeacherDAO) {
+		this.excellentTeacherDAO = excellentTeacherDAO;
+	}
+
+	public ExpandApplicationDAO getExpandApplicationDAO() {
+		return expandApplicationDAO;
+	}
+
+	public void setExpandApplicationDAO(ExpandApplicationDAO expandApplicationDAO) {
+		this.expandApplicationDAO = expandApplicationDAO;
+	}
+
+	public ExcellentCourseDAO getExcellentCourseDAO() {
+		return excellentCourseDAO;
+	}
+
+	public void setExcellentCourseDAO(ExcellentCourseDAO excellentCourseDAO) {
+		this.excellentCourseDAO = excellentCourseDAO;
+	}
+
+	public ExperimentCaseDAO getExperimentCaseDAO() {
+		return experimentCaseDAO;
+	}
+
+	public void setExperimentCaseDAO(ExperimentCaseDAO experimentCaseDAO) {
+		this.experimentCaseDAO = experimentCaseDAO;
+	}
+
+	public LessionBookDAO getLessionBookDAO() {
+		return lessionBookDAO;
+	}
+
+	public void setLessionBookDAO(LessionBookDAO lessionBookDAO) {
+		this.lessionBookDAO = lessionBookDAO;
+	}
+
+	public ReferenceDataDAO getReferenceDataDAO() {
+		return referenceDataDAO;
+	}
+
+	public void setReferenceDataDAO(ReferenceDataDAO referenceDataDAO) {
+		this.referenceDataDAO = referenceDataDAO;
+	}
+
+	public PostDAO getPostDAO() {
+		return postDAO;
+	}
+
+	public void setPostDAO(PostDAO postDAO) {
+		this.postDAO = postDAO;
+	}
+
+	
+}

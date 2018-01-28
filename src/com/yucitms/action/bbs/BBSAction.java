@@ -1,0 +1,238 @@
+package com.yucitms.action.bbs;
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.yucitms.action.BaseAction;
+import com.yucitms.config.Config;
+import com.yucitms.orm.bbs.Post;
+import com.yucitms.orm.bbs.Response;
+import com.yucitms.orm.bbs.Type;
+import com.yucitms.util.HqlHelper;
+import com.yucitms.util.PageBean;
+
+public class BBSAction extends BaseAction<Post>{
+	////////////前台
+	private Integer postTypeId;
+	private String postTypeName;
+	private String name;
+		public String index(){
+			HqlHelper hqlHelper = new HqlHelper(Type.class, "dg");
+			hqlHelper.addWhereCondition(name!=null&&!name.equals(""), "dg.name like ?","%"+name+"%")
+			.addOrderByProperty("id", false);
+			PageBean pageBean=typeService.getTypeList(pageNum, Config.BBS_pageSize, hqlHelper);
+			ActionContext.getContext().getValueStack().push(pageBean);
+			return "index";	
+		}
+		public String todayBbs(){
+			 Calendar cal = Calendar.getInstance();  
+		        cal.setTime(new Date());  
+		        int hour = cal.get(Calendar.HOUR_OF_DAY);  
+		        int minute = cal.get(Calendar.MINUTE);  
+		        int second = cal.get(Calendar.SECOND);  
+		        //时分秒（毫秒数）  
+		        long millisecond = hour*60*60*1000 + minute*60*1000 + second*1000;  
+		        //凌晨00:00:00  
+		        cal.setTimeInMillis(cal.getTimeInMillis()-millisecond);
+		        Date start=cal.getTime();
+		        cal.setTimeInMillis(cal.getTimeInMillis()+23*60*60*1000 + 59*60*1000 + 59*1000);
+		        Date end= cal.getTime();
+			HqlHelper hqlHelper = new HqlHelper(Post.class, "p")
+			.addWhereCondition("p.createTime>=?", start).addWhereCondition("p.createTime<=?", end)
+			.addOrderByProperty("id", false);
+			PageBean pageBean=typeService.getTypeList(pageNum, Config.BBS_pageSize, hqlHelper);
+			ActionContext.getContext().getValueStack().push(pageBean);
+			return "todayBbs";	
+		}
+		/**
+		 * 昨天的帖子
+		 */
+		public String yesterday(){
+			Calendar rightNow = Calendar.getInstance();//使用默认时区和语言环境获得一个日历  
+		    rightNow.setTime(new Date());//使用给定的 Date 设置此 Calendar 的时间。  
+		    rightNow.add(Calendar.DAY_OF_YEAR,-1);//日期加10天  
+		    Date dt1=rightNow.getTime();//获取最终日期  
+		    
+		    Calendar cal1 = Calendar.getInstance();  
+	        cal1.setTime(dt1);  
+	        int hour1 = cal1.get(Calendar.HOUR_OF_DAY);  
+	        int minute1 = cal1.get(Calendar.MINUTE);  
+	        int second1 = cal1.get(Calendar.SECOND);  
+	        //时分秒（毫秒数）  
+	        long millisecond1 = hour1*60*60*1000 + minute1*60*1000 + second1*1000;  
+	        //凌晨00:00:00  
+	        cal1.setTimeInMillis(cal1.getTimeInMillis()-millisecond1);
+	        Date start1=cal1.getTime();
+	        cal1.setTimeInMillis(cal1.getTimeInMillis()+23*60*60*1000 + 59*60*1000 + 59*1000);
+		    Date end1=cal1.getTime();
+			HqlHelper hqlHelper = new HqlHelper(Post.class, "p")
+			.addWhereCondition("p.createTime>=?", start1).addWhereCondition("p.createTime<=?", end1)
+			.addOrderByProperty("id", false);
+			PageBean pageBean=typeService.getTypeList(pageNum, Config.BBS_pageSize, hqlHelper);
+			ActionContext.getContext().getValueStack().push(pageBean);
+			return "yesterday";	
+		}
+		/**
+		 * 新回复的帖子
+		 */
+		public String newResp(){
+			HqlHelper hqlHelper = new HqlHelper(Post.class, "p")
+			.addWhereCondition("p.newresp=?", true)
+			.addOrderByProperty("id", false);
+			PageBean pageBean=typeService.getTypeList(pageNum, Config.BBS_pageSize, hqlHelper);
+			ActionContext.getContext().getValueStack().push(pageBean);
+			return "newResp";
+			
+		}
+		/**
+		 * 添加帖子
+		 * @return
+		 */
+		public String addPostPage(){
+			List<Type> types=typeService.findAll();
+			
+			ActionContext.getContext().put("types", types);;
+			System.out.println("类型个数"+types.size());
+			return "addPostPage";
+		}
+		public String addPost(){
+			Type type=null;
+			if(postTypeId!=null&&postTypeId!=-1){
+			type=typeService.getById(postTypeId);
+			}else{
+			type= new Type();
+			type.setName(postTypeName);
+			typeService.addType(type);
+			}
+			System.out.println("type"+type.getId());
+			model.setType(type);
+			model.setCreateTime(new Date());
+			postService.addPost(model);
+			return "postlist";
+		}
+		/**
+		 * 帖子详情
+		 * @return
+		 */
+		public String findRespData(){	
+			Post post=postService.getById(model.getId());
+			ActionContext.getContext().getValueStack().push(post);
+			
+			HqlHelper hqlHelper = new HqlHelper(Response.class, "dg")//
+			.addWhereCondition("dg.post.id=?", model.getId()).addOrderByProperty("dg.responseTime", false);
+			PageBean pageBean=typeService.getTypeList(pageNum, Config.BBS_pageSize, hqlHelper);
+			ActionContext.getContext().getValueStack().push(pageBean);
+			return "findRespData";
+		}
+		/**
+		 * 带有更新新回复的查看功能
+		 */
+		public String findRespData_update(){	
+			Post post=postService.getById(model.getId());
+			post.setNewresp(false);
+			postService.updatPost(post);
+			ActionContext.getContext().getValueStack().push(post);
+			
+			HqlHelper hqlHelper = new HqlHelper(Response.class, "dg")//
+			.addWhereCondition("dg.post.id=?", model.getId()).addOrderByProperty("dg.responseTime", false);
+			PageBean pageBean=typeService.getTypeList(pageNum, Config.BBS_pageSize, hqlHelper);
+			ActionContext.getContext().getValueStack().push(pageBean);
+			return "findRespData";
+		}
+		/**
+		 * 回复
+		 * @return
+		 */
+		public String addResp(){
+			Response response = new Response();
+			Post post=postService.getById(model.getId());
+			response.setResponseTime(new Date());
+			response.setContent(model.getContent());
+			post.addRespCount(1);
+			post.setNewresp(true);
+			postService.updatPost(post);
+			response.setPost(post);
+			responseService.addResponse(response);
+			return "addResp";
+		}
+		/**
+		 * 帖子信息   全部   今日  昨日  新回复
+		 * @return
+		 */
+		public String getTodayPostsNumber(){
+			 Calendar cal = Calendar.getInstance();  
+		        cal.setTime(new Date());  
+		        int hour = cal.get(Calendar.HOUR_OF_DAY);  
+		        int minute = cal.get(Calendar.MINUTE);  
+		        int second = cal.get(Calendar.SECOND);  
+		        //时分秒（毫秒数）  
+		        long millisecond = hour*60*60*1000 + minute*60*1000 + second*1000;  
+		        //凌晨00:00:00  
+		        cal.setTimeInMillis(cal.getTimeInMillis()-millisecond);
+		        Date start=cal.getTime();
+		        cal.setTimeInMillis(cal.getTimeInMillis()+23*60*60*1000 + 59*60*1000 + 59*1000);
+		        Date end= cal.getTime();
+			    int today=(int) postService.getTimeCount(start, end);
+			    
+			    
+			    Calendar rightNow = Calendar.getInstance();//使用默认时区和语言环境获得一个日历  
+			    rightNow.setTime(new Date());//使用给定的 Date 设置此 Calendar 的时间。  
+			    rightNow.add(Calendar.DAY_OF_YEAR,-1);//日期加10天  
+			    Date dt1=rightNow.getTime();//获取最终日期  
+			    
+			    Calendar cal1 = Calendar.getInstance();  
+		        cal1.setTime(dt1);  
+		        int hour1 = cal1.get(Calendar.HOUR_OF_DAY);  
+		        int minute1 = cal1.get(Calendar.MINUTE);  
+		        int second1 = cal1.get(Calendar.SECOND);  
+		        //时分秒（毫秒数）  
+		        long millisecond1 = hour1*60*60*1000 + minute1*60*1000 + second1*1000;  
+		        //凌晨00:00:00  
+		        cal1.setTimeInMillis(cal1.getTimeInMillis()-millisecond1);
+		        Date start1=cal1.getTime();
+		        cal1.setTimeInMillis(cal1.getTimeInMillis()+23*60*60*1000 + 59*60*1000 + 59*1000);
+			    Date end1=cal1.getTime();
+			    int yesterday=(int) postService.getTimeCount(start1, end1);
+			    
+			    int newresp=(int) postService.newresp();
+			    String str="{\"today\":"+today+",\"yesterday\":"+yesterday+",\"newresp\":"+newresp+"}";
+			    try {
+			    	HttpServletResponse response= ServletActionContext.getResponse();
+					response.setCharacterEncoding("utf-8");
+					response.setContentType("application/json");
+					response.getWriter().write(str);
+					response.getWriter().flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    return null;
+		}
+		public Integer getPostTypeId() {
+			return postTypeId;
+		}
+		public void setPostTypeId(Integer postTypeId) {
+			this.postTypeId = postTypeId;
+		}
+		public String getPostTypeName() {
+			return postTypeName;
+		}
+		public void setPostTypeName(String postTypeName) {
+			this.postTypeName = postTypeName;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		
+}

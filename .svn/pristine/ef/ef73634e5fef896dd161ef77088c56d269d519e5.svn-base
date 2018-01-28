@@ -1,0 +1,8 @@
+package com.yucitms.service.bbs;
+
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+
+public interface PostService extends BaseService{
+
+}

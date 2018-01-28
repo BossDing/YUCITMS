@@ -1,0 +1,16 @@
+package com.yucitms.service.bbs;
+
+import com.yucitms.dao.BaseDao;
+import com.yucitms.orm.bbs.Response;
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+
+/**
+ * 帖子回复
+ * @author qiangzi
+ *
+ */
+public interface ResponseService extends BaseService{
+
+    
+}

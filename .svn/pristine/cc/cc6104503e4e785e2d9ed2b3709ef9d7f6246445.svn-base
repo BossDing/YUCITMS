@@ -1,0 +1,8 @@
+package com.yucitms.service.school;
+
+import com.yucitms.orm.school.Student;
+import com.yucitms.service.BaseService;
+
+public interface StudentService extends BaseService{
+	public Student login(String username,String password);
+}

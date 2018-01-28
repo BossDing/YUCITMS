@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-20 9:37:09 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.Questions_DuoXuan" table="exam_QUESTIONS_DUOXUAN">
+        <id name="id" type="java.lang.Integer">
+            <column name="duoxuan_id" />
+            <generator class="native" />
+        </id>
+        <property name="questions_DXS" type="text">
+            <column name="QUESTIONS_DXS" />
+        </property>
+        <property name="A" type="text">
+            <column name="A" />
+        </property>
+        <property name="B" type="text">
+            <column name="B" />
+        </property>
+        <property name="C" type="text">
+            <column name="C" />
+        </property>
+        <property name="D" type="text">
+            <column name="D" />
+        </property>
+        <property name="E" type="text">
+            <column name="E" />
+        </property>
+        <property name="F" type="text">
+            <column name="F" />
+        </property>
+        <property name="answer_DXS" type="text">
+            <column name="ANSWER_DXS" />
+        </property>
+        <property name="parse" type="text">
+            <column name="PARSE" />
+        </property>
+        <property name="state" type="boolean">
+            <column name="STATE" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+         <many-to-one name="classify" class="com.yucitms.orm.exam.Classify" >
+            <column name="classify_id" />
+        </many-to-one>
+        <many-to-one name="difficulty" class="com.yucitms.orm.exam.Difficulty" >
+            <column name="difficulty_id" />
+        </many-to-one>
+        <many-to-one name="grouping" class="com.yucitms.orm.exam.Grouping" >
+            <column name="grouping_id" />
+        </many-to-one>
+        <many-to-one name="source" class="com.yucitms.orm.exam.Source" >
+            <column name="source_id" />
+        </many-to-one>
+         <many-to-one name="teacher" class="com.yucitms.orm.school.Teacher" >
+            <column name="teacher_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

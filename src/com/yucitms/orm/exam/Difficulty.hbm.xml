@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-20 9:37:09 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.Difficulty" table="exam_DIFFICULTY">
+        <id name="id" type="java.lang.Integer">
+            <column name="difficulty_id" />
+            <generator class="native" />
+        </id>
+        <property name="difficulty" type="java.lang.String">
+            <column name="DIFFICULTY" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CREATEDATE" />
+        </property>
+        <property name="state" type="boolean">
+            <column name="STATE" />
+        </property>
+        <set name="danXuans"  inverse="false" lazy="true">
+            <key>
+                <column name="difficulty_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_DanXuan" />
+        </set>
+        <set name="duoXuans"  inverse="false" lazy="true">
+            <key>
+                <column name="difficulty_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_DuoXuan" />
+        </set>
+        <set name="jianDas"  inverse="false" lazy="true">
+            <key>
+                <column name="difficulty_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_JianDa" />
+        </set>
+        <set name="panDuans" table="QUESTIONS_PANDUAN" inverse="false" lazy="true">
+            <key>
+                <column name="difficulty_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_PanDuan" />
+        </set>
+        <set name="tianKongs"  inverse="false" lazy="true">
+            <key>
+                <column name="difficulty_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_TianKong" />
+        </set>
+    </class>
+</hibernate-mapping>

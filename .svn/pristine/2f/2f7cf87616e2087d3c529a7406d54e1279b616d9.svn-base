@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-25 15:46:04 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.practicalTraining.PracticalTrainingTemplate" table="PRACTICALTRAINING_PRACTICALTRAININGTEMPLATE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="templateName" type="java.lang.String">
+            <column name="TEMPLATENAME" />
+        </property>
+        <property name="technologicalType" type="java.lang.String">
+            <column name="TECHNOLOGICALTYPE" />
+        </property>
+        <property name="uploadTime" type="java.util.Date">
+            <column name="UPLOADTIME" />
+        </property>
+        <property name="uploadTemplateName" type="java.lang.String">
+            <column name="UPLOADTEMPLATENAME" />
+        </property>
+        <property name="uploadTemplatePath" type="java.lang.String">
+            <column name="UPLOADTEMPLATEPATH" />
+        </property>
+        <property name="degradationTemplateName" type="java.lang.String">
+            <column name="DEGRADATIONTEMPLATENAME" />
+        </property>
+        <property name="degradationTemplatePath" type="java.lang.String">
+            <column name="DEGRADATIONTEMPLATEPATH" />
+        </property>
+        <many-to-one name="teacher" class="com.yucitms.orm.school.Teacher" >
+            <column name="TEACHER" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

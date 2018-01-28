@@ -1,0 +1,148 @@
+package com.yucitms.test;
+
+import java.io.IOException; 
+import java.util.ArrayList;
+import java.util.List; 
+ 
+import javax.servlet.http.HttpServletResponse; 
+// 
+import net.sf.json.JSONArray; 
+
+import org.apache.struts2.ServletActionContext;
+//import org.monday.dao.CityDao;
+//import org.monday.dao.ProvinceDao;
+//import org.monday.dao.TownDao;
+import com.yucitms.test.City;
+import com.yucitms.test.Province;
+import com.yucitms.test.Town;
+ 
+import com.opensymphony.xwork2.ActionSupport; 
+ 
+/**
+* 处理三级联动的Action
+*
+* @author Monday
+*/ 
+public class LinkageAction extends ActionSupport { 
+ 
+    private static final long serialVersionUID = -8658430555400755301L; 
+ 
+    private Integer pid; 
+    private Integer cid; 
+ 
+    private HttpServletResponse response = ServletActionContext.getResponse();
+ 
+    /**
+     * 获取省份
+     */ 
+    public String getProvince() {
+//        ProvinceDao provinceDao = new ProvinceDao(); 
+//List<Province> provinceList = provinceDao.findAllProvince();
+    	List<Province> provinceList = new ArrayList<Province>();
+//循环新建10个类别
+			Province province = new Province();
+			province.setPid(1);
+			province.setPname("河南");
+			provinceList.add(province);
+			Province province2 = new Province();
+			province2.setPid(14);
+			province2.setPname("美国");
+			provinceList.add(province2);
+			
+        JSONArray jsonArray = JSONArray.fromObject(provinceList);
+        System.out.println("jsonArray");
+        try { 
+            response.setContentType("text/html;charset=UTF-8"); 
+            response.getWriter().print(jsonArray.toString()); 
+        } catch (IOException e) { 
+            e.printStackTrace(); 
+        } 
+        return null; 
+    } 
+ 
+    /**
+     * 获取城市
+     */ 
+    public String getCityByPid() { 
+//        CityDao cityDao = new CityDao(); 
+        List<City> cityList = new ArrayList<City>();
+//-----------------------------------------------
+			City city = new City();
+			city.setPid(7);
+			city.setCid(1);
+			city.setCname("郑州");
+			cityList.add(city);
+//-----------------------------------------------
+//-----------------------------------------------
+  			City city2 = new City();
+  			city2.setPid(7);
+  			city2.setCid(3);
+  			city2.setCname("商丘");
+  			cityList.add(city2);
+//-----------------------------------------------
+//-----------------------------------------------
+  			City city3 = new City();
+  			city3.setPid(14);
+  			city3.setCid(1);
+  			city3.setCname("阿拉斯加");
+  			cityList.add(city3);
+//-----------------------------------------------
+        JSONArray jsonArray = JSONArray.fromObject(cityList); 
+        try { 
+            response.setContentType("text/html;charset=UTF-8"); 
+            response.getWriter().print(jsonArray.toString()); 
+        } catch (IOException e) { 
+            e.printStackTrace(); 
+        } 
+        return null; 
+    } 
+ 
+    /**
+     * 获取乡镇
+     */ 
+    public String getTownByCid() { 
+        List<Town> townList = new ArrayList<Town>();
+        Town town = new Town();
+        town.setCid(7);
+        town.setTid(1);
+        town.setTname("夏邑");
+        townList.add(town);
+        Town town2 = new Town();
+        town2.setCid(7);
+        town2.setTid(7);
+        town2.setTname("永城市");
+        townList.add(town2);
+        Town town3 = new Town();
+        town3.setCid(1);
+        town3.setTid(1);
+        town3.setTname("阿拉斯加下属");
+        townList.add(town3);
+        
+        JSONArray jsonArray = JSONArray.fromObject(townList); 
+        try { 
+            response.setContentType("text/html;charset=UTF-8"); 
+            response.getWriter().print(jsonArray.toString()); 
+        } catch (IOException e) { 
+            e.printStackTrace(); 
+        } 
+        return null; 
+    } 
+ 
+    // ----------------- 
+ 
+    public Integer getPid() { 
+        return pid; 
+    } 
+ 
+    public void setPid(Integer pid) { 
+        this.pid = pid; 
+    } 
+ 
+    public Integer getCid() { 
+        return cid; 
+    } 
+ 
+    public void setCid(Integer cid) { 
+        this.cid = cid; 
+    } 
+} 

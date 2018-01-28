@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.yucitms.orm.bbs">
+    <class name="Type" table="bbs_post_type">
+        <cache usage="read-write" />
+        <id name="id" column="id" type="integer">
+            <generator class="native" />
+        </id>
+        <property name="name" type="string" />
+        <set name="posts" lazy="false">
+            <key column="type_id" ></key>
+            <one-to-many class="com.yucitms.orm.bbs.Post" />
+        </set>
+    </class>
+</hibernate-mapping>

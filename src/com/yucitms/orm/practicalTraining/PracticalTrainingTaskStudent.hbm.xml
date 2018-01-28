@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-28 15:19:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.practicalTraining.PracticalTrainingTaskStudent" table="PRACTICALTRAINING_PRACTICALTRAININGTASKSTUDENT">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="issuedTime" type="java.util.Date">
+            <column name="ISSUEDTIME" />
+        </property>
+        <property name="claimTime" type="java.util.Date">
+            <column name="CLAIMTIME" />
+        </property>
+        <property name="describe" type="java.lang.String">
+            <column name="DESCRIBE_" />
+        </property>
+        <property name="progress" type="java.lang.String">
+            <column name="PROGRESS" />
+        </property>
+        <many-to-one name="practicalTrainingTask" class="com.yucitms.orm.practicalTraining.PracticalTrainingTask" >
+            <column name="practicalTrainingTask" />
+        </many-to-one>
+        <property name="uploadTemplateName" type="java.lang.String">
+            <column name="UPLOADTEMPLATENAME" />
+        </property>
+        <property name="uploadTemplatePath" type="java.lang.String">
+            <column name="UPLOADTEMPLATEPATH" />
+        </property>
+        <property name="degradationTemplateName" type="java.lang.String">
+            <column name="DEGRADATIONTEMPLATENAME" />
+        </property>
+        <property name="degradationTemplatePath" type="java.lang.String">
+            <column name="DEGRADATIONTEMPLATEPATH" />
+        </property>
+        <property name="submitMark" type="java.lang.String">
+            <column name="SUBMITMARK" />
+        </property>
+        <property name="score" type="int">
+            <column name="SCORE" />
+        </property>
+    </class>
+</hibernate-mapping>

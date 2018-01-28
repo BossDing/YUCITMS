@@ -1,0 +1,20 @@
+package com.yucitms.action.netLesson;
+
+import java.util.Date;
+
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.netLesson.ExcellentVideo;
+
+/**
+ * 视频
+ * @author qiangzi
+ *
+ */
+public class ExcellentVideoAction extends BaseAction<ExcellentVideo>{
+	/**
+	 * 精品视频
+	 */
+	public String excellentMP4(){
+		return "excellentMP4";
+	}
+}

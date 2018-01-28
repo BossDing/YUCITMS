@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+		<style type="text/css">
+			.sys_content tr:hover{background-color: #FFF;}
+			#sys_content_s td:hover{background-color: #EEE;}
+		</style>
+	</head>
+	<body>
+		<h1>任务操作</h1>
+		<div class="sys_content" align="center">
+		<table id="sys_content_s" cellSpacing=0 cellPadding=0 width="70%" border=0>
+				<thead>
+					<tr><th colspan="2" style="line-height:150%"><h2>任务详情</h2></th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>任务名称：ajax技术网络聊天应用</td>
+						<td>发布人：刘明涛</td>
+					</tr>
+					<tr>
+						<td>任务类型：班级任务</td>
+						<td>任务时限：2016:04:20 11:56:58</td>
+					</tr>
+					<tr>
+						<td>技术类型：ajax</td>
+						<td>模板名称：ajax技术学习</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: left;">答案模板：
+							<a class="a" onclick="window.location.href='<%=basePath%>stuTask!downloadMyAnwserModel.htm?stuTask.id=${stuTask.id}'"
+								 title="点击下载答案模板" style="cursor: pointer;vertical-align: middle;">点击下载答案模板</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: left;">任务描述：
+						<textarea disabled="disabled" style=" width: 500px;height: 150px;">${stuTask.TTask.taskMessage}</textarea>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot><tr><th colspan="2" ><input type="submit" value="返回任务列表" class="btn" onclick="window.print();" style="border: 1px solid #787d82;"/></th></tr></tfoot>
+		</table>
+		</div>
+	</body>
+</html>

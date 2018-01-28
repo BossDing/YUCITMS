@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-25 15:46:04 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.practicalTraining.PracticalTrainingTask" table="PRACTICALTRAINING_PRACTICALTRAININGTASK">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="taskName" type="java.lang.String">
+            <column name="TASKNAME" />
+        </property>
+        <property name="creationTime" type="java.util.Date">
+            <column name="CREATIONTIME" />
+        </property>
+        <property name="taskTimeLimit" type="java.sql.Date">
+            <column name="TASKTIMELIMIT" />
+        </property>
+        <property name="describe" type="java.lang.String">
+            <column name="DESCRIBE_" />
+        </property>
+        
+        <many-to-one name="practicalTrainingTemplate" class="com.yucitms.orm.practicalTraining.PracticalTrainingTemplate" >
+            <column name="PRACTICALTRAININGTEMPLATE" />
+        </many-to-one>
+        
+        <many-to-one name="teacher" class="com.yucitms.orm.school.Teacher" >
+            <column name="TEACHER" />
+        </many-to-one>
+        
+        <set name="classRooms"  inverse="false" lazy="true">
+            <key>
+                <column name="practicalTrainingTask_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.school.ClassRoom" />
+        </set>
+        <set name="students"  inverse="false" >
+            <key>
+                <column name="practicalTrainingTask_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.school.Student" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+package com.yucitms.action;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLEncoder;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.yucitms.config.Config;
+import com.yucitms.util.FtpUtil;
+
+public class DownLoadAction extends ActionSupport{
+	 private String filename;//下载文件的名称
+	 private InputStream inputStream;
+	 @Override  
+	    public String execute(){
+		 try {
+			 inputStream=FtpUtil.Download(Config.DOWNLOAD_method,Config.FTP_addrss, Config.FTP_username, Config.FTP_password, filename);
+		} catch (Exception e) {
+			 return INPUT;
+		}
+		 if(inputStream==null){
+			 return INPUT;
+		 }else{
+			 return SUCCESS;  			 
+		 }
+	    }  
+	    //下载源  
+	    public InputStream getInputStream() throws IOException{  
+	        
+	        return inputStream;
+	    }  
+	    //下载文件名称  
+	    public String getDownloadFileName() throws Exception{  
+	        String downloadFileName="";  
+	        String []filenames=filename.split("/");   
+	        downloadFileName=URLEncoder.encode(filenames[filenames.length-1], "UTF-8");//解决下载中文命名文件乱码问题  
+	        return downloadFileName;  
+	    }  
+	    ///////////////////////////////////////////字段封装//////////////  
+	    public String getFilename() {  
+	        return filename;  
+	    }  
+	    public void setFilename(String filename) {  
+	        this.filename = filename;  
+	    }  
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="teacher" namespace="/"  extends="struts-default">
+	<global-results>
+       <result name="input">/pages/login.jsp</result>
+       </global-results>
+	    <action name="teacherAction_*" class="com.yucitms.action.teacher.TeacherAction" method="{1}">
+	    <result name="left">/pages/left.jsp</result>
+	    <result name="top">/WEB-INF/page/student/top.jsp</result>
+	    <result name="main">/WEB-INF/page/student/sysfirst.jsp</result>
+	    <result name="login">/pages/teacher/main.jsp</result>
+	    <result name="loginpage">/WEB-INF/page/login.jsp</result>
+	    </action>
+     </package> 
+</struts>

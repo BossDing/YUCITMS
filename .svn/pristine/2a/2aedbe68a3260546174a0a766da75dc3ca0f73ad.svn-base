@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+/**
+ * @author qiangzi
+ *
+ */
+package com.yucitms.service.netLesson;
+
+import com.yucitms.orm.netLesson.DifficultyGuidance;
+import com.yucitms.service.BaseService;
+
+public interface DifficultyGuidanceService extends BaseService{
+	public void save(DifficultyGuidance entity);
+}

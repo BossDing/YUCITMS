@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-28 15:09:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.Exam" table="EXAM">
+        <id name="id" type="java.lang.Integer">
+            <column name="exam_id" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="examPaper" class="com.yucitms.orm.exam.ExamPaper" fetch="join">
+            <column name="examPaperId" />
+        </many-to-one>
+        <many-to-one name="major" class="com.yucitms.orm.school.Major" fetch="join">
+            <column name="major_ID" />
+        </many-to-one>
+        <set name="answerSheets" table="ANSWERSHEETS" inverse="false" lazy="true">
+            <key>
+                <column name="exam_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.AnswerSheets" />
+        </set>
+        <property name="startDate" type="java.util.Date">
+            <column name="STARTDATE" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="ENDDATE" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+    </class>
+</hibernate-mapping>

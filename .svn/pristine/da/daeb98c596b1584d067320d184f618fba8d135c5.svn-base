@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+	</head>
+	<body>
+		<div class="sys_wrap clear">
+			<div class="sys_title">
+				<p>个人信息</p>
+			</div>
+			<div class="sys_select">
+				<a class="btn" onclick="edit()">编辑信息</a>
+			</div>
+		</div>
+		
+		<div class="sys_content ">
+			<form id="studentInfo" name="studentInfo" style="height:100%" action="student_modifyStudent.asp" method="post">
+				<div class="info_clear clear" style="width: 120px;"><img src="http://localhost:8080/ITMS//upload/head/default.jpg"></div>
+				<div class="info_clear clear">
+		            <label class="label-name" for="name" >姓　　名：</label>
+		            <div class="info_left">
+		                <input class="ipt" name="student.stuName" readOnly="readOnly" id="name" value="${student.stuName}" />
+		            </div>
+				</div>
+				<div class="info_clear clear">
+		            <label class="label-name" for="studentNo" >学　　号：</label>
+		            <div class="info_left">
+		                 <input class="ipt" name="student.stuId" readOnly="readOnly" id="studentNo" value="${student.stuId}" />
+		            </div>
+				</div>
+				<div class="info_clear clear">
+		            <label class="label-name" for="contactWay" >联系方式：</label>
+		            <div class="info_left">
+		                 <input class="ipt" name="student.contactWay" id="contactWay" readOnly="readOnly" value="${student.contactWay}" />
+		            </div>
+				</div>
+		        <div class="info_clear clear">
+		            <label class="label-name" >性　　别：</label>
+		            <div class="info_left">
+		                <label ><input type="radio" value="1" checked="checked" disabled="disabled" style="width: 30px; margin: 0 10px;" name="sex">男</label>
+		                <label ><input type="radio" value="2" disabled="disabled" style="width: 30px; margin: 0 10px;" name="sex">女</label>
+		            </div>
+		        </div>
+				<div class="info_clear clear">
+		            <label class="label-name" for="idcardNo" >身份证号：</label>
+		            <div class="info_left">
+		                <input class="ipt" name="student.stuIdc" id="idcardNo" readOnly="readOnly" value="${student.stuIdc}" />
+		            </div>
+				</div>
+				<div class="info_clear clear">
+		            <label class="label-name" for="password1" >登录密码：</label>
+		            <div class="info_left">
+		                <input class="ipt" type="password" name="student.stuPassword" id="password1" readOnly="readOnly" value="${student.stuPassword}">
+		            </div>
+				</div>
+				<div class="info_clear clear">
+		            <label class="label-name" for="password2" >登录密码：</label>
+		            <div class="info_left">
+		                <input class="ipt" name="password" readOnly="readOnly" type="password" id="password2" value="${student.stuPassword}">
+		            </div>
+				</div>
+				<div class="info_clear clear" style="width: 300px;">
+					<input type="submit" class="btn" id="enter" value="保存信息" style="margin: 0;height: 40px;"/>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

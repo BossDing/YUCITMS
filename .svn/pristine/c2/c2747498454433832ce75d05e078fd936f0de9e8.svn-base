@@ -1,0 +1,381 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+<title>课程介绍</title>
+</head>
+<body>
+<jsp:include page="head/head.jsp"></jsp:include>
+<div class="container">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          课程说明
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading">课程说明</div>
+  <div class="panel-body">
+    <p>
+      本系列课程将向学员全面介绍数据服务器技术。课程将涉及到关系数据库和对象数据库的概念以及功 能强大的SQL编程语言，Oracle数据库体系结构、如何设计、创建、管理数据库。执行数据库管理（DBA）任务所必需的各种命令及实用程序。学习和熟悉网络概念和配置参数，以及如何解决一些常见的网络问题。从而使数据库客户机和工具都能实现与Oracle数据库服务器之间的通信。各种不同的备份、故障、复原及恢复情况。</p>
+    <p>
+      本系列课程一共分为9大课程资源和9大实训资源，基于中国电信业务支撑系统数据库进行的Oracle数据库基础知识培训，提供TB级行业数据库环境，高达39TB的电信行业的核心数据，在业务正常运行的场景下，完成所有课程和实训的内容。</p>
+    <p>
+      不管是想从事系统管理或者数据库管理，还是想从事应用系统开发与设计，该课程都是必须掌握的重要核心课程。</p>
+  </div>
+
+  <div class="panel-footer">
+    <table class="table table-hover">
+    <tr>
+      <td style="width:20%;"><font style="font-weight:bold;">课程编号：</font></td>
+      <td style="width:30%;">X3050211</td>
+      <td style="width:20%;"><font style="font-weight:bold;">课程学分：</font></td>
+      <td style="width:30%;">4</td>
+    </tr>
+    <tr>
+      <td><font style="font-weight:bold;">开课学院：</font></td>
+      <td>软件学院</td>
+      <td><font style="font-weight:bold;">课程学时：</font></td>
+      <td>64（讲授44，实验20）</td>
+    </tr>
+    <tr>
+      <td><font style="font-weight:bold;">课程类别：</font></td>
+      <td>专业基础课</td>
+      <td><font style="font-weight:bold;">开课对象：</font></td>
+      <td>大一软件学院学生</td>
+    </tr>
+  </table>
+  </div>
+  
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          课程性质与目的
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <div class="panel panel-warning">
+ 			<div class="panel-heading">
+    		课程性质
+  			</div>
+  			<div class="panel-body">
+  			<p>是软件学院软件工程专业学生必修的学位课程</p>
+  			</div>
+  			<div class="panel-heading">
+  				课程目的
+  			</div>
+  			<div class="panel-body">
+  				<p>不管从事IT的什么职业，数据存储都是基础的内容，尤其是在大型企业的数据库系统，服务器使用的操作系统基本上都是Unix或者Linux，相应的数据库基本都是Oracle数据库。 开设本课程主要是在高校普及企业使用比较广泛的Oracle Database，为今后学习更多的企业IT技术奠定基础。 </p>
+  			</div>
+	  </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          关联课程
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+      	<div class="panel panel-warning">
+ 			<div class="panel-heading">
+    		前置课程
+  			</div>
+  			<div class="panel-body">
+  			<p>《计算机数学基础》、《计算机应用基础》、《计算机网络基础》</p>
+  			</div>
+  			<div class="panel-heading">
+  				后置课程
+  			</div>
+  			<div class="panel-body">
+  				<p>《企业应用系统高级编程》、《软件工程理论与实践》</p>
+  			</div>
+	  	</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          课程学时分配
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <table class="table">
+        	<thead>
+									<tr>
+				                        <th style="border-right:1px #fff solid;width:40%;padding:5px 0px 5px 0px;font-weight:bold;text-align:center;">章</th>
+										<th style="border-right:1px #fff solid;width:12%;padding:5px 0px 5px 0px;font-weight:bold;text-align:center;">理论学时</th>
+										<th style="border-right:1px #fff solid;width:12%;padding:5px 0px 5px 0px;font-weight:bold;text-align:center;">实验学时</th>
+										<th style="border-right:1px #fff solid;width:12%;padding:5px 0px 5px 0px;font-weight:bold;text-align:center;">案例</th>
+										<th style="border-right:1px #fff solid;width:12%;padding:5px 0px 5px 0px;font-weight:bold;text-align:center;">实验</th>
+										<th style="border-right:1px #fff solid;width:12%;padding:5px 0px 5px 0px;font-weight:bold;text-align:center;">小计</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第01章 数据库理论基础</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">4</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">\</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">\</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">\</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">4</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第02章 Oracle SQL语句基础</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">16</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">30</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">35</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">4</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">84</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第03章 Oracle PL/SQL语句基础</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">16</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">20</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">43</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">4</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">83</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第04章 数据库管理基础</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">10</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">10</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">24</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">6</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">50</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第05章 数据库安装与使用</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">10</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">15</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">19</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">2</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">46</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第06章 数据库体系结构</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">20</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">30</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">30</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">13</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">93</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第07章 用户安全和审计</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">20</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">30</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">27</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">4</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">81</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第08章 数据库备份与恢复</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">30</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">45</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">42</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">10</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">127</td>
+									</tr>
+									<tr>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">第09章 数据库性能优化</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">20</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">30</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">25</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">8</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">83</td>
+									</tr>
+									<tr style="background-color:#FCF7F7;color:#ffffff;font-weight:bold;">
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">合计</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">146</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">210</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">245</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">51</td>
+										<td style="padding:5px 5px 5px 5px 5px;text-align:center;vertical-align:middle;">652</td>
+									</tr>
+
+								</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          教材与参考书目
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+        <div class="panel panel-warning">
+        	<div class="panel-heading">
+        		教材一
+        	</div>
+        	<div class="panel-body">
+        		<div class="media">
+  						<a class="media-left media-middle" href="#">
+    					<img src="img/book_oracle01.JPG" alt="">
+  						</a>
+  				<div class="media-body">
+    					<h4 class="media-heading">《Oracle 9&10g编程艺术-深入数据库体系结构》</h4>
+    					<p>为了帮助你更好地使用这本书，大部分章节都组织为4个部分。这个划分并不严格，不过有助于你快速地找到感兴趣的方面，从中获得所需的更多信息。本书有15章，每一章都像一本“迷你书”，可以单独成册。有时我会引用其他章中的例子或特性，不过你完全可以从书中任选一章，不参考其他章也能顺利阅读。例如，要理解或使用第14章关于并行机制的知识，就不必阅读介绍数据库表的第10章。</p>
+    				<ul class="list-group">
+							<li class="list-group-item"><span class="glyphicon glyphicon-th-list"> 作者：（美）Thomas Kyte　著，苏金国、 等译</span></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-inbox"> 出版社：人民邮电出版社</span></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-link"> ISBN：987-7-115-19110-6</span></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-credit-card"> 价格：￥69</span></li>
+						</ul>
+  				</div>
+				</div>
+        </div>
+        <div class="panel-heading">
+        		教材二
+        </div>
+        <div class="panel-body">
+        		<div class="media">
+  						<a class="media-left media-middle" href="#">
+    					<img src="img/book_oracle02.JPG" alt="">
+  						</a>
+  				<div class="media-body">
+    					<h4 class="media-heading">《Oracle数据库管理艺术-Oracle 11g新特性》</h4>
+    					<p>本书全面而又详细地讲述了Oracle 11g数据库的管理、自动化、性能管理、故障诊断、存储管理、安全管理、应用开发、数据仓库等各个方面，通过该书将全面了解Oracle Database 11g。</p>
+    				<ul class="list-group">
+							<li class="list-group-item"><span class="glyphicon glyphicon-th-list"> 作者：（美）Sam R. Alapati、Charles Kim　著，钟鸣、王君 等译</span></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-inbox"> 出版社：人民邮电出版社</span></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-link"> ISBN：987-7-115-19110-6</span></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-credit-card"> 价格：￥69</span></li>
+						</ul>
+  				</div>
+				</div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          课程实验环境
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body">
+        <ul class="list-group">
+        	<li class="list-group-item">操作系统：Oracle Linux Server 5.4 64bit、Oracle Solaris 10 64bit、Windows 7 64bit</li>
+        	<li class="list-group-item">VI编辑器：VI (</li>
+        	<li class="list-group-item">BASH：GNU bash, version 3.2.25(1)-release </li>
+        	<li class="list-group-item">图形编辑器：GNome</li>
+        	<li class="list-group-item">开通服务：SSH服务</li>
+        	<li class="list-group-item">数据库软件：Oracle Database 9i&10g&11g、Grid Control 10g、Clusterware 10g</li>
+        </ul>
+      </div>
+    </div>
+  </div>-->
+</div>
+</div>
+
+<footer class="navbar-fixed-bottom" style="background-color:white;text-align: center;">
+  <p class="footer-zzuli">Copyright © 2013 <a href="http://soft.zzuli.edu.cn/" target="_blank" title="-">  郑州轻工业学院软件学院  </a></p> 
+</footer>
+<style type="text/css">
+html, body {
+    font: 14px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+    color: #14191E;
+}
+  body{
+    padding-top: 70px;
+    background: #EDEFF0;
+  }
+  .brand-img{
+    height: 50px;
+    width: 250px;
+    margin-top: -15px;
+  }
+  .nnnnnn{
+    border-radius: 0px;
+  }
+  .carousel {
+    height: 400px;
+    margin-bottom: 50px;
+  }
+  .carousel .item {
+    height: 400px;
+  }
+  .carousel .item img {
+    width: 100%;
+  }      
+  #carousel-example-generic{
+    margin-top: -20px;
+  }
+  .tx{
+    width:100px;
+    height: 100px;
+    border: solid 6px rgba(99,99,99,0.2);
+    border-radius: 50px;
+    transition: border 1s;
+  }
+  .tx:hover{
+    border: solid 10px rgba(20,20,20,0.6);
+  }
+  #tx-row{
+    text-align: center;
+  }
+  .navbar-oracle{
+    background-color: white;
+  }
+  .dtx{
+    border-radius: 105px;
+    border:solid 10px #aaa;
+    float: left;
+  }
+  label h1{
+    float: left;
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

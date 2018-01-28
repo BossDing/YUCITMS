@@ -1,0 +1,78 @@
+<%@page import="com.yucitms.config.Config"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css" />
+	<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/click.js"></script>
+</head>
+<body>
+	<div class="sys_main">
+		<div class="sys_wrap clear">
+			<div class="sys_title"></div>
+			<div class="sys_select">
+
+				<form name="searchForm" action="difficulty_getDifficultyGuidanceList.action?courseId=${courseId}" method="post">
+					<label for="paper.PName">重难点：</label> <s:textfield name="diffName"
+						cssClass="ipt" type="text" /> <a class="btn"
+						onclick="searchForm.submit();">查&nbsp;&nbsp;询</a> <a class="btn"
+						href="difficulty_addDifficultyGuidancePage.action?courseId=${courseId}">添&nbsp;&nbsp;加</a>
+
+				</form>
+			</div>
+		</div>
+		<div class="sys_content">
+			<table height="100%" cellSpacing=0 cellPadding=0 width="100%"
+				border=0>
+				<thead>
+					<tr>
+						<th><span title="点击选中全部"><input type="checkbox"
+								name="checkbox" onclick="checkAll(this)" /></span></th>
+						<th>重难点</th>
+						<th>解决方案</th>
+						<th>创建时间</th>
+						<th>附件</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				<s:iterator value="recordList">
+					<tr>
+						<th><input name="id" type="checkbox" value="${id}" /></th>
+						<td>${diffName}</td>
+						<td>${diffScheme}</td>
+						<td>${createDate}</td>
+						<td><a href="read_readSwf.action?filePath=<%=Config.EXCELLENTCOURSE_FilePath%>/${attachmentsPath}" target="_blank">预览</a></td>
+					<td>
+					<a class="btn"
+						href="difficulty_updateDifficultyGuidancePage.action?id=${id}&courseId=${courseId}">修改</a>&nbsp;&nbsp;
+						<a class="btn"
+						href="difficulty_deleteDifficultyGuidance.action?id=${id}&courseId=${courseId}">删除</a>
+					</td>
+					</tr>
+					</s:iterator>
+				</tbody>
+				<tfoot>
+					<th colspan="13" style="text-align: right;"></th>
+				</tfoot>
+			</table>
+		</div>
+		<s:form action="difficulty_getDifficultyGuidanceList?courseId=%{courseId}" name="page">
+	   <%@include file="../../../common/pagebean.jspf" %>
+      </s:form>
+	</div>
+</body>
+</html>

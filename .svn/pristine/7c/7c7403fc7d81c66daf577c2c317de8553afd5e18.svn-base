@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+/**
+ * @author qiangzi
+ *
+ */
+package com.yucitms.service.impl.netLesson;
+
+import com.yucitms.dao.netLesson.DifficultyGuidanceDAO;
+import com.yucitms.orm.netLesson.DifficultyGuidance;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.netLesson.DifficultyGuidanceService;
+
+public class DifficultyGuidanceServiceImpl extends BaseServiceImpl implements DifficultyGuidanceService{
+
+	@Override
+	public void save(DifficultyGuidance entity) {
+	getDifficultyGuidanceDAO().save(entity);
+	}
+	
+}

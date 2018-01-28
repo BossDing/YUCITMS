@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  <constant name="struts.i18n.encoding" value="UTF-8"/>
+  <constant name="struts.devMode" value="true"/>
+	<constant name="struts.locale" value="zh_CN" />
+	 <constant name="struts.ui.theme" value="simple" />
+	 <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+  <!-- <constant name="struts.objectFactory" value="spring" /> -->
+ <!--  <constant name="struts.enable.DynamicMethodInvocation" value="false" /> -->
+  <constant name="struts.multipart.maxSize" value="1073742000"/>
+  <include file="strutsConfig/*.xml"></include>
+<!-- 设置开发模式  -->
+<!--     <constant name="struts.devMode" value="true" />  -->
+   <package name="globalResult" extends="struts-default" abstract="true">
+   <global-results>
+       <result name="input">/WEB-INF/page/error.jsp</result>
+   </global-results>
+<!--    <action name="complexFormTag" class="com.yucitms.test.ComplexFormTagAction"> -->
+<!-- 	  <result name="success">/pages/test/complexFormTag.jsp</result></action> -->
+	  
+<!--    <action name="linkage" class="com.yucitms.test.LinkageAction"> -->
+<!-- 	  <result name="success">/pages/test/linkage.jsp</result> -->
+<!--    </action> -->
+<!--    <action name="linkageAction_*" class="com.yucitms.test.LinkageAction" method="{1}">  -->
+<!-- 	  <result name="success">/pages/test/linkage.jsp</result> -->
+<!--    </action>  -->
+   
+    </package> 
+</struts>    

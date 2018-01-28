@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="paper" namespace="/"  extends="struts-default">
+	    <action name="paper_*" class="com.yucitms.action.exam.PaperExamAction" method="{1}">
+	    <result name="getPaperList">/WEB-INF/page/exam/Examination/paper/addpaper1.jsp</result>
+	    <result name="addPaper1">/WEB-INF/page/exam/Examination/paper/addQuestionsTopaper.jsp</result>
+	    <result name="selectQuestion">/WEB-INF/page/exam/Examination/paper/selectQuestion/selectQuestion.jsp</result>
+	    <result name="qusetionSort" type="redirectAction">paper_seePaperQuestion?paperId=${paperId}</result>
+	   <result name="updatePaperPage">/WEB-INF/page/exam/Examination/paper/updatePaper.jsp</result>
+	   
+	   <!--试卷列表  -->
+	    <result name="getExamPaperList">/WEB-INF/page/exam/Examination/paper/papermanager.jsp</result>
+	    <result name="ExamPaperList" type="redirectAction">paper_getExamPaperList?pageNum=${pageNum}</result>
+	    <!--选择试题  -->
+	    <result name="getTKquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/tkQuestionmanager.jsp</result>
+	    <result name="togetTKquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/tkQuestionmanager.jsp</result>
+	    
+	     <result name="getDXquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/dxQuestionmanager.jsp</result>
+	    <result name="togetDXquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/dxQuestionmanager.jsp</result>
+	    
+	     <result name="getDXSquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/dxsQuestionmanager.jsp</result>
+	    <result name="togetDXSquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/dxsQuestionmanager.jsp</result>
+	    
+	     <result name="getPDquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/pdQuestionmanager.jsp</result>
+	    <result name="togetPDquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/pdQuestionmanager.jsp</result>
+	    
+	     <result name="getJDquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/jdQuestionmanager.jsp</result>
+	    <result name="togetJDquestionList">/WEB-INF/page/exam/Examination/paper/selectQuestion/jdQuestionmanager.jsp</result>
+	    </action>
+	    
+	    
+	     <!--试卷分类  -->
+	    <action name="papegClassify_*" class="com.yucitms.action.exam.PaperClassifyAction" method="{1}">
+	    <result name="getPaperClassifyList">/WEB-INF/page/exam/Examination/paper/paperclassify/classify.jsp</result>
+	     <result name="addPaperClassifyPage">/WEB-INF/page/exam/Examination/paper/paperclassify/addclassify.jsp</result>
+	      <result name="updatePaperClassifyPage">/WEB-INF/page/exam/Examination/paper/paperclassify/updateclassify.jsp</result>
+	       <result name="PaperClassifyList" type="redirectAction">papegClassify_getPaperClassifyList</result>
+	    </action>
+	   
+	    <!--试卷分组  -->
+	     <action name="paperGrouping_*" class="com.yucitms.action.exam.PaperGroupingAction" method="{1}">
+	    <result name="getPaperGroupingList">/WEB-INF/page/exam/Examination/paper/papergrouping/grouping.jsp</result>
+	     <result name="addPaperGroupingPage">/WEB-INF/page/exam/Examination/paper/papergrouping/addgrouping.jsp</result>
+	      <result name="updatePaperGroupingPage">/WEB-INF/page/exam/Examination/paper/papergrouping/updategrouping.jsp</result>
+	       <result name="PaperGroupingList" type="redirectAction">paperGrouping_getPaperGroupingList</result>
+	    </action>
+	    <!--试卷来源  -->
+	     <action name="paperSource_*" class="com.yucitms.action.exam.PaperSourceAction" method="{1}">
+	    <result name="getPaperSourceList">/WEB-INF/page/exam/Examination/paper/papersource/source.jsp</result>
+	     <result name="addPaperSourcePage">/WEB-INF/page/exam/Examination/paper/papersource/addsource.jsp</result>
+	      <result name="updatePaperSourcePage">/WEB-INF/page/exam/Examination/paper/papersource/updatesource.jsp</result>
+	       <result name="PaperSourceList" type="redirectAction">paperSource_getPaperSourceList</result>
+	    </action>
+	    <!--试卷管理  -->
+	     <action name="paperManager_*" class="com.yucitms.action.exam.PaperExamManagerAction" method="{1}">
+	     <result name="getExamPaperList">/WEB-INF/page/exam/Examination/paper/papermanager.jsp</result>
+	     </action>
+     </package> 
+</struts>    	

@@ -1,0 +1,37 @@
+package com.yucitms.action.student;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.school.Student;
+
+public class StudentAction extends BaseAction<Student>{
+	private Student student;
+	public String left(){
+		return "left";
+	}
+	public String top(){
+		return "top";
+	}
+	public String main(){
+		return "main";
+	}
+	
+	public void validateLogin(){
+		
+		student=studentService.login(model.getLoginName(), model.getLoginPas());
+		if(student==null){
+			addFieldError("error", "用户名或密码错误，请重试！");
+			System.out.println("------------");
+		}
+	}
+	public String login(){
+		System.out.println("成功");
+		ActionContext.getContext().getSession().put("student", student);
+		return "login";
+	}
+	public String outline(){
+		ActionContext.getContext().getSession().remove("student");
+		return "loginpage";
+		
+	}
+}

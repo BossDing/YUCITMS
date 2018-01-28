@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-28 15:19:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.practicalTraining.PracticalTrainingTaskStep" table="PRACTICALTRAINING_PRACTICALTRAININGTASKSTEP">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="stepOneDetails" type="java.lang.String">
+            <column name="STEPONEDETAILS" />
+        </property>
+        <property name="stepThreeDetails" type="java.lang.String">
+            <column name="STEPTHREEDETAILS" />
+        </property>
+        <property name="stepFourDetails" type="java.lang.String">
+            <column name="STEPFOURDETAILS" />
+        </property>
+        <property name="stepFiveDetails" type="java.lang.String">
+            <column name="STEPFIVEDETAILS" />
+        </property>
+        <property name="stepSixDetails" type="java.lang.String">
+            <column name="STEPSIXDETAILS" />
+        </property>
+        <property name="stepSevenDetails" type="java.lang.String">
+            <column name="STEPSEVENDETAILS" />
+        </property>
+        <property name="stepEightDetails" type="java.lang.String">
+            <column name="STEPEIGHTDETAILS" />
+        </property>
+        <property name="stepNineDetails" type="java.lang.String">
+            <column name="STEPNINEDETAILS" />
+        </property>
+        <property name="stepTenDetails" type="java.lang.String">
+            <column name="STEPTENDETAILS" />
+        </property>
+        <property name="stepSum" type="java.lang.String">
+            <column name="STEPSUM" />
+        </property>
+    </class>
+</hibernate-mapping>

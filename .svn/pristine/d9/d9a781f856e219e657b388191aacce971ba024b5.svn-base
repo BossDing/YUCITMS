@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+	<script type="text/javascript" src="../../js/click.js" ></script>
+	</head>
+	<body>
+		<div class="sys_main">
+			<div class="sys_wrap clear">
+				<div class="sys_title">
+					<p>已分配任务</p>
+				</div>
+				<div class="sys_select">
+					<form name="searchForm" action="exam_searchMyExam.asp" method="post">
+						<label for="paper.PName">任务名：</label>
+						<input name="paper.PName" class="ipt" id="paper.PName" type="text" />
+		             	<label for="state">任务类型：</label>
+                        <input type="radio" style="display:none;" name="t_class.ishaveTask" value="-1" checked="checked" />
+                        <input type="radio" style="width: 10px; margin: 0 10px;" name="t_class.ishaveTask" value="1" />个人任务
+                        <input type="radio" style="width: 10px; margin: 0 10px;" name="t_class.ishaveTask" value="0" />班级任务
+		                <a class="btn" onclick="searchForm.submit();">查&nbsp;&nbsp;询</a>
+                	</form>
+				</div>
+			</div>
+			<div class="sys_content">
+				<table height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0 >
+					<thead><tr>
+						<th><span title="点击选中全部"><input type="checkbox" name="checkbox" onclick="checkAll(this)" /></span></th>
+						<th>任务名</th><th>是否降级</th><th>任务类型</th><th>状态</th><th>班级</th><th>成绩</th><th>操作</th>
+					</tr></thead>
+					<tbody>
+						<tr>
+							<th><input name="id" type="checkbox" value="${entity.stuTask.id}" /></th>
+							<td>ajax技术网络聊天应用</td>
+							<td>是</td>
+							<td>班级任务</td>
+							<td>任务结束</td>
+							<td>软件测试011</td>
+							<td>80</td>
+							<td><a class="a" onclick="return examDetail(${entity.examResult.id})" >任务操作</a></td>
+						</tr>
+						<tr>
+							<th><input name="id" type="checkbox" value="${entity.stuTask.id}" /></th>
+							<td>bbs论坛</td>
+							<td>否</td>
+							<td>班级任务</td>
+							<td>进行中...</td>
+							<td>软件测试011</td>
+							<td>56</td>
+							<td><a class="a" href="myTaskDetail.html">任务操作</a></td>
+						</tr>
+					</tbody>
+					<tfoot><th colspan="8" style="text-align: right;"></th></tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

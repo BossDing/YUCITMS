@@ -1,0 +1,8 @@
+package com.yucitms.service.impl.school;
+
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.school.TeacherService;
+
+public class TeacherServiceImpl extends BaseServiceImpl implements TeacherService{
+	
+}

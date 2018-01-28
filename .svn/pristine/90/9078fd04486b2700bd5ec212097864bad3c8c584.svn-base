@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="exam" namespace="/"  extends="struts-default">
+		<action name="lesson_*" class="com.yucitms.action.netLesson.DifficultyGuidanceAction" method="{1}">
+		<result name="index">/index.jsp</result>
+		</action>
+     </package> 
+</struts>    	

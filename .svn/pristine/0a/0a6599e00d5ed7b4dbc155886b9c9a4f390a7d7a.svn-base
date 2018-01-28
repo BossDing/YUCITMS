@@ -1,0 +1,83 @@
+<%@page import="com.yucitms.config.Config"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css" />
+	<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/click.js"></script>
+</head>
+<body>
+	<div class="sys_main">
+		<div class="sys_wrap clear">
+			<div class="sys_title"></div>
+			<div class="sys_select">
+
+				<form name="searchForm" action="book_getLessonBookList.action?courseId=${courseId}" method="post">
+					<label for="paper.PName">书籍：</label> <s:textfield name="bookName"
+						cssClass="ipt" type="text" /> <a class="btn"
+						onclick="searchForm.submit();">查&nbsp;&nbsp;询</a> <a class="btn"
+						href="book_addLessonBookPage.action?courseId=${courseId}">添&nbsp;&nbsp;加</a>
+
+				</form>
+			</div>
+		</div>
+		<div class="sys_content">
+			<table height="100%" cellSpacing=0 cellPadding=0 width="100%"
+				border=0>
+				<thead>
+					<tr>
+						<th><span title="点击选中全部"><input type="checkbox"
+								name="checkbox" onclick="checkAll(this)" /></span></th>
+						<th>图片</th>
+						<th>书名</th>
+						<th>编码</th>
+						<th>出版社</th>
+						<th>作者</th>
+						<th>创建时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				<s:iterator value="recordList">
+					<tr>
+						<th><input name="id" type="checkbox" value="${id}" /></th>
+						<!--http://115.158.93.20:8088/web/YUCITMS/ExcellentCourse/img -->
+						<td><img src="<%=Config.EXCELLENTCOURSE_ImgPath%>/${imgPath}" height="80" width="80"> </td>
+						<td>${bookName}</td>
+						<td>${bookCode}</td>
+						<td>${publishingHouse}</td>
+						<td>${author}</td>
+						<td>${createDate}</td>
+					<td>
+					<a class="btn"
+						href="book_updateLessonBookPage.action?id=${id}&courseId=${courseId}">修改</a>&nbsp;&nbsp;
+						<a class="btn"
+						href="book_deleteLessonBook.action?id=${id}&courseId=${courseId}">删除</a>
+					</td>
+					</tr>
+					</s:iterator>
+				</tbody>
+				<tfoot>
+					<th colspan="13" style="text-align: right;"></th>
+				</tfoot>
+			</table>
+		</div>
+		<s:form action="book_getLessonBookList?courseId=%{courseId}" name="page">
+	   <%@include file="../../../common/pagebean.jspf" %>
+      </s:form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+package com.yucitms.service.impl.netLesson;
+
+import java.util.Date;
+
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.netLesson.ExpandApplicationService;
+
+/**
+ * 扩展应用
+ * @author qiangzi
+ *
+ */
+public class ExpandApplicationServiceImpl extends BaseServiceImpl implements ExpandApplicationService{
+	
+}

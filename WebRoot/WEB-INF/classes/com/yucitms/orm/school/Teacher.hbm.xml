@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-9 10:51:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.school.Teacher" table="SCHOOL_TEACHER">
+        <id name="id" type="java.lang.Integer">
+            <column name="teacher_ID" />
+            <generator class="native" />
+        </id>
+        <property name="teacherName" type="java.lang.String">
+            <column name="TEACHERNAME" />
+        </property>
+        <property name="teacherCode" type="java.lang.String">
+            <column name="TEACHERCODE" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="age" type="int">
+            <column name="AGE" />
+        </property>
+        <property name="loginName" type="java.lang.String">
+            <column name="LOGINNAME" />
+        </property>
+        <property name="loginPas" type="java.lang.String">
+            <column name="LOGINPAS" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <set name="courses" table="SCHOOL_TEACHER_COURSE" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <many-to-many class="com.yucitms.orm.school.Course" column="Course_ID"/>
+        </set>
+        <!-- <set name="danXuans" table="QUESTIONS_DANXUAN" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_DanXuan" />
+        </set>
+        <set name="duoXuans" table="QUESTIONS_DUOXUAN" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_DuoXuan" />
+        </set>
+        <set name="jianDas" table="QUESTIONS_JIANDA" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_JianDa" />
+        </set>
+        <set name="panDuans" table="QUESTIONS_PANDUAN" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_PanDuan" />
+        </set>
+        <set name="tianKongs" table="QUESTIONS_TIANKONG" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Questions_TianKong" />
+        </set>
+         <set name="examPapers" table="EXAMPAPER" inverse="false" lazy="true">
+            <key>
+                <column name="teacher_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.ExamPaper" />
+        </set> -->
+    </class>
+</hibernate-mapping>

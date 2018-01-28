@@ -1,0 +1,22 @@
+package com.yucitms.action.netLesson;
+
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.netLesson.ExcellentCourse;
+
+/**
+ * 精品课程action
+ * @author qiangzi
+ *
+ */
+public class ExcellentCourseAction extends BaseAction<ExcellentCourse>{
+	public String index(){
+		return "index";
+	}
+	/**
+	 * 课程介绍
+	 */
+	public String courseIntroduce(){
+		
+		return "courseIntroduce";
+	}
+}

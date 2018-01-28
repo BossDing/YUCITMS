@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-13 11:55:40 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.attendance.AttendanceList" table="ATTENDANCE_ATTENDANCELIST">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+<!--         <property name="attendanceMainId" type="java.lang.Integer"> -->
+<!--             <column name="ATTENDANCEMAINID" /> -->
+<!--         </property> -->
+        <property name="signInTrue" type="java.lang.String">
+            <column name="SIGNINTRUE" />
+        </property>
+        <property name="signInTime" type="java.util.Date">
+            <column name="SIGNINTIME" />
+        </property>
+<!--         <many-to-one name="attendanceMain" class="com.yucitms.orm.attendance.AttendanceMain" fetch="join"> -->
+        <many-to-one name="attendanceMain" class="com.yucitms.orm.attendance.AttendanceMain">
+            <column name="ATTENDANCEMAINID" />
+        </many-to-one>
+        <many-to-one name="student" class="com.yucitms.orm.school.Student">
+            <column name="Student" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

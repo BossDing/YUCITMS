@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="bbs" namespace="/"  extends="struts-default">
+	    <action name="bbs_*" class="com.yucitms.action.bbs.BBSAction" method="{1}">
+	     <result name="index">/WEB-INF/page/bbs/bbs-main.jsp</result>
+	    <result name="addPostPage">/WEB-INF/page/bbs/add-question.jsp</result>
+	    <result name="postlist" type="redirectAction">bbs_index</result>
+	    <result name="findRespData">/WEB-INF/page/bbs/question-detail.jsp</result>
+	    <result name="addResp" type="redirectAction">bbs_findRespData?id=${id}</result>
+	    <result name="todayBbs">/WEB-INF/page/bbs/todayPost.jsp</result>
+	    <result name="yesterday">/WEB-INF/page/bbs/yesterDay.jsp</result>
+	    <result name="newResp">/WEB-INF/page/bbs/newResp.jsp</result>
+	    </action>
+     </package> 
+</struts>    	

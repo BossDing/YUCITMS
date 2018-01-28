@@ -1,0 +1,159 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="${pageContext.request.contextPath}/excellentCourseStyle/css/style.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/excellentCourseStyle/css/new_style.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/excellentCourseStyle/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/excellentCourseStyle/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/excellentCourseStyle/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/excellentCourseStyle/js/select-ui.min.js"></script>
+<script src="${pageContext.request.contextPath}/excellentCourseStyle/layer/layer.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+
+
+	function checkAll(field){
+	//根据checkbox框的名称，查询得到所有的checkbox对象
+	var idCheckboxs = document.getElementsByName("check");
+	for(var i=0; i<idCheckboxs.length; i++){
+		//判断顶上那个checkbox框的选中状态
+		if(field.checked){
+			var url="paper_addQuestionToGrouping.action";
+			var date={"qgroupingId":'${qgroupingId}',"questionId":idCheckboxs[i].value,"questionType":"tiankong"};
+			$.post(url,date,function(result){
+				/* if(result=='true'){
+					idCheckboxs[i].checked = true;					
+				} */
+			});
+			idCheckboxs[i].checked = true;
+		}else{
+			var url="paper_unAddQuestionToGrouping.action";
+			var date={"qgroupingId":'${qgroupingId}',"questionId":idCheckboxs[i].value,"questionType":"tiankong"};
+			$.post(url,date,function(result){
+				/* if(result=='true'){
+					idCheckboxs[i].checked = false;					
+				} */
+			});
+				idCheckboxs[i].checked = false;
+		}
+	}
+}
+	function check(field){
+		if(field.checked){
+			var url="paper_addQuestionToGrouping.action";
+			var date={"qgroupingId":'${qgroupingId}',"questionId":field.value,"questionType":"tiankong"};
+			$.post(url,date,function(result){
+				if(result=='true')
+			field.checked = true;				
+			});
+		}else{
+			var url="paper_unAddQuestionToGrouping.action";
+			var date={"qgroupingId":'${qgroupingId}',"questionId":field.value,"questionType":"tiankong"};
+			$.post(url,date,function(result){
+				if(result=='true')
+			field.checked = false;				
+			});
+		}
+	}
+	function show(content,answer){
+		layer.open({
+			  type: 1,
+			  skin: 'layui-layer-rim', //加上边框
+			  area: ['420px', '240px'], //宽高
+			  content: content+'<hr />答案：'+answer
+			});	
+	}
+	
+</script>
+
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">考试管理</a></li>
+    <li><a href="#">试题</a></li>
+    <li><a href="#">试题管理</a></li>
+    </ul>
+    </div>
+    
+    <div class="rightinfo">
+    
+    <div class="tools">
+    <%@include file="head.jsp" %>
+    
+    <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th><input name="" type="checkbox" value="" onclick="checkAll(this)"/></th>
+        <th>编号<i class="sort"><img src="${pageContext.request.contextPath}/excellentCourseStyle/images/px.gif" /></i></th>
+        <th>题型</th>
+        <th>状态</th>
+        <th>试题内容</th>
+        <th>创建人</th>
+        <th>最后更新</th>
+       
+        </tr>
+        </thead>
+        <tbody>
+       
+        <s:iterator value="recordList">
+        <tr>
+        <td><input name="check" type="checkbox" value="${id}" onclick="check(this);"/></td>
+        <td>${id}</td>
+        <td>填空题</td>
+        <td>
+        <s:if test="%{state==true}">
+                   启用
+        </s:if>
+        <s:else>禁用</s:else>
+        </td>
+        <td onclick="show('${id}、${questions_TK}','${answer_TK}');">
+        <s:if test="%{questions_TK.length()>10}">
+        ${fn:substring(questions_TK,0,10)}...
+        </s:if>
+        <s:else>
+        ${questions_TK}
+        </s:else>
+        </td>
+        <td>${teacher.teacherName}</td>
+        <td><s:date name="createDate"  format="yyyy-MM-dd HH:mm:ss"/></td>
+       </tr>   
+        </s:iterator>     
+        </tbody>
+    </table>
+     
+    <s:form action="paper_getTKquestionList" name="page">
+	   <%@include file="../../../../common/questionManagerpagebean.jspf" %>
+      </s:form>
+    </div>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+	</div>
+</body>
+
+</html>

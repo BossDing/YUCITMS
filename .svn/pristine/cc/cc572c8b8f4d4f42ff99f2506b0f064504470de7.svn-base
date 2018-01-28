@@ -1,0 +1,20 @@
+package com.yucitms.action.netLesson;
+
+import javax.annotation.Resource;
+
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.netLesson.DifficultyGuidance;
+import com.yucitms.service.netLesson.DifficultyGuidanceService;
+
+public class DifficultyGuidanceAction extends BaseAction<DifficultyGuidance>{
+	
+	
+	public String add(){
+		difficultyGuidanceService.save(model);
+		System.out.println(model.getDiffName());
+		return "index";
+	}
+	public String index(){
+		return "index";
+	}
+}

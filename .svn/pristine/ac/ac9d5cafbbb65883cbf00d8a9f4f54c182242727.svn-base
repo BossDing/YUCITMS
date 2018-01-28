@@ -1,0 +1,15 @@
+package com.yucitms.dao.school;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.dao.BaseDao;
+
+/**
+ * 班级
+ * @author qiangzi
+ *
+ */
+public interface ClassRoom extends BaseDao<ClassRoom>{
+	
+}

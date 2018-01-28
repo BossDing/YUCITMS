@@ -1,0 +1,4 @@
+jdbc.url=jdbc\:mysql\://172.20.28.240\:3306/yucitms?createDatabaseIfNotExist\=true&useUnicode\=true&characterEncoding\=utf8
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.username=zzq
+jdbc.password=123456

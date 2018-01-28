@@ -1,0 +1,270 @@
+@CHARSET "UTF-8";
+
+.font-color {
+    text-align: right;
+    font-size: 12px;
+    color: #64D2F2
+}
+
+.question-title {
+    background: white;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+}
+
+.head {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background: #09B4DF;
+}
+
+.page-area {
+        height: 24px;
+    text-align: right;
+    font-size: 12px;
+    margin: 10px;
+}
+
+.page-area span {
+    display: inline-block;
+    width: 13 px;
+    background: white;
+    hieght: auto;
+    font-family: Arial;
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.page-area span:hover {
+    background: rgba(100, 210, 242, 0.73);
+}
+
+.page-area .current {
+    background: #64D2F2;
+    color: white;
+}
+
+.bg-style {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.head>div {
+    height: 100%;
+    float: left;
+    margin: 0px;
+}
+
+.title-block {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 21px;
+    background-color: #F8F8F8;
+}
+
+.title-block * {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.content-area {
+    overflow: hidden;
+    padding: 15px;
+    padding-top: 50px;
+    background: white;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+}
+.min-height {
+    height: auto;
+    overflow: hidden;
+    min-height: 40px;
+}
+.bg-white {
+    background: white;
+}
+
+.content {
+    height: auto;
+}
+
+em{
+	color:#7B68EE;
+}
+
+.post-content {
+	color:#6A5ACD;
+	font-size:14pt;
+	border:1px solid;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    border-bottom: 1px dotted gray;
+}
+
+.title-content {
+    width: 70%;
+    min-width: 200px;
+}
+
+.content>* {
+    display: inline-block;
+    font-family: arial;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.title-content:hover {
+    color: #9ce3f8;
+}
+
+.padding-5 {
+    padding: 5px;
+}
+
+.content>span:first-child {
+    font-size: 30px;
+    font-weight: bold;
+    background: #64D2F2;
+    font-family: arial;
+    color: white;
+}
+
+.delete-btn {
+    cursor: pointer;
+    color: #64D2F2;
+}
+
+.delete-btn:hover {
+    color: #3dc7ef;
+}
+
+.block-title {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    color: #64D2F2;
+    margin: 5px;
+}
+
+.content span:not(:first-child){
+    font-size:14px;
+}
+
+.operator {
+    font-weight: bold;
+    right: 20px;
+    top: 0px;
+    position: absolute;
+    cursor: pointer;
+    color: #64D2F2;
+    font-size: 14px;
+}
+.resp-form {
+    text-align: center;
+    width: 50%;
+}
+.resp-content {
+    text-align: center;
+    padding: 5px;
+    display: block;
+    color: white;
+    background: #64D2F2;
+    font-size: 14px;
+    font-weight: bold;
+    width: 60px;
+    height: 20px;
+}
+
+.resp-top {
+    margin: 10px;
+}
+.resp-btn {
+    width: 60px;
+    height: 25px;
+    text-align: center;
+}
+.bg-blue {
+    background:#64D2F2;
+}
+
+.suffix {
+    width: 20%;
+    text-align: right;
+    min-width: 200px;
+}
+
+.font-style {
+    font-size: 12px;
+    font-family: '宋体';
+}
+
+.box-shdow {
+    box-shadow: 2px 2px 1px rgba(128, 128, 128, 0.25);
+    -moz-box-shadow: 2px 2px 1px rgba(128, 128, 128, 0.25);
+    -webkit-box-shadow: 2px 2px 1px rgba(128, 128, 128, 0.25);
+}
+
+.head>div:first-child {
+    width: 20%;
+}
+
+.head .center {
+    text-align: center;
+    width: 80%;
+}
+
+.head .text {
+    font-size: 12px;
+    padding: 14px;
+}
+
+.head>div * {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.search-area {
+    width: 260px;
+    height: 25px;
+    padding: 3px;
+    margin-top: 3px;
+    background: white;
+}
+
+.search-btn {
+    background: gray;
+}
+
+.area-style {
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+    -moz-box-shadow: 0px 0px 1px #000000;
+    -webkit-box-shadow: 0px 0px 1px #000000;
+    box-shadow: 0px 0px 1px #c0c0c0;
+    opacity: 0.97;
+    -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity= 97);
+}
+
+footer {
+    padding: 15px;
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial;
+    color: #051211;
+}

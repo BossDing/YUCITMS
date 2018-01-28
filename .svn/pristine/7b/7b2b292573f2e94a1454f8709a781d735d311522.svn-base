@@ -1,0 +1,496 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+<title>重难点解析</title>
+</head>
+<body>
+<jsp:include page="head/head.jsp"></jsp:include>
+<div class="container">
+  <div class="panel panel-success">
+  <div class="panel-heading">
+    <h3>数据库理论基础</h3>
+  </div>
+  <div class="panel-footer">
+    <div class="media">
+      <a class="media-left" href="#">
+      <img src="img/media.png" alt="oracle">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">本部分共4章：</h4>
+        <p></p>
+        <p>第01章 数据库理论基础概述</p>
+        <p>第02章 关系型数据库</p>
+        <p>第03章 数据库的安全与完整性</p>
+        <p>第04章 关系数据理论与设计方法</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div role="tabpanel">
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#zsdsm" aria-controls="zsdsm" role="tab" data-toggle="tab">知识点说明</a></li>
+        <li role="presentation"><a href="#yqymb" aria-controls="yqymb" role="tab" data-toggle="tab">要求与目标</a></li>
+        <li role="presentation"><a href="#jxkj" aria-controls="jxkj" role="tab" data-toggle="tab">教学课件</a></li>
+        <li role="presentation"><a href="#jxsp" aria-controls="jxsp" role="tab" data-toggle="tab">教学视频</a></li>
+        <li role="presentation"><a href="#jxsy" aria-controls="jxsy" role="tab" data-toggle="tab">教学实验</a></li>
+        <li role="presentation"><a href="#alxt" aria-controls="alxt" role="tab" data-toggle="tab">案例和习题</a></li>
+        <li role="presentation"><a href="#tzzs" aria-controls="tzzs" role="tab" data-toggle="tab">拓展知识</a></li>
+      </ul>
+      <hr>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="zsdsm">
+          <table class="table table-bordered table-hover">
+            <tr>
+            <th style="text-align:center;">章</th>
+            <th style="text-align:center;">节</th>
+            <th style="text-align:center;">重点</th>
+            <th style="text-align:center;">难点</th>
+            <th style="text-align:center;">应用</th>
+          </tr>
+          <tr>
+      <td rowspan="5">第01章 数据库理论基础概述</td>
+      <td>1.概述</td>
+      <td>√</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2.数据库技术的发展</td>
+      <td>√</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3.数据系统的特点</td>
+      <td></td>
+      <td>√</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4.各种数据模型</td>
+      <td></td>
+      <td>√</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5.数据库系统结构</td>
+      <td></td>
+      <td>√</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="5">第02章 关系型数据库</td>
+      <td>1.关系数据结构</td>
+      <td>√</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2.关系的操作</td>
+      <td>√</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3.关系的完整性</td>
+      <td>√</td>
+      <td></td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>4.关系代数</td>
+      <td>√</td>
+      <td></td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>5.关系演变</td>
+      <td>√</td>
+      <td></td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td rowspan="5">第03章 数据库的安全与完整性</td>
+      <td>1.计算机安全性概述</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>2.数据库安全性控制</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>3.完整性约束条件</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>4.完整性控制</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>5.SQL的完整性实现</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td rowspan="9">第04章 关系数据理论与设计方法</td>
+      <td>1.规划化</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>2.数据依赖</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>3.模式的分解</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>4.数据库设计</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>5.需求分析</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>6.概念结构设计</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>7.逻辑结构设计</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>8.物理结构设计</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>9.数据库实施与维护</td>
+      <td>√</td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+          </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="yqymb">
+          <ul class="list-group">
+          <li class="list-group-item">1、了解数据库理论的基础</li>
+          <li class="list-group-item">2、熟悉关系型数据库</li>
+          <li class="list-group-item">3、了解计算机系统安全</li>
+          <li class="list-group-item">4、熟悉数据库系统的安全</li>
+          <li class="list-group-item">5、掌握关系型数据库的规划和模式</li>
+          <li class="list-group-item">6、掌握数据库系统的设计方法</li>
+        </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="jxkj">
+          <table class="table table-bordered table-hover">
+            <tr>
+              <th style="font-weight:bold;text-align:center;">序号</th>
+              <th style="font-weight:bold;text-align:center;">课件名称</th>
+              <th style="font-weight:bold;text-align:center;">课件格式</th>
+              <th style="font-weight:bold;text-align:center;">课件说明</th>
+              <th style="font-weight:bold;text-align:center;">课件下载</th>
+            </tr>
+            <tr>
+              <td>01</td>
+                  <td>PPT教学课件</td>
+                  <td>
+                    <img src="img/icon_pdf.png">
+                  </td>
+                  <td>
+                    教师上课使用的本章PPT文档。
+                  </td>
+                  <td>
+                    <a href="#" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td>演示案例课件</td>
+                  <td>
+                    <img src="img/icon_pdf.png">
+                  </td>
+                  <td>
+                    与教学课件配套的本章演示案例PPT文档。
+                  </td>
+                  <td>
+                    <a href="#" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>演示案例代码</td>
+                  <td>
+                    <img src="img/icon_pdf.png">
+                  </td>
+                  <td>
+                    本章所有演示案例的参考源代码。
+                  </td>
+                  <td>
+                    <a href="#" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a>
+                  </td>
+                </tr>    
+          </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="jxsp">
+          <table class="table table-bordered table-hover table-condensed">
+            <tr>
+              <th style="text-align:center;">序号</th>
+              <th style="text-align:center;">节</th>
+              <th style="text-align:center;">格式</th>
+              <th style="text-align:center;">长度</th>
+              <th style="text-align:center;">视频下载</th>
+            </tr>
+            <tr>
+              <td>01</td>
+              <td>第01节 Unix &amp; Linux系统的起源和发展</td>
+              <td>
+                <img src="img/icon_powercam.png">
+              </td>
+              <td>
+                00:22:33
+              </td>
+              <td>
+                <a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>02</td>
+                    <td>第02节 Unix &amp; Linux系统的管理模式</td>
+                    <td>
+                      <img src="img/icon_powercam.png">
+                    </td>
+                    <td>
+                      00:23:43
+                    </td>
+                    <td>
+                      <a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>03</td>
+                    <td>第03节 Unix/Linux系统软件包管理</td>
+                    <td>
+                      <img src="img/icon_powercam.png">
+                    </td>
+                    <td>
+                      01:00:25
+                    </td>
+                    <td>
+                      <a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a>
+                    </td>
+                  </tr>
+          </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="jxsy">
+          <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h4>实验资源下载</h4>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验指导手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验参考手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验参考源代码</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验教学PPT</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h4>实验环境搭建资源</h4>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验环境搭建指导手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验环境软件工具包 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="alxt">
+          <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h4>相关案例</h4>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验指导手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验参考手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验参考源代码</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验教学PPT</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h4>习题</h4>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验环境搭建指导手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验环境软件工具包 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tzzs">
+          <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h4>拓展</h4>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验环境搭建指导手册</li>
+                <li class="list-group-item"><span class="badge"><a href="" target="_blank"><span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span></a></span></a>实验环境软件工具包 </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<footer class="navbar-fixed-bottom" style="background-color:white;text-align:center;">
+  <p class="footer-zzuli">Copyright © 2013 <a href="http://soft.zzuli.edu.cn/" target="_blank" title="-">  郑州轻工业学院软件学院  </a></p> 
+</footer>
+<style type="text/css">
+  html, body {
+    font: 14px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+    color: #14191E;
+}
+  body{
+    padding-top: 70px;
+
+  }
+  .brand-img{
+    height: 50px;
+    width: 250px;
+    margin-top: -15px;
+  }
+  .nnnnnn{
+    border-radius: 0px;
+  }
+  .carousel {
+    height: 400px;
+    margin-bottom: 50px;
+  }
+  .carousel .item {
+    height: 400px;
+  }
+  .carousel .item img {
+    width: 100%;
+  }      
+  #carousel-example-generic{
+    margin-top: -20px;
+  }
+  .tx{
+    width:100px;
+    height: 100px;
+    border: solid 6px rgba(99,99,99,0.2);
+    border-radius: 50px;
+    transition: border 1s;
+  }
+  .tx:hover{
+    border: solid 10px rgba(20,20,20,0.6);
+  }
+  #tx-row{
+    text-align: center;
+  }
+  .navbar-oracle{
+    background-color: white;
+  }
+  .dtx{
+    border-radius: 105px;
+    border:solid 10px #aaa;
+    float: left;
+  }
+  label h1{
+    float: left;
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+  .panel-success{
+    margin-top: 30px;
+  }  
+  .resource-img-panel{
+    width: 300px;
+    height: 200px;
+    margin:auto;
+    margin-top: 10px;
+    overflow: hidden
+  }
+  .resource-img{
+    width: 300px;
+    height: 200px;
+    transition:all 0.54s;
+  }
+  .resource-img:hover{
+    width: 340px;
+    height: 240px;
+  }
+  .thumbnail{
+    margin-top: 20px; 
+  }
+  .page-cut{
+    margin-left:40%;
+  }
+  td{
+    text-align: center;
+  }
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#zy .dropdown-menu a").click(function(){
+      var href = $(this).attr("href");
+      $("#myTab a[href='"+href+"']").tab("show");
+    });
+  });
+</script>
+</body>
+</html>

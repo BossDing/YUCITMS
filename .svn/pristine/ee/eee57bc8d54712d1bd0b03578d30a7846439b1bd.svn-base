@@ -1,0 +1,17 @@
+package com.yucitms.service.school;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.service.BaseService;
+
+/**
+ * 课程
+ * @author qiangzi
+ *
+ */
+public interface CourseService extends BaseService{
+	
+	
+}

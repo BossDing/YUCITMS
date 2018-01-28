@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="lesson" namespace="/"  extends="struts-default">
+	     <!--重难点解析 -->
+		<action name="difficulty_*" class="com.yucitms.action.netLesson.DifficultyGuidanceAction" method="{1}">
+		<result name="guidance">/WEB-INF/page/excellentCourse/difficultyGuidance.jsp</result>
+		</action>
+		
+		<!--精品课程首页  -->
+		<action name="course_*" class="com.yucitms.action.netLesson.ExcellentCourseAction" method="{1}">
+		<result name="index">/WEB-INF/page/excellentCourse/index.jsp</result>
+		<result name="courseIntroduce">/WEB-INF/page/excellentCourse/courseIntroduce.jsp</result>
+		</action>
+		<!--参考资料  -->
+		<action name="data_*" class="com.yucitms.action.netLesson.ReferenceDataAction" method="{1}">
+		<result name="referenceData">/WEB-INF/page/excellentCourse/referencedata.jsp</result>
+		</action>
+		<!--视频  -->
+		<action name="video_*" class="com.yucitms.action.netLesson.ExcellentVideoAction" method="{1}">
+		<result name="excellentMP4">/WEB-INF/page/excellentCourse/excellentcourse.jsp</result>
+		</action>
+     </package> 
+</struts>    	

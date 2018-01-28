@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-5 14:19:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.netLesson.ExcellentCourse" table="lesson_EXCELLENTCOURSE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="teachingThought" type="java.lang.String">
+            <column name="TEACHINGTHOUGHT" />
+        </property>
+        <property name="teachingContent" type="java.lang.String">
+            <column name="TEACHINGCONTENT" />
+        </property>
+        <property name="courseParsing" type="java.lang.String">
+            <column name="COURSEPARSING" />
+        </property>
+        <property name="teachingTeam" type="java.lang.String">
+            <column name="TEACHINGTEAM" />
+        </property>
+        <property name="teachingAim" type="java.lang.String">
+            <column name="TEACHINGAIM" />
+        </property>
+        <property name="teachingRequire" type="java.lang.String">
+            <column name="TEACHINGREQUIRE" />
+        </property>
+        <property name="practice" type="java.lang.String">
+            <column name="PRACTICE" />
+        </property>
+        <property name="work" type="java.lang.String">
+            <column name="WORK" />
+        </property>
+        <property name="scheduling" type="java.lang.String">
+            <column name="SCHEDULING" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <set name="books" table="LESSIONBOOK" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.LessionBook" />
+        </set>
+        <set name="datas" table="REFERENCEDATA" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.ReferenceData" />
+        </set>
+        <set name="applications" table="EXPANDAPPLICATION" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.ExpandApplication" />
+        </set>
+        <set name="experimentCases" table="EXPERIMENTCASE" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.ExperimentCase" />
+        </set>
+        <set name="guidances" table="DIFFICULTYGUIDANCE" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.DifficultyGuidance" />
+        </set>
+         <set name="teachers" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.ExcellentTeacher" />
+        </set>
+        <set name="videos" inverse="false" >
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.netLesson.ExcellentVideo" />
+        </set>
+    </class>
+</hibernate-mapping>

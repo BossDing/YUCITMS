@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!--学校基本信息 -->
+	<!-- bean dao -->
+    <bean id="classRoomDAO" class="com.yucitms.dao.impl.school.ClassRoomDAOImpl" parent="baseDao" />
+    <bean id="courseDAO" class="com.yucitms.dao.impl.school.CourseDAOImpl" parent="baseDao" />
+    <bean id="departmentDAO" class="com.yucitms.dao.impl.school.DepartmentDAOImpl" parent="baseDao" />
+    
+    <bean id="majorDao" class="com.yucitms.dao.impl.school.MajorDaoImpl" parent="baseDao" />
+    <bean id="studentDao" class="com.yucitms.dao.impl.school.StudentDaoImpl" parent="baseDao" />
+    <bean id="teacherDao" class="com.yucitms.dao.impl.school.TeacherDaoImpl" parent="baseDao" />
+
+    <!--  service -->
+    <bean id="classRoomService" class="com.yucitms.service.impl.school.ClassRoomServiceImpl" />
+    <bean id="courseService" class="com.yucitms.service.impl.school.CourseServiceImpl" />
+    <bean id="departmentService" class="com.yucitms.service.impl.school.DepartmentServiceImpl" />
+   
+    <bean id="majorService" class="com.yucitms.service.impl.school.MajorServiceImpl" />
+    <bean id="studentService" class="com.yucitms.service.impl.school.StudentServiceImpl" />
+    <bean id="teacherService" class="com.yucitms.service.impl.school.TeacherServiceImpl" />
+    
+	</beans>

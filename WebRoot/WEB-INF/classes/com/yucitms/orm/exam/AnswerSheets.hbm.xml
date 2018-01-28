@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-28 15:09:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.AnswerSheets" table="exam_ANSWERSHEETS">
+        <id name="id" type="java.lang.Integer">
+            <column name="answerSheets_id" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="student" class="com.yucitms.orm.school.Student" fetch="join">
+            <column name="student_id" />
+        </many-to-one>
+        <many-to-one name="examPaper" class="com.yucitms.orm.exam.ExamPaper" fetch="join">
+            <column name="examPaperId" />
+        </many-to-one>
+        <set name="answers" inverse="false" lazy="true">
+            <key>
+                <column name="answerSheets_id" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.Answer" />
+        </set>
+    </class>
+</hibernate-mapping>

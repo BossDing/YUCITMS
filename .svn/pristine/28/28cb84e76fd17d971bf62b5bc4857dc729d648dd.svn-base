@@ -1,0 +1,712 @@
+package com.yucitms.action.exam;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.poi.xwpf.usermodel.BreakClear;
+import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.sun.star.uno.Type;
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.exam.Classify;
+import com.yucitms.orm.exam.Difficulty;
+import com.yucitms.orm.exam.Grouping;
+import com.yucitms.orm.exam.Questions;
+import com.yucitms.orm.exam.Questions_DanXuan;
+import com.yucitms.orm.exam.Questions_DuoXuan;
+import com.yucitms.orm.exam.Questions_JianDa;
+import com.yucitms.orm.exam.Questions_PanDuan;
+import com.yucitms.orm.exam.Questions_TianKong;
+import com.yucitms.orm.exam.Source;
+import com.yucitms.service.exam.ClassifyService;
+import com.yucitms.service.exam.DifficultyService;
+import com.yucitms.service.exam.GroupingService;
+import com.yucitms.service.exam.QuestionsService;
+import com.yucitms.service.exam.Questions_DanXuanService;
+import com.yucitms.service.exam.Questions_DuoXuanService;
+import com.yucitms.service.exam.Questions_JianDaService;
+import com.yucitms.service.exam.Questions_PanDuanService;
+import com.yucitms.service.exam.Questions_TianKongService;
+import com.yucitms.service.exam.SourceService;
+
+/**
+ * 试题的添加 更改 导出
+ * 
+ * @author qiangzi
+ * 
+ */
+public class QuestionsAction extends ActionSupport {
+	/**
+	 * service
+	 */
+	private ClassifyService classifyService;
+	private DifficultyService difficultyService;
+	private GroupingService groupingService;
+	private SourceService sourceService;
+	private QuestionsService questionsService;
+	private Questions_DuoXuanService duoXuanService;
+	private Questions_JianDaService jianDaService;
+	private Questions_PanDuanService panDuanService;
+	private Questions_TianKongService tianKongService;
+	private Questions_DanXuanService danXuanService;
+	/**
+	 * 表单域
+	 */
+	private Questions_DanXuan danXuan;
+	private Questions_DuoXuan duoXuan;
+	private Questions_JianDa jianDa;
+	private Questions_PanDuan panDuan;
+	private Questions_TianKong tianKong;
+	private Integer difficultyId;
+	private Integer classifyId;
+	private Integer groupingId;
+	private Integer sourceId;
+	private boolean state;
+	private String duoxuan[];// 多选答案
+	private Classify classify;
+	private Difficulty difficulty;
+	private Grouping grouping;
+	private Source source;
+	private Integer id;
+	private Integer ids[];// 批量操作id
+	private String qtype;// 试题类型
+	private String utype;// 操作类型
+	/*
+	 * 分页属性
+	 */
+	private int pageNum = 1;
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	/**
+	 * 添加试题前执行
+	 */
+	private void addbefore() {
+		classify = classifyService.getById(classifyId);
+		difficulty = difficultyService.getById(difficultyId);
+		grouping = groupingService.getById(groupingId);
+		source = sourceService.getById(sourceId);
+	}
+
+	/**
+	 * 修改前置
+	 */
+	public void updateBefore() {
+		List<Classify> classifies = classifyService.findEnabled();
+		List<Difficulty> difficulties = difficultyService.findEnabled();
+		List<Grouping> groupings = groupingService.findEnabled();
+		List<Source> sources = sourceService.findEnabled();
+		ActionContext.getContext().put("classifies", classifies);
+		ActionContext.getContext().put("difficulties", difficulties);
+		ActionContext.getContext().put("groupings", groupings);
+		ActionContext.getContext().put("sources", sources);
+	}
+
+	/**
+	 * 添加试题
+	 * 
+	 * @return
+	 */
+	public String addQuestionPage() {
+		// 查询试题属性
+		List<Classify> classifies = classifyService.findEnabled();
+		List<Difficulty> difficulties = difficultyService.findEnabled();
+		List<Grouping> groupings = groupingService.findEnabled();
+		List<Source> sources = sourceService.findEnabled();
+		ActionContext.getContext().put("classifies", classifies);
+		ActionContext.getContext().put("difficulties", difficulties);
+		ActionContext.getContext().put("groupings", groupings);
+		ActionContext.getContext().put("sources", sources);
+		return "addQuestionPage";
+	}
+
+	/**
+	 * 保存填空题
+	 * 
+	 * @return
+	 */
+	public String addTianKong() {
+		addbefore();
+		tianKong.setDifficulty(difficulty);
+		tianKong.setClassify(classify);
+		tianKong.setGrouping(grouping);
+		tianKong.setSource(source);
+		tianKong.setState(state);
+		tianKong.setType(QuestionsConfig.TIANKONG);
+		tianKong.setCreateDate(new Date());
+		tianKongService.addQuestions_TianKong(tianKong);
+		return "toAddQuestionPage";
+	}
+
+	/**
+	 * 修改填空题
+	 */
+	public String updateTianKongPage() {
+		updateBefore();
+		tianKong = tianKongService.getById(id);
+		difficultyId = tianKong.getDifficulty().getId();
+		classifyId = tianKong.getClassify().getId();
+		groupingId = tianKong.getGrouping().getId();
+		sourceId = tianKong.getSource().getId();
+		state = tianKong.isState();
+		return "updateTianKongPage";
+	}
+
+	public String updateTianKong() {
+		addbefore();
+		tianKong.setDifficulty(difficulty);
+		tianKong.setClassify(classify);
+		tianKong.setGrouping(grouping);
+		tianKong.setSource(source);
+		tianKong.setState(state);
+		tianKong.setCreateDate(new Date());
+		tianKong.setType(QuestionsConfig.DANXUAN);
+		tianKongService.updateQuestions_TianKong(tianKong);
+		return "tiankongList";
+	}
+
+	/**
+	 * 保存单选题
+	 * 
+	 * @return
+	 */
+	public String addDanXuan() {
+		addbefore();
+		danXuan.setDifficulty(difficulty);
+		danXuan.setClassify(classify);
+		danXuan.setGrouping(grouping);
+		danXuan.setSource(source);
+		danXuan.setState(state);
+		danXuan.setType(QuestionsConfig.DANXUAN);
+		danXuan.setCreateDate(new Date());
+		danXuanService.addQuestions_DanXuan(danXuan);
+		return "toAddQuestionPage";
+	}
+
+	/**
+	 * 修改
+	 */
+	public String updateDanXuanPage() {
+		updateBefore();
+		danXuan = danXuanService.getById(id);
+		difficultyId = danXuan.getDifficulty().getId();
+		classifyId = danXuan.getClassify().getId();
+		groupingId = danXuan.getGrouping().getId();
+		sourceId = danXuan.getSource().getId();
+		state = danXuan.isState();
+		return "updateDanXuanPage";
+	}
+
+	public String updateDanXuan() {
+		addbefore();
+		danXuan.setDifficulty(difficulty);
+		danXuan.setClassify(classify);
+		danXuan.setGrouping(grouping);
+		danXuan.setSource(source);
+		danXuan.setState(state);
+		danXuan.setCreateDate(new Date());
+		danXuan.setType(QuestionsConfig.DANXUAN);
+		danXuanService.updateQuestions_DanXuan(danXuan);
+		return "danxuanList";
+	}
+
+	/**
+	 * 保存多选题
+	 * 
+	 * @return
+	 */
+	public String addDuoXuan() {
+		addbefore();
+		duoXuan.setDifficulty(difficulty);
+		duoXuan.setClassify(classify);
+		duoXuan.setGrouping(grouping);
+		duoXuan.setSource(source);
+		duoXuan.setState(state);
+		duoXuan.setType(QuestionsConfig.DUOXUAN);
+		duoXuan.setCreateDate(new Date());
+		String danan = "";
+		for (String an : duoxuan) {
+			if (an != null && !an.equals(""))
+				danan += an + ",";
+		}
+		duoXuan.setAnswer_DXS(danan);
+		duoXuanService.addQuestions_DuoXuan(duoXuan);
+		return "toAddQuestionPage";
+	}
+
+	/**
+	 * 修改
+	 */
+	public String updateDuoXuanPage() {
+		updateBefore();
+		duoXuan = duoXuanService.getById(id);
+		difficultyId = duoXuan.getDifficulty().getId();
+		classifyId = duoXuan.getClassify().getId();
+		groupingId = duoXuan.getGrouping().getId();
+		sourceId = duoXuan.getSource().getId();
+		state = duoXuan.isState();
+		return "updateDuoXuanPage";
+	}
+
+	public String updateDuoXuan() {
+		addbefore();
+		duoXuan.setDifficulty(difficulty);
+		duoXuan.setClassify(classify);
+		duoXuan.setGrouping(grouping);
+		duoXuan.setSource(source);
+		duoXuan.setState(state);
+		duoXuan.setCreateDate(new Date());
+		String danan = "";
+		for (String an : duoxuan) {
+			if (an != null && !an.equals(""))
+				danan += an + ",";
+		}
+		duoXuan.setAnswer_DXS(danan);
+		duoXuan.setType(QuestionsConfig.DUOXUAN);
+		duoXuanService.updateQuestions_DuoXuan(duoXuan);
+		return "duoxuanList";
+	}
+
+	/**
+	 * 保存判断题
+	 * 
+	 * @return
+	 */
+	public String addPanDuan() {
+		addbefore();
+		panDuan.setDifficulty(difficulty);
+		panDuan.setClassify(classify);
+		panDuan.setGrouping(grouping);
+		panDuan.setSource(source);
+		panDuan.setState(state);
+		panDuan.setType(QuestionsConfig.PANDUAN);
+		panDuan.setCreateDate(new Date());
+		panDuanService.addQuestions_PanDuan(panDuan);
+		return "toAddQuestionPage";
+	}
+
+	/**
+	 * 修改
+	 */
+	public String updatePanDuanPage() {
+		updateBefore();
+		panDuan = panDuanService.getById(id);
+		difficultyId = panDuan.getDifficulty().getId();
+		classifyId = panDuan.getClassify().getId();
+		groupingId = panDuan.getGrouping().getId();
+		sourceId = panDuan.getSource().getId();
+		state = panDuan.isState();
+		return "updatePanDuanPage";
+	}
+
+	public String updatePanDuan() {
+		addbefore();
+		panDuan.setDifficulty(difficulty);
+		panDuan.setClassify(classify);
+		panDuan.setGrouping(grouping);
+		panDuan.setSource(source);
+		panDuan.setState(state);
+		panDuan.setCreateDate(new Date());
+		panDuan.setType(QuestionsConfig.JIANDA);
+		panDuanService.updateQuestions_PanDuan(panDuan);
+		return "panduanList";
+	}
+
+	/**
+	 * 保存简答题
+	 * 
+	 * @return
+	 */
+	public String addJianDa() {
+		addbefore();
+		jianDa.setDifficulty(difficulty);
+		jianDa.setClassify(classify);
+		jianDa.setGrouping(grouping);
+		jianDa.setSource(source);
+		jianDa.setState(state);
+		jianDa.setType(QuestionsConfig.PANDUAN);
+		jianDa.setCreateDate(new Date());
+		jianDaService.addQuestions_JianDa(jianDa);
+		return "toAddQuestionPage";
+	}
+
+	/**
+	 * 修改
+	 * 
+	 * @return
+	 */
+	public String updateJianDaPage() {
+		updateBefore();
+		jianDa = jianDaService.getById(id);
+		difficultyId = jianDa.getDifficulty().getId();
+		classifyId = jianDa.getClassify().getId();
+		groupingId = jianDa.getGrouping().getId();
+		sourceId = jianDa.getSource().getId();
+		state = jianDa.isState();
+		return "updateJianDaPage";
+	}
+
+	public String updateJianDa() {
+		addbefore();
+		jianDa.setDifficulty(difficulty);
+		jianDa.setClassify(classify);
+		jianDa.setGrouping(grouping);
+		jianDa.setSource(source);
+		jianDa.setState(state);
+		jianDa.setCreateDate(new Date());
+		jianDa.setType(QuestionsConfig.JIANDA);
+		jianDaService.updateQuestions_JianDa(jianDa);
+		return "jiandaList";
+	}
+
+	/**
+	 * 页面批量操作
+	 * 
+	 * @return
+	 */
+	public String questionBCP() {
+		// 启用
+		if (QuestionsConfig.UTYPE_Enabled.equals(utype)) {
+			if (QuestionsConfig.DANXUAN.equals(qtype)) {
+				danXuanService.batchEnabled(ids);
+				return "danxuanList";
+			} else if (QuestionsConfig.DUOXUAN.equals(qtype)) {
+				duoXuanService.batchEnabled(ids);
+				return "duoxuanList";
+			} else if (QuestionsConfig.JIANDA.equals(qtype)) {
+				jianDaService.batchEnabled(ids);
+				return "jiandaList";
+			} else if (QuestionsConfig.PANDUAN.equals(qtype)) {
+				panDuanService.batchEnabled(ids);
+				return "panduanList";
+			} else if (QuestionsConfig.TIANKONG.equals(qtype)) {
+				tianKongService.batchEnabled(ids);
+				return "tiankongList";
+			}
+		} else if (QuestionsConfig.UTYPE_Disable.equals(utype)) {// 禁用
+			if (QuestionsConfig.DANXUAN.equals(qtype)) {
+				danXuanService.batchDisable(ids);
+				return "danxuanList";
+			} else if (QuestionsConfig.DUOXUAN.equals(qtype)) {
+				duoXuanService.batchDisable(ids);
+				return "duoxuanList";
+			} else if (QuestionsConfig.JIANDA.equals(qtype)) {
+				jianDaService.batchDisable(ids);
+				return "jiandaList";
+			} else if (QuestionsConfig.PANDUAN.equals(qtype)) {
+				panDuanService.batchDisable(ids);
+				return "panduanList";
+			} else if (QuestionsConfig.TIANKONG.equals(qtype)) {
+				tianKongService.batchDisable(ids);
+				return "tiankongList";
+			}
+		} else if (QuestionsConfig.UTYPE_Delete.equals(utype)) {// 删除
+			if (QuestionsConfig.DANXUAN.equals(qtype)) {
+				danXuanService.batchDelete(ids);
+				return "danxuanList";
+			} else if (QuestionsConfig.DUOXUAN.equals(qtype)) {
+				duoXuanService.batchDelete(ids);
+				return "duoxuanList";
+			} else if (QuestionsConfig.JIANDA.equals(qtype)) {
+				jianDaService.batchDelete(ids);
+				return "jiandaList";
+			} else if (QuestionsConfig.PANDUAN.equals(qtype)) {
+				panDuanService.batchDelete(ids);
+				return "panduanList";
+			} else if (QuestionsConfig.TIANKONG.equals(qtype)) {
+				tianKongService.batchDelete(ids);
+				return "tiankongList";
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * 批量导出题
+	 * 
+	 * @return
+	 */
+	public String exprotQuestion() {
+		try {
+			HttpServletResponse response = ServletActionContext.getResponse();
+			OutputStream out = response.getOutputStream();
+			response.setContentType("octets/stream");
+			response.addHeader("Content-Disposition",
+					"attachment;filename=paper.docx");
+
+			if (QuestionsConfig.DANXUAN.equals(qtype)) {
+				danXuanService.exprotQuestion(out, ids);
+			} else if (QuestionsConfig.DUOXUAN.equals(qtype)) {
+				duoXuanService.exprotQuestion(out, ids);
+
+			} else if (QuestionsConfig.JIANDA.equals(qtype)) {
+				jianDaService.exprotQuestion(out, ids);
+
+			} else if (QuestionsConfig.PANDUAN.equals(qtype)) {
+				panDuanService.exprotQuestion(out, ids);
+
+			} else if (QuestionsConfig.TIANKONG.equals(qtype)) {
+				tianKongService.exprotQuestion(out, ids);
+
+			}
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
+	/*
+	 * 表单封装
+	 */
+	public Questions_DanXuan getDanXuan() {
+		return danXuan;
+	}
+
+	public void setDanXuan(Questions_DanXuan danXuan) {
+		this.danXuan = danXuan;
+	}
+
+	public Questions_DuoXuan getDuoXuan() {
+		return duoXuan;
+	}
+
+	public void setDuoXuan(Questions_DuoXuan duoXuan) {
+		this.duoXuan = duoXuan;
+	}
+
+	public Questions_JianDa getJianDa() {
+		return jianDa;
+	}
+
+	public void setJianDa(Questions_JianDa jianDa) {
+		this.jianDa = jianDa;
+	}
+
+	public Questions_PanDuan getPanDuan() {
+		return panDuan;
+	}
+
+	public void setPanDuan(Questions_PanDuan panDuan) {
+		this.panDuan = panDuan;
+	}
+
+	public Questions_TianKong getTianKong() {
+		return tianKong;
+	}
+
+	public void setTianKong(Questions_TianKong tianKong) {
+		this.tianKong = tianKong;
+	}
+
+	public Integer getDifficultyId() {
+		return difficultyId;
+	}
+
+	public void setDifficultyId(Integer difficultyId) {
+		this.difficultyId = difficultyId;
+	}
+
+	public Integer getClassifyId() {
+		return classifyId;
+	}
+
+	public void setClassifyId(Integer classifyId) {
+		this.classifyId = classifyId;
+	}
+
+	public Integer getGroupingId() {
+		return groupingId;
+	}
+
+	public void setGroupingId(Integer groupingId) {
+		this.groupingId = groupingId;
+	}
+
+	public Integer getSourceId() {
+		return sourceId;
+	}
+
+	public void setSourceId(Integer sourceId) {
+		this.sourceId = sourceId;
+	}
+
+	public boolean isState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
+	}
+
+	public String[] getDuoxuan() {
+		return duoxuan;
+	}
+
+	public void setDuoxuan(String[] duoxuan) {
+		this.duoxuan = duoxuan;
+	}
+
+	public ClassifyService getClassifyService() {
+		return classifyService;
+	}
+
+	public void setClassifyService(ClassifyService classifyService) {
+		this.classifyService = classifyService;
+	}
+
+	public DifficultyService getDifficultyService() {
+		return difficultyService;
+	}
+
+	public void setDifficultyService(DifficultyService difficultyService) {
+		this.difficultyService = difficultyService;
+	}
+
+	public GroupingService getGroupingService() {
+		return groupingService;
+	}
+
+	public void setGroupingService(GroupingService groupingService) {
+		this.groupingService = groupingService;
+	}
+
+	public SourceService getSourceService() {
+		return sourceService;
+	}
+
+	public void setSourceService(SourceService sourceService) {
+		this.sourceService = sourceService;
+	}
+
+	public QuestionsService getQuestionsService() {
+		return questionsService;
+	}
+
+	public void setQuestionsService(QuestionsService questionsService) {
+		this.questionsService = questionsService;
+	}
+
+	public Questions_DuoXuanService getDuoXuanService() {
+		return duoXuanService;
+	}
+
+	public void setDuoXuanService(Questions_DuoXuanService duoXuanService) {
+		this.duoXuanService = duoXuanService;
+	}
+
+	public Questions_JianDaService getJianDaService() {
+		return jianDaService;
+	}
+
+	public void setJianDaService(Questions_JianDaService jianDaService) {
+		this.jianDaService = jianDaService;
+	}
+
+	public Questions_PanDuanService getPanDuanService() {
+		return panDuanService;
+	}
+
+	public void setPanDuanService(Questions_PanDuanService panDuanService) {
+		this.panDuanService = panDuanService;
+	}
+
+	public Questions_TianKongService getTianKongService() {
+		return tianKongService;
+	}
+
+	public void setTianKongService(Questions_TianKongService tianKongService) {
+		this.tianKongService = tianKongService;
+	}
+
+	public Questions_DanXuanService getDanXuanService() {
+		return danXuanService;
+	}
+
+	public void setDanXuanService(Questions_DanXuanService danXuanService) {
+		this.danXuanService = danXuanService;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer[] getIds() {
+		return ids;
+	}
+
+	public void setIds(Integer[] ids) {
+		this.ids = ids;
+	}
+
+	public Classify getClassify() {
+		return classify;
+	}
+
+	public void setClassify(Classify classify) {
+		this.classify = classify;
+	}
+
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(Difficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public Grouping getGrouping() {
+		return grouping;
+	}
+
+	public void setGrouping(Grouping grouping) {
+		this.grouping = grouping;
+	}
+
+	public Source getSource() {
+		return source;
+	}
+
+	public void setSource(Source source) {
+		this.source = source;
+	}
+
+	public String getQtype() {
+		return qtype;
+	}
+
+	public void setQtype(String qtype) {
+		this.qtype = qtype;
+	}
+
+	public String getUtype() {
+		return utype;
+	}
+
+	public void setUtype(String utype) {
+		this.utype = utype;
+	}
+
+}

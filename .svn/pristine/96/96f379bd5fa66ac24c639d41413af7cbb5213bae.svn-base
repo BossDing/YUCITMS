@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-9 10:51:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.school.Major" table="SCHOOL_MAJOR">
+        <id name="majorID" type="java.lang.Integer">
+            <column name="major_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="majorName" type="java.lang.String">
+            <column name="MAJORNAME" />
+        </property>
+        
+        <property name="majorContent" type="java.lang.String">
+            <column name="MAJORCONTENT" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <many-to-one name="department" class="com.yucitms.orm.school.Department" >
+            <column name="department_ID" />
+        </many-to-one>
+        <set name="rooms"  inverse="false" lazy="true">
+            <key>
+                <column name="major_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.school.ClassRoom" />
+        </set>
+    </class>
+</hibernate-mapping>

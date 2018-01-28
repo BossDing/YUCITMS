@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-20 9:37:09 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.Questions_TianKong" table="exam_QUESTIONS_TIANKONG">
+        <id name="id" type="java.lang.Integer">
+            <column name="tiankong_id" />
+            <generator class="native" />
+        </id>
+        <property name="questions_TK" type="java.lang.String">
+            <column name="QUESTIONS_TK" />
+        </property>
+        <property name="answer_TK" type="java.lang.String">
+            <column name="ANSWER_TK" />
+        </property>
+        <property name="state" type="boolean">
+            <column name="STATE" />
+        </property>
+        <property name="parse" type="java.lang.String">
+            <column name="PARSE" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+         <many-to-one name="classify" class="com.yucitms.orm.exam.Classify" >
+            <column name="classify_id" />
+        </many-to-one>
+        <many-to-one name="difficulty" class="com.yucitms.orm.exam.Difficulty" >
+            <column name="difficulty_id" />
+        </many-to-one>
+        <many-to-one name="grouping" class="com.yucitms.orm.exam.Grouping" >
+            <column name="grouping_id" />
+        </many-to-one>
+        <many-to-one name="source" class="com.yucitms.orm.exam.Source" >
+            <column name="source_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

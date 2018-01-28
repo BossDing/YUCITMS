@@ -1,0 +1,115 @@
+package com.yucitms.action;
+
+import java.lang.reflect.ParameterizedType;
+
+import javax.annotation.Resource;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.yucitms.service.bbs.PostService;
+import com.yucitms.service.netLesson.DifficultyGuidanceService;
+import com.yucitms.service.netLesson.ExcellentCourseService;
+import com.yucitms.service.netLesson.ExcellentTeacherService;
+import com.yucitms.service.netLesson.ExcellentVideoService;
+import com.yucitms.service.netLesson.ExpandApplicationService;
+import com.yucitms.service.netLesson.ExperimentCaseService;
+import com.yucitms.service.netLesson.LessionBookService;
+import com.yucitms.service.netLesson.ReferenceDataService;
+
+public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
+	protected T model;
+	public BaseAction(){
+		try{
+			ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
+			Class<T> clazz = (Class<T>) pt.getActualTypeArguments()[0];
+			model = clazz.newInstance();
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
+	}
+	@Override
+	public T getModel() {
+		return model;
+	}
+	
+	protected DifficultyGuidanceService difficultyGuidanceService;
+	public DifficultyGuidanceService getDifficultyGuidanceService() {
+		return difficultyGuidanceService;
+	}
+	public void setDifficultyGuidanceService(
+			DifficultyGuidanceService difficultyGuidanceService) {
+		this.difficultyGuidanceService = difficultyGuidanceService;
+	}
+	
+	//交给spring管理的接口
+	protected ExcellentTeacherService excellentTeacherService;
+	
+	protected ExpandApplicationService expandApplicationService;
+	
+	protected ExcellentCourseService excellentCourseService;
+	
+	protected ExperimentCaseService experimentCaseService;
+
+	protected LessionBookService lessionBookService;
+	
+	protected ReferenceDataService referenceDataService;
+	
+	protected ExcellentVideoService excellentVideoService;
+	
+	protected PostService postService;
+	
+	/////封装
+	public ExcellentTeacherService getExcellentTeacherService() {
+		return excellentTeacherService;
+	}
+	public void setExcellentTeacherService(
+			ExcellentTeacherService excellentTeacherService) {
+		this.excellentTeacherService = excellentTeacherService;
+	}
+	public ExpandApplicationService getExpandApplicationService() {
+		return expandApplicationService;
+	}
+	public void setExpandApplicationService(
+			ExpandApplicationService expandApplicationService) {
+		this.expandApplicationService = expandApplicationService;
+	}
+	public ExcellentCourseService getExcellentCourseService() {
+		return excellentCourseService;
+	}
+	public void setExcellentCourseService(
+			ExcellentCourseService excellentCourseService) {
+		this.excellentCourseService = excellentCourseService;
+	}
+	public ExperimentCaseService getExperimentCaseService() {
+		return experimentCaseService;
+	}
+	public void setExperimentCaseService(ExperimentCaseService experimentCaseService) {
+		this.experimentCaseService = experimentCaseService;
+	}
+	public LessionBookService getLessionBookService() {
+		return lessionBookService;
+	}
+	public void setLessionBookService(LessionBookService lessionBookService) {
+		this.lessionBookService = lessionBookService;
+	}
+	public ReferenceDataService getReferenceDataService() {
+		return referenceDataService;
+	}
+	public void setReferenceDataService(ReferenceDataService referenceDataService) {
+		this.referenceDataService = referenceDataService;
+	}
+	public PostService getPostService() {
+		return postService;
+	}
+	public void setPostService(PostService postService) {
+		this.postService = postService;
+	}
+	public ExcellentVideoService getExcellentVideoService() {
+		return excellentVideoService;
+	}
+	public void setExcellentVideoService(ExcellentVideoService excellentVideoService) {
+		this.excellentVideoService = excellentVideoService;
+	}
+	
+	
+}

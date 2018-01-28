@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-9 10:51:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.school.ClassRoom" table="SCHOOL_CLASSROOM">
+        <id name="classRoomID" type="java.lang.Integer">
+            <column name="ClassRoom_ID" />
+            <generator class="native" />
+        </id>
+        <property name="classRoomName" type="java.lang.String">
+            <column name="CLASSROOMNAME" />
+        </property>
+        <many-to-one name="major" class="com.yucitms.orm.school.Major" >
+            <column name="major_ID" />
+        </many-to-one>
+        <set name="students"  inverse="false" >
+            <key>
+                <column name="ClassRoom_ID" />
+            </key>
+            <one-to-many class="com.yucitms.orm.school.Student" />
+        </set>
+        
+        <set name="courses" table="SCHOOL_course_classroom" inverse="false" lazy="true">
+            <key>
+                <column name="ClassRoom_ID" />
+            </key>
+            <many-to-many class="com.yucitms.orm.school.Course" column="Course_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

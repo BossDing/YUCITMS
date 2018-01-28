@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="question" namespace="/"  extends="struts-default">
+	    <action name="manage_*" class="com.yucitms.action.exam.ManageAction" method="{1}">
+	    <result name="index">/WEB-INF/page/exam/button/index.jsp</result>
+	     <result name="left">/WEB-INF/page/exam/button/lessonleft.jsp</result>
+	      <result name="top">/WEB-INF/page/exam/button/top.jsp</result>
+	       <result name="main">/WEB-INF/page/exam/button/main.jsp</result>
+	       <result name="examLeft">/WEB-INF/page/exam/button/Examinationleft.jsp</result>
+	    </action>
+	    <!--试题 -->
+	    <action name="question_*" class="com.yucitms.action.exam.QuestionsAction" method="{1}">
+	    <result name="addQuestionPage">/WEB-INF/page/exam/Examination/question/addquestion.jsp</result>
+	    <result name="toAddQuestionPage" type="redirectAction">question_addQuestionPage</result>
+	    <!--修改  -->
+	    <result name="updateTianKongPage">/WEB-INF/page/exam/Examination/QuestionCompile/compileTK.jsp</result>
+	    <result name="tiankongList" type="redirectAction">questionManager_getTKquestionList?pageNum=${pageNum}</result>
+	    <result name="updateDanXuanPage">/WEB-INF/page/exam/Examination/QuestionCompile/compileDX.jsp</result>
+	    <result name="danxuanList" type="redirectAction">questionManager_getDXquestionList?pageNum=${pageNum}</result>
+	    <result name="updateDuoXuanPage">/WEB-INF/page/exam/Examination/QuestionCompile/compileDXS.jsp</result>
+	    <result name="duoxuanList" type="redirectAction">questionManager_getDXSquestionList?pageNum=${pageNum}</result>
+	    <result name="updatePanDuanPage">/WEB-INF/page/exam/Examination/QuestionCompile/compilePD.jsp</result>
+	    <result name="panduanList" type="redirectAction">questionManager_getPDquestionList?pageNum=${pageNum}</result>
+	    <result name="updateJianDaPage">/WEB-INF/page/exam/Examination/QuestionCompile/compileJD.jsp</result>
+	    <result name="jiandaList" type="redirectAction">questionManager_getJDquestionList?pageNum=${pageNum}</result>
+	    </action>
+	    <!--试题管理  -->
+	    <action name="questionManager_*" class="com.yucitms.action.exam.QuestionManagerAction" method="{1}">
+	    <result name="getTKquestionList">/WEB-INF/page/exam/Examination/question/tkQuestionmanager.jsp</result>
+	    <result name="togetTKquestionList">/WEB-INF/page/exam/Examination/question/tkQuestionmanager.jsp</result>
+	    
+	     <result name="getDXquestionList">/WEB-INF/page/exam/Examination/question/dxQuestionmanager.jsp</result>
+	    <result name="togetDXquestionList">/WEB-INF/page/exam/Examination/question/dxQuestionmanager.jsp</result>
+	    
+	     <result name="getDXSquestionList">/WEB-INF/page/exam/Examination/question/dxsQuestionmanager.jsp</result>
+	    <result name="togetDXSquestionList">/WEB-INF/page/exam/Examination/question/dxsQuestionmanager.jsp</result>
+	    
+	     <result name="getPDquestionList">/WEB-INF/page/exam/Examination/question/pdQuestionmanager.jsp</result>
+	    <result name="togetPDquestionList">/WEB-INF/page/exam/Examination/question/pdQuestionmanager.jsp</result>
+	    
+	     <result name="getJDquestionList">/WEB-INF/page/exam/Examination/question/jdQuestionmanager.jsp</result>
+	    <result name="togetJDquestionList">/WEB-INF/page/exam/Examination/question/jdQuestionmanager.jsp</result>
+	    
+	    
+	    </action>
+	    <!--试题分类  -->
+	    <action name="classify_*" class="com.yucitms.action.exam.QClassifyAction" method="{1}">
+	    <result name="getClassifyList">/WEB-INF/page/exam/Examination/question/classify/classify.jsp</result>
+	     <result name="addClassifyPage">/WEB-INF/page/exam/Examination/question/classify/addclassify.jsp</result>
+	      <result name="updateClassifyPage">/WEB-INF/page/exam/Examination/question/classify/updateclassify.jsp</result>
+	       <result name="classifyList" type="redirectAction">classify_getClassifyList</result>
+	    </action>
+	    <!-- 试题难度 -->
+	     <action name="qdifficulty_*" class="com.yucitms.action.exam.QDifficultyAction" method="{1}">
+	    <result name="getDifficultyList">/WEB-INF/page/exam/Examination/question/difficulty/difficulty.jsp</result>
+	     <result name="addDifficultyPage">/WEB-INF/page/exam/Examination/question/difficulty/adddifficulty.jsp</result>
+	      <result name="updateDifficultyPage">/WEB-INF/page/exam/Examination/question/difficulty/updatedifficulty.jsp</result>
+	       <result name="DifficultyList" type="redirectAction">qdifficulty_getDifficultyList</result>
+	    </action>
+	    <!--试题分组  -->
+	     <action name="grouping_*" class="com.yucitms.action.exam.QGroupingAction" method="{1}">
+	    <result name="getGroupingList">/WEB-INF/page/exam/Examination/question/grouping/grouping.jsp</result>
+	     <result name="addGroupingPage">/WEB-INF/page/exam/Examination/question/grouping/addgrouping.jsp</result>
+	      <result name="updateGroupingPage">/WEB-INF/page/exam/Examination/question/grouping/updategrouping.jsp</result>
+	       <result name="GroupingList" type="redirectAction">grouping_getGroupingList</result>
+	    </action>
+	    <!--试题来源  -->
+	     <action name="source_*" class="com.yucitms.action.exam.QSourceAction" method="{1}">
+	    <result name="getSourceList">/WEB-INF/page/exam/Examination/question/source/source.jsp</result>
+	     <result name="addSourcePage">/WEB-INF/page/exam/Examination/question/source/addsource.jsp</result>
+	      <result name="updateSourcePage">/WEB-INF/page/exam/Examination/question/source/updatesource.jsp</result>
+	       <result name="SourceList" type="redirectAction">source_getSourceList</result>
+	    </action>
+	    
+     </package> 
+</struts>    	

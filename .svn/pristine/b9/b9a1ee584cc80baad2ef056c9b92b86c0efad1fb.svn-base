@@ -1,0 +1,101 @@
+package com.yucitms.orm.exam;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.orm.school.Teacher;
+
+/**
+ * 试卷
+ * @author qiangzi
+ *
+ */
+public class ExamPaper implements java.io.Serializable{
+	private Integer id;
+	private String paperName;//试卷名称
+	private float zongScore;//试卷总分
+	private float jigeScore;//及格分数
+	private float score;//得分
+	private boolean state;
+	private Date createDate;
+	private PaperSource paperSource;//试卷来源
+	private PaperClassify paperClassify;//试卷分类
+	private PaperGrouping paperGrouping;//试题分组
+	private  Teacher teacher;//出卷人
+	private Set<QuestionsGrouping> questionsGroupings= new HashSet<QuestionsGrouping>();//试题
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getPaperName() {
+		return paperName;
+	}
+	public void setPaperName(String paperName) {
+		this.paperName = paperName;
+	}
+	public float getZongScore() {
+		return zongScore;
+	}
+	public void setZongScore(float zongScore) {
+		this.zongScore = zongScore;
+	}
+	public float getJigeScore() {
+		return jigeScore;
+	}
+	public void setJigeScore(float jigeScore) {
+		this.jigeScore = jigeScore;
+	}
+	public float getScore() {
+		return score;
+	}
+	public void setScore(float score) {
+		this.score = score;
+	}
+	public boolean isState() {
+		return state;
+	}
+	public void setState(boolean state) {
+		this.state = state;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public PaperSource getPaperSource() {
+		return paperSource;
+	}
+	public void setPaperSource(PaperSource paperSource) {
+		this.paperSource = paperSource;
+	}
+	public PaperClassify getPaperClassify() {
+		return paperClassify;
+	}
+	public void setPaperClassify(PaperClassify paperClassify) {
+		this.paperClassify = paperClassify;
+	}
+	public PaperGrouping getPaperGrouping() {
+		return paperGrouping;
+	}
+	public void setPaperGrouping(PaperGrouping paperGrouping) {
+		this.paperGrouping = paperGrouping;
+	}
+	public Set<QuestionsGrouping> getQuestionsGroupings() {
+		return questionsGroupings;
+	}
+	public void setQuestionsGroupings(Set<QuestionsGrouping> questionsGroupings) {
+		this.questionsGroupings = questionsGroupings;
+	}
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	
+	
+}

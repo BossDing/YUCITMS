@@ -1,0 +1,17 @@
+package com.yucitms.service.impl.school;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.school.ClassRoomService;
+
+/**
+ * 班级
+ * @author qiangzi
+ *
+ */
+public class ClassRoomServiceImpl extends BaseServiceImpl implements ClassRoomService{
+	
+}

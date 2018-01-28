@@ -1,0 +1,197 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+<title>精品课程</title>
+</head>
+<body>
+<jsp:include page="head/head.jsp"></jsp:include>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="${pageContext.request.contextPath}/img/Carousel1.jpg" alt="0">
+      <div class="carousel-caption">
+        <div>
+          <h4>
+                冲浪
+              </h4>
+              <p>
+                冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。
+              </p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <img src="${pageContext.request.contextPath}/img/Carousel2.jpg" alt="1">
+      <div class="carousel-caption">
+      <div>
+        <h4>
+                冲浪
+              </h4>
+              <p>
+                冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。
+              </p>
+      </div>
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/Carousel3.jpg" alt="2">
+      <div class="carousel-caption">
+      <div>
+        <h4>
+                冲浪
+              </h4>
+              <p>
+                冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。
+              </p>
+      </div>
+      </div>
+    </div>
+    <div class="item">
+      <img src="${pageContext.request.contextPath}/img/Carousel4.jpg" alt="3">
+      <div class="carousel-caption">
+      <div>
+        <h4>
+                冲浪
+              </h4>
+              <p>
+                冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。
+              </p>
+      </div>
+      </div>
+    </div>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <div class="glyphicon glyphicon-chevron-left"></div>
+    <div class="sr-only">上一页</div>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">下一页</span>
+  </a>
+  </div>
+
+  
+</div>
+<!--教师团队-->
+<div class="container">
+<hr>
+  <div class="row" id="tx-row">
+  <div class="col-md-4">
+    <img class="tx" src="${pageContext.request.contextPath}/img/tx.jpg">
+    <h1>邵瑛</h1>
+    <p>硕士毕业，曾在研究所工作5年，现任上海电子信息职业技术学院电子系专业带头人，副教授、高级工程师。</p>
+    <a href="Introduction.html" class="btn btn-info"  target="_blank" role="button">了解详情</a>
+  </div>
+  <div class="col-md-4">
+    <img class="tx" src="${pageContext.request.contextPath}/img/tx2.jpg">
+    <h1>沈毓骏</h1>
+    <p>上海电子信息职业技术学院电子工程系计算机控制教研室专职教师，Android俱乐部负责人。</p>
+    <a href="Introduction.html" class="btn btn-info"  target="_blank" role="button">了解详情</a>
+  </div>
+  <div class="col-md-4">
+    <img class="tx" src="${pageContext.request.contextPath}/img/tx3.jpg">
+    <h1>徐御</h1>
+    <p>上海电子信息职业技术学院电子工程系实验室主任。研究方向：Android移动技术、电子互动媒体、计算机网络。</p>
+    <a href="Introduction.html" class="btn btn-info"  target="_blank" role="button">了解详情</a>
+  </div>
+</div>
+<hr>
+</div>
+<footer class="navbar-fixed-bottom" style="background-color:white;text-align: center;">
+  <p class="footer-zzuli">Copyright © 2013 <a href="http://soft.zzuli.edu.cn/" target="_blank" title="-">  郑州轻工业学院软件学院  </a></p> 
+</footer>
+<style type="text/css">
+html, body {
+    font: 14px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+    color: #14191E;
+}
+  body{
+    padding-top: 70px;
+
+  }
+  .brand-img{
+    height: 50px;
+    width: 250px;
+    margin-top: -15px;
+  }
+  .nnnnnn{
+    border-radius: 0px;
+  }
+  .carousel-inner{
+    height: 500px;
+  }
+  .carousel {
+    height: 500px;
+    margin-bottom: 50px;
+  }
+  .carousel .item {
+    height: 500px;
+  }
+  .carousel-control{
+    height: 100%;
+  }
+  .glyphicon{
+    height: 100%;
+  }
+  .carousel .item img {
+    width: 100%;
+  }      
+  #carousel-example-generic{
+    margin-top: -20px;
+  }
+  .tx{
+    width:100px;
+    height: 100px;
+    border: solid 6px rgba(99,99,99,0.2);
+    border-radius: 50px;
+    transition: border 1s;
+  }
+  .tx:hover{
+    border: solid 10px rgba(20,20,20,0.6);
+  }
+  #tx-row{
+    text-align: center;
+  }
+  .navbar-oracle{
+    background-color: white;
+  }
+</style>
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#zy .dropdown-menu a").click(function(){
+      var href = $(this).attr("href");
+      $("resource.html#myTab a[href='"+href+"']").tab("show");
+    });
+  });
+  </script>
+</body>
+</html>

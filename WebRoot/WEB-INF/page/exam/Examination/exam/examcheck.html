@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/new_style.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/new_file.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../../../js/select-ui.min.js"></script>
+<script type="text/javascript" src="../../../" ></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+<script>
+	function checkAll(field){
+	//根据checkbox框的名称，查询得到所有的checkbox对象
+	var idCheckboxs = document.getElementsByName("check");
+	for(var i=0; i<idCheckboxs.length; i++){
+		//判断顶上那个checkbox框的选中状态
+		if(field.checked){
+			idCheckboxs[i].checked = true;
+		}else{
+			idCheckboxs[i].checked = false;
+		}
+	}
+}
+</script>
+<style>
+	.testTitle {
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    font-weight:normal;
+    font-size: 30px;
+    font-family: "微软雅黑";
+	}
+	.testTime {
+    width: 1000px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 auto 30px;
+	}
+	.testTime span{padding:0 10px;display: inline-block;}
+</style>
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">考试管理</a></li>
+    <li><a href="#">考试</a></li>
+    <li><a href="#">考试审批</a></li>
+    </ul>
+    </div>
+    
+    <div class="rightinfo">
+    <div class="tools">
+    <div class="itab">
+	  	<ul> 
+	    <li><a href="#tab1" class="selected">考试</a></li> 
+	  	</ul>
+	</div>
+    <ul class="forminfo">
+     	
+	<li><label>考试分类</label>
+    
+    <div class="usercity">
+    <div class="cityleft">
+    <select class="select2">
+    	<option></option>
+	    <option>全题型测试考试</option>
+	</select>
+    </div>
+    <label>考试名称</label>
+    <div class="cityright"><input name="" type="text" class="scinput" /></div>
+    </div>
+	</li>
+	<li><label>申请人</label>
+    <div class="usercity">
+    <div class="cityright">
+    <input name="" type="text" class="scinput" /></div>
+    <label>审批状态</label>
+    <div class="cityright">
+    	<select class="select3">
+	    <option>同意</option>
+		<option>不同意</option>
+		<option>待审核</option>
+	    </select></div>
+    <label>考试类型</label>
+    <div class="cityright">
+    	<select class="select3">
+	    <option>线上考试</option>
+	    <option>线下考试</option>
+	    </select></div>
+    </div>
+	</li>
+	<li><label>&nbsp;</label><input name="" type="button" class="btn" value="搜索"/>&nbsp;&nbsp;&nbsp;&nbsp;<label>&nbsp;</label><input name="" type="button" class="btn" value="重置" "/></li>
+    </ul>
+   	<div class="itab">
+	  	<ul> 
+	    <li><a href="#tab1" class="selected">考试列表</a></li> 
+	  	</ul>
+	</div>
+
+   	<div class="tools">
+   		<ul class="toolbar">
+        <li class="click"><span><img src="../../../images/t01.png" /></span>启用</li>
+        <li class="click"><span><img src="../../../images/t04.png" /></span>拒绝</li>
+        <li><span><img src="../../../images/t03.png" /></span>删除</li>
+		</ul>
+    </div>
+        <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th><input name="" type="checkbox" value="" onclick="checkAll(this)"/></th>
+        <th>考试名称<i class="sort"><img src="../../../images/px.gif" /></i></th>
+        <th>考试类型</th>
+        <th>考试分类</th>
+        <th>申请人</th>
+        <th>申请日期</th>
+        <th>申请原因</th>
+        <th>审批状态</th>
+        <th>审批时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><input name="check" type="checkbox" value="" /></td>
+        <td>山东章丘公车进饭店景点将自动向监控系统报警</td>
+        <td>2013</td>
+        <td>山东章丘公车进饭店景点将自动向监控系统报警</td>
+        <td>山东滨州</td>
+        <td>山东滨州</td>
+        <td>2013-09-01 10:26</td>
+        <td>已审核</td>
+        <td>2013-09-01 10:26</td>
+        </tr>        
+        </tbody>
+    </table>
+
+    <div class="pagin">
+    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+
+        <ul class="paginList">
+        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
+        <li class="paginItem"><a href="javascript:;">1</a></li>
+        <li class="paginItem current"><a href="javascript:;">2</a></li>
+        <li class="paginItem"><a href="javascript:;">3</a></li>
+        <li class="paginItem"><a href="javascript:;">4</a></li>
+        <li class="paginItem"><a href="javascript:;">5</a></li>
+        <li class="paginItem more"><a href="javascript:;">...</a></li>
+        <li class="paginItem"><a href="javascript:;">10</a></li>
+        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+        </ul>
+    </div>
+    
+    <div class="tip">
+    <div class="tiptop"><span>审核</span><a></a></div>
+    <div class="tipinfo">
+        <div class="tipright">
+        <p>审核信息</p>
+        <textarea class="tip_area"></textarea>
+        </div>
+    </div>
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    </div>
+    
+    
+    
+    </div>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+	</div>
+</body>
+<script type="text/javascript">
+		! function() {
+			laydate.skin('molv'); //切换皮肤，请查看skins下面皮肤库
+			laydate({
+				elem: '#demo'
+			}); //绑定元素
+		}();
+		 //日期范围限制
+		var start = {
+			elem: '#start',
+			format: 'YYYY-MM-DD',
+			min: '1900-06-16', //设定最小日期为当前日期
+			max: '2099-06-16', //最大日期
+			istime: true,
+			istoday: false,
+			choose: function(datas) {
+				end.min = datas; //开始日选好后，重置结束日的最小日期
+				end.start = datas //将结束日的初始值设定为开始日
+			}
+		};
+		var end = {
+			elem: '#end',
+			format: 'YYYY-MM-DD',
+			min: '1900-06-16',
+			max: '2099-06-16',
+			istime: true,
+			istoday: false,
+			choose: function(datas) {
+				start.max = datas; //结束日选好后，充值开始日的最大日期
+			}
+		};
+		laydate(start);
+		laydate(end);
+	</script>
+
+</html>

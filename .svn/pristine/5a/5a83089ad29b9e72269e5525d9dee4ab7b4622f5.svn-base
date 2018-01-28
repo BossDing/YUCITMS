@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-28 15:09:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.Answer" table="exam_ANSWER">
+        <id name="id" type="java.lang.Integer">
+            <column name="answer_id" />
+            <generator class="native" />
+        </id>
+        <property name="answer" type="java.lang.String">
+            <column name="ANSWER" />
+        </property>
+        <property name="right" type="boolean">
+            <column name="RIGHT_" />
+        </property>
+        <property name="parse" type="java.lang.String">
+            <column name="PARSE" />
+        </property>
+        <property name="defen" type="float">
+            <column name="DEFEN" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+        <many-to-one name="answerSheets" class="com.yucitms.orm.exam.AnswerSheets" fetch="join">
+            <column name="answerSheets_id" />
+        </many-to-one>
+        <many-to-one name="questions" class="com.yucitms.orm.exam.Questions" fetch="join">
+            <column name="questions_Id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

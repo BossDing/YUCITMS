@@ -1,0 +1,18 @@
+package com.yucitms.service.impl.bbs;
+
+import java.util.Set;
+
+import com.yucitms.dao.BaseDao;
+import com.yucitms.orm.bbs.Type;
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.bbs.TypeService;
+/**
+ * 帖子类型
+ * @author qiangzi
+ *
+ */
+public class TypeServiceImpl extends BaseServiceImpl implements TypeService{
+
+  
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="practicalTraining" namespace="/"  extends="struts-default">
+	<global-results>
+       <result name="input">/pages/login.jsp</result>
+       </global-results>
+	    <!-- 实训模块 -->
+	    <action name="practicalTraining_*" class="com.yucitms.action.practicalTraining.PracticalTrainingAction" method="{1}">
+	    <result name="practicalTrainingTask">/pages/teacher/practicalTraining/practicalTrainingTask.jsp</result>
+	    <result name="addTemplate" type="redirectAction">practicalTraining_template</result>
+	    <result name="deleteTemplate" type="redirectAction">practicalTraining_template</result>
+	    <result name="updateTemplate" type="redirectAction">practicalTraining_template</result>
+	    <result name="editTemplate">/pages/teacher/practicalTraining/editTemplate.jsp</result>
+	    <result name="template">/pages/teacher/practicalTraining/template.jsp</result>
+	    </action>
+     </package> 
+</struts>

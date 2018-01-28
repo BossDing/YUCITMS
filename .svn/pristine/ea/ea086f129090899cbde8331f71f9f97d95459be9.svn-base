@@ -1,0 +1,15 @@
+package com.yucitms.action.netLesson;
+
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.netLesson.ReferenceData;
+
+/**
+ * 参考资料
+ * @author qiangzi
+ *
+ */
+public class ReferenceDataAction extends BaseAction<ReferenceData>{
+	public String referenceData(){
+		return "referenceData";
+	}
+}

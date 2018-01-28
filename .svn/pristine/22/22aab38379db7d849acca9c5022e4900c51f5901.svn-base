@@ -1,0 +1,126 @@
+package com.yucitms.action.netLesson;
+
+import java.io.File;
+import java.util.Date;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
+import com.yucitms.action.BaseAction;
+import com.yucitms.config.Config;
+import com.yucitms.orm.netLesson.DifficultyGuidance;
+import com.yucitms.orm.netLesson.ExcellentCourse;
+import com.yucitms.util.DocConverter;
+import com.yucitms.util.HqlHelper;
+import com.yucitms.util.PageBean;
+import com.yucitms.util.UpLoadUtil;
+/**
+ * 重难点
+ * @author qiangzi
+ *
+ */
+public class DifficultyGuidanceAction extends BaseAction<DifficultyGuidance>{
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	////////////////////后台
+	private Integer courseId; 
+	private String uploadFileName;
+	private File upload;
+	private String uploadContentType;
+	/**
+	 * 重难点指导
+	 * @return
+	 */
+	public String getDifficultyGuidanceList(){
+		HqlHelper hqlHelper = new HqlHelper(DifficultyGuidance.class, "dg");
+		hqlHelper.addWhereCondition("dg.course.id=?", courseId);
+		hqlHelper.addWhereCondition(model.getDiffName()!=null&&!model.getDiffName().equals(""), "dg.diffName like ?","%"+model.getDiffName()+"%");
+		PageBean pageBean=difficultyGuidanceService.getDifficultyGuidanceList(pageNum, 10, hqlHelper);
+		//System.out.println(courseId);
+		ActionContext.getContext().getValueStack().push(pageBean);
+		ActionContext.getContext().getValueStack().push(courseId);
+		return "getDifficultyGuidanceList";
+	}
+	/**
+	 * 添加
+	 */
+	public String  addDifficultyGuidancePage(){
+		
+		return "addDifficultyGuidancePage";
+	}
+	public String  addDifficultyGuidance(){
+		ExcellentCourse course=excellentCourseService.getById(courseId);
+		if(upload!=null){
+			uploadFileName=UpLoadUtil.uploadOfficToSwf(Config.UPLOAD_ftp, uploadFileName, upload, Config.TEMP_path, Config.EXCELLENTCOURSE_SaveFilePath, Config.FTP_addrss, Config.FTP_username, Config.FTP_password);
+			model.setAttachmentsPath(uploadFileName);
+		}
+		model.setCreateDate(new Date());
+		model.setCourse(course);
+		difficultyGuidanceService.add(model);
+		return "difficultyGuidanceList";
+	}
+	/**
+	 * 更新
+	 */
+	public String updateDifficultyGuidancePage(){
+		DifficultyGuidance difficultyGuidance= difficultyGuidanceService.getById(model.getId());
+		ActionContext.getContext().getValueStack().push(difficultyGuidance);
+		return "updateDifficultyGuidancePage";
+	}
+	public String updateDifficultyGuidance(){
+		DifficultyGuidance difficultyGuidance=difficultyGuidanceService.getById(model.getId());
+		if(upload!=null){
+			uploadFileName=UpLoadUtil.uploadOfficToSwf(Config.UPLOAD_ftp, uploadFileName, upload, Config.TEMP_path, Config.EXCELLENTCOURSE_SaveFilePath, Config.FTP_addrss, Config.FTP_username, Config.FTP_password);
+			difficultyGuidance.setAttachmentsPath(uploadFileName);
+		}
+		difficultyGuidance.setDiffName(model.getDiffName());
+		difficultyGuidance.setDiffScheme(model.getDiffScheme());
+		difficultyGuidanceService.updateDifficultyGuidance(difficultyGuidance);
+		return "difficultyGuidanceList";
+	}
+	/**
+	 * 删除
+	 */
+	public String deleteDifficultyGuidance(){
+		difficultyGuidanceService.deleteDifficultyGuidance(model.getId());
+		return "difficultyGuidanceList";
+	}
+	public Integer getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(Integer courseId) {
+		this.courseId = courseId;
+	}
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+	public File getUpload() {
+		return upload;
+	}
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+	
+}

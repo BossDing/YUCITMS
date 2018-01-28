@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-25 15:46:04 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.practicalTraining.PracticalTrainingTask" table="PRACTICALTRAINING_PRACTICALTRAININGTASK">
+        <id name="id" type="java.lang.Integer">
+            <column name="practicalTrainingTask_ID" />
+            <generator class="native" />
+        </id>
+        <property name="taskName" type="java.lang.String">
+            <column name="TASKNAME" />
+        </property>
+        <property name="taskType" type="java.lang.String">
+            <column name="TASKTYPE" />
+        </property>
+        <property name="creationTime" type="java.util.Date">
+            <column name="CREATIONTIME" />
+        </property>
+        <property name="taskTimeLimit" type="java.sql.Date">
+            <column name="TASKTIMELIMIT" />
+        </property>
+        <property name="describe" type="java.lang.String">
+            <column name="DESCRIBE_" />
+        </property>
+        
+        <many-to-one name="practicalTrainingTemplate" class="com.yucitms.orm.practicalTraining.PracticalTrainingTemplate" >
+            <column name="PRACTICALTRAININGTEMPLATE" />
+        </many-to-one>
+        
+        <many-to-one name="teacher" class="com.yucitms.orm.school.Teacher" >
+            <column name="TEACHER" />
+        </many-to-one>
+        <many-to-one name="practicalTrainingTaskStep" class="com.yucitms.orm.practicalTraining.PracticalTrainingTaskStep" >
+            <column name="PRACTICALTRAININGTASKSTEP" />
+        </many-to-one>
+        
+        <set name="classRooms" table="PRACTICALTRAININ_TASK_CLASS" inverse="false" >
+            <key>
+                <column name="practicalTrainingTask_ID" />
+            </key>
+            <many-to-many class="com.yucitms.orm.school.ClassRoom" column="ClassRoom_ID"/>
+        </set>
+        <set name="students" table="PRACTICALTRAININ_TASK_STUDENT" inverse="false" >
+            <key>
+                <column name="practicalTrainingTask_ID" />
+            </key>
+            <many-to-many class="com.yucitms.orm.school.Student" column="id"/>
+        </set>
+    </class>
+</hibernate-mapping>

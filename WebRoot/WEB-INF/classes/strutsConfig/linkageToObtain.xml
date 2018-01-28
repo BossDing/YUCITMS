@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="linkageToObtain" namespace="/"  extends="struts-default">
+	<global-results>
+       <result name="input">/WEB-INF/page/login.jsp</result>
+       </global-results>
+	    <action name="linkageToObtainAction_*" class="com.yucitms.action.attendance.LinkageToObtainAction" method="{1}">
+<!-- 	    <result name="left">/WEB-INF/page/student/left.jsp</result> -->
+<!-- 	    <result name="top">/WEB-INF/page/student/top.jsp</result> -->
+<!-- 	    <result name="main">/WEB-INF/page/student/sysfirst.jsp</result> -->
+<!-- 	    <result name="login">/WEB-INF/page/student/index.jsp</result> -->
+	    <result name="loginpage">/WEB-INF/page/login.jsp</result>
+	    </action>
+     </package> 
+</struts>    	

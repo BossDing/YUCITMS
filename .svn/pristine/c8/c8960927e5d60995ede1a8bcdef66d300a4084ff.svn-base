@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="attendance" namespace="/"  extends="struts-default">
+	<global-results>
+       <result name="input">/WEB-INF/page/login.jsp</result>
+       </global-results>
+	    <action name="attendanceAction_*" class="com.yucitms.action.attendance.AttendanceAction" method="{1}">
+	    <result name="left">/WEB-INF/page/teacher/left.jsp</result>
+	    <result name="top">/WEB-INF/page/teacher/top.jsp</result>
+	    <result name="main">/WEB-INF/page/teacher/sysfirst.jsp</result>
+	    <result name="login">/pages/teacher/main.jsp</result>
+	    <result name="queryAttendance">/pages/teacher/attendance/attendanceManagement.jsp</result>
+	    <result name="queryAttendanceList">/pages/teacher/attendance/queryAttendanceList.jsp</result>
+	    <result name="addAttendance">/pages/messages.jsp</result>
+	    <result name="viewAttendanceList">/pages/teacher/attendance/attendanceView.jsp</result>
+	    <result name="deleteAttendanceMain" type="redirectAction">attendanceAction_queryAttendance</result>
+	    </action>
+     </package> 
+</struts>    	

@@ -1,0 +1,14 @@
+package com.yucitms.service.netLesson;
+
+import java.util.Date;
+
+import com.yucitms.service.BaseService;
+
+/**
+ * 视频
+ * @author qiangzi
+ *
+ */
+public interface ExcellentVideoService extends BaseService{
+	
+}

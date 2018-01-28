@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-23 20:01:11 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.ExamPaper" table="exam_EXAMPAPER">
+        <id name="id" type="java.lang.Integer">
+            <column name="examPaperId" />
+            <generator class="native" />
+        </id>
+        <property name="paperName" type="java.lang.String">
+            <column name="PAPERNAME" />
+        </property>
+        <property name="zongScore" type="float">
+            <column name="ZONGSCORE" />
+        </property>
+        <property name="jigeScore" type="float">
+            <column name="JIGESCORE" />
+        </property>
+        <property name="score" type="float">
+            <column name="SCORE" />
+        </property>
+        <property name="state" type="boolean">
+            <column name="STATE" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <many-to-one name="paperSource" class="com.yucitms.orm.exam.PaperSource" >
+            <column name="paperSourceId" />
+        </many-to-one>
+        <many-to-one name="paperClassify" class="com.yucitms.orm.exam.PaperClassify" >
+            <column name="paperClassifyId" />
+        </many-to-one>
+        <many-to-one name="paperGrouping" class="com.yucitms.orm.exam.PaperGrouping">
+            <column name="paperGroupingId" />
+        </many-to-one>
+        <set name="questionsGroupings" order-by="index ASC">
+            <key>
+                <column name="examPaperId" />
+            </key>
+            <one-to-many class="com.yucitms.orm.exam.QuestionsGrouping" />
+        </set>
+         <many-to-one name="teacher" class="com.yucitms.orm.school.Teacher" >
+            <column name="teacher_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

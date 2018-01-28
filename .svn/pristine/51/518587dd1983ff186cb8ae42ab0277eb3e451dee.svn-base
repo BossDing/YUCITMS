@@ -1,0 +1,56 @@
+package com.yucitms.orm.school;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * 专业
+ * @author qiangzi
+ *
+ */
+public class Major implements java.io.Serializable{
+	private Integer id;
+	private String majorName;//专业
+	private Department department;//学院
+	private String majorContent;
+	private Date createDate;
+	private Set<ClassRoom> rooms = new HashSet<ClassRoom>();//班级
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getMajorName() {
+		return majorName;
+	}
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	public String getMajorContent() {
+		return majorContent;
+	}
+	public void setMajorContent(String majorContent) {
+		this.majorContent = majorContent;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Set<ClassRoom> getRooms() {
+		return rooms;
+	}
+	public void setRooms(Set<ClassRoom> rooms) {
+		this.rooms = rooms;
+	}
+	
+}

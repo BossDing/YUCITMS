@@ -1,0 +1,17 @@
+package com.yucitms.service.impl.bbs;
+
+import com.yucitms.dao.BaseDao;
+import com.yucitms.orm.bbs.Response;
+import com.yucitms.service.BaseService;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.bbs.ResponseService;
+
+/**
+ * 帖子回复
+ * @author qiangzi
+ *
+ */
+public class ResponseServiceImpl extends BaseServiceImpl implements ResponseService{
+
+    
+}

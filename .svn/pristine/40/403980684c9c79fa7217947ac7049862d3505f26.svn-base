@@ -1,0 +1,16 @@
+package com.yucitms.service.netLesson;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.service.BaseService;
+
+/**
+ * 精品课程
+ * @author qiangzi
+ *
+ */
+public interface ExcellentCourseService extends BaseService{
+	
+}

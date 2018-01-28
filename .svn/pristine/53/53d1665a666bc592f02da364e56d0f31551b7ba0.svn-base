@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="read" namespace="/"  extends="struts-default">
+	    <action name="read_*" class="com.yucitms.action.ReadFileAction" method="{1}">
+	    <result name="readSwf">/WEB-INF/page/admin/swf/readFile.jsp</result>
+	    </action>
+	    <action name="download" class="com.yucitms.action.DownLoadAction">
+	     <!--以流的方式返回  -->  
+        <result name="success" type="stream">  
+        <!--文件流  -->  
+         <param name="contentType">application/octet-stream</param>  
+         <!--下载源  -->  
+         <param name="inputName">InputStream</param>  
+         <!--以附件方式下载  downloadFileName对应Action类getDownloadFileName() -->  
+         <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>  
+         <!--缓冲流大小  -->  
+         <param name="bufferSize">8192</param>  
+         </result>
+         <result name="input">/WEB-INF/page/excellentCourse/error.jsp</result>
+	    </action>
+     </package> 
+</struts>    	

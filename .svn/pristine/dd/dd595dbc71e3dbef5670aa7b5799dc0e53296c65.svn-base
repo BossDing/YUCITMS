@@ -1,0 +1,63 @@
+package com.yucitms.dao.school;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * 课程
+ * @author qiangzi
+ *
+ */
+public class Course {
+	private Integer id;
+	private String courseName;//课程名
+	private String courseAddress;//上课地址
+	private String content;
+	private Date createDate;
+	private Set<ClassRoom> classRooms = new HashSet<ClassRoom>();//上课班级
+	private Set<Teacher> teachers= new HashSet<Teacher>();//教师
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+	public String getCourseAddress() {
+		return courseAddress;
+	}
+	public void setCourseAddress(String courseAddress) {
+		this.courseAddress = courseAddress;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Set<ClassRoom> getClassRooms() {
+		return classRooms;
+	}
+	public void setClassRooms(Set<ClassRoom> classRooms) {
+		this.classRooms = classRooms;
+	}
+	public Set<Teacher> getTeachers() {
+		return teachers;
+	}
+	public void setTeachers(Set<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+	
+}

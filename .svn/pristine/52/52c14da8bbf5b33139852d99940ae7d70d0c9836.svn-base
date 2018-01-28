@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!--实训基本信息 -->
+	<!-- bean dao -->
+    <bean id="PracticalTrainingTemplateDao" class="com.yucitms.dao.impl.practicalTraining.PracticalTrainingTemplateDaoImpl" parent="baseDao" />
+    <bean id="practicalTrainingTaskDao" class="com.yucitms.dao.impl.practicalTraining.PracticalTrainingTaskDaoImpl" parent="baseDao" />
+    
+    <!--  service -->
+    <bean id="practicalTrainingTemplateService" class="com.yucitms.service.impl.practicalTraining.PracticalTrainingTemplateServiceImpl" />
+    <bean id="practicalTrainingTaskService" class="com.yucitms.service.impl.practicalTraining.PracticalTrainingTaskServiceImpl" />
+   
+	</beans>

@@ -1,0 +1,12 @@
+package com.yucitms.service.netLesson;
+
+import com.yucitms.service.BaseService;
+
+/**
+ * 精品课程教师
+ * @author qiangzi
+ *
+ */
+public interface ExcellentTeacherService extends BaseService{
+	
+}

@@ -1,0 +1,384 @@
+package com.yucitms.action;
+
+import java.lang.reflect.ParameterizedType;
+
+import javax.annotation.Resource;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.sun.star.lib.connections.pipe.pipeAcceptor;
+import com.yucitms.dao.bbs.TypeDAO;
+import com.yucitms.dao.exam.GroupingDAO;
+import com.yucitms.dao.exam.QuestionsDAO;
+import com.yucitms.dao.exam.Questions_TianKongDAO;
+import com.yucitms.orm.school.Major;
+import com.yucitms.orm.school.Teacher;
+import com.yucitms.service.attendance.AttendanceListService;
+import com.yucitms.service.attendance.AttendanceMainService;
+import com.yucitms.service.attendance.ComputerRoomService;
+import com.yucitms.service.bbs.PostService;
+import com.yucitms.service.bbs.ResponseService;
+import com.yucitms.service.bbs.TypeService;
+import com.yucitms.service.exam.ClassifyService;
+import com.yucitms.service.exam.DifficultyService;
+import com.yucitms.service.exam.ExamPaperService;
+import com.yucitms.service.exam.GroupingService;
+import com.yucitms.service.exam.PaperClassifyService;
+import com.yucitms.service.exam.PaperGroupingService;
+import com.yucitms.service.exam.PaperSourceService;
+import com.yucitms.service.exam.QuestionsGroupingService;
+import com.yucitms.service.exam.QuestionsService;
+import com.yucitms.service.exam.Questions_DanXuanService;
+import com.yucitms.service.exam.Questions_DuoXuanService;
+import com.yucitms.service.exam.Questions_JianDaService;
+import com.yucitms.service.exam.Questions_PanDuanService;
+import com.yucitms.service.exam.Questions_TianKongService;
+import com.yucitms.service.exam.SourceService;
+import com.yucitms.service.netLesson.DifficultyGuidanceService;
+import com.yucitms.service.netLesson.ExcellentCourseService;
+import com.yucitms.service.netLesson.ExcellentTeacherService;
+import com.yucitms.service.netLesson.ExcellentVideoService;
+import com.yucitms.service.netLesson.ExpandApplicationService;
+import com.yucitms.service.netLesson.ExperimentCaseService;
+import com.yucitms.service.netLesson.ImgCarouselService;
+import com.yucitms.service.netLesson.LessionBookService;
+import com.yucitms.service.netLesson.ReferenceDataService;
+import com.yucitms.service.school.ClassRoomService;
+import com.yucitms.service.school.CourseService;
+import com.yucitms.service.school.DepartmentService;
+import com.yucitms.service.school.MajorService;
+import com.yucitms.service.school.StudentService;
+import com.yucitms.service.school.TeacherService;
+
+public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
+	
+	protected T model;
+	public BaseAction(){
+		try{
+			ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
+			Class<T> clazz = (Class<T>) pt.getActualTypeArguments()[0];
+			model = clazz.newInstance();
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
+	}
+	@Override
+	public T getModel() {
+		return model;
+	}
+	
+	protected int pageNum = 1;
+
+	public int getPageNum() {
+		return pageNum;
+	}
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	} 
+	
+	/**
+	 * 从session中获取教师登录
+	 */
+	public Teacher getLoginTeacher() {
+		return (Teacher) ActionContext.getContext().getSession().get("teacher");
+	}
+	//交给spring管理的接口
+	/**
+	 * 精品课程
+	 */
+	protected DifficultyGuidanceService difficultyGuidanceService;
+	
+	protected ExcellentTeacherService excellentTeacherService;
+	
+	protected ExpandApplicationService expandApplicationService;
+	
+	protected ExcellentCourseService excellentCourseService;
+	
+	protected ExperimentCaseService experimentCaseService;
+
+	protected LessionBookService lessionBookService;
+	
+	protected ReferenceDataService referenceDataService;
+	
+	protected ExcellentVideoService excellentVideoService;
+	
+	protected ImgCarouselService imgCarouselService;
+	/**
+	 * 论坛
+	 * @return
+	 */
+	protected PostService postService;
+	
+	protected ResponseService responseService;
+	
+	protected TypeService typeService;
+	/**
+	 * 学校基本信息
+	 * @return
+	 */
+	protected ClassRoomService classRoomService;
+	
+	protected CourseService courseService;
+	
+	protected DepartmentService departmentService;
+	
+	protected MajorService majorService;
+	
+	protected StudentService studentService;
+	
+	protected TeacherService teacherService;
+	/**
+	 * 考试
+	 */
+	protected ClassifyService classifyService;
+	protected DifficultyService difficultyService;
+	protected GroupingService groupingService;
+	protected SourceService sourceService;
+	protected QuestionsService questionsService;
+	protected Questions_DuoXuanService duoXuanService;
+	protected Questions_JianDaService jianDaService;
+	protected Questions_PanDuanService panDuanService;
+	protected Questions_TianKongService tianKongService;
+	protected Questions_DanXuanService danXuanService;
+	protected ExamPaperService examPaperService;
+	protected PaperClassifyService paperClassifyService;
+	protected PaperGroupingService paperGroupingService;
+	protected PaperSourceService paperSourceService;
+	protected QuestionsGroupingService questionsGroupingService;
+	/**
+	 * 考勤
+	 */
+	protected AttendanceMainService attendanceMainService;
+	protected AttendanceListService attendanceListService;
+	protected ComputerRoomService computerRoomService;
+	public DifficultyGuidanceService getDifficultyGuidanceService() {
+		return difficultyGuidanceService;
+	}
+	public void setDifficultyGuidanceService(
+			DifficultyGuidanceService difficultyGuidanceService) {
+		this.difficultyGuidanceService = difficultyGuidanceService;
+	}
+	public ExcellentTeacherService getExcellentTeacherService() {
+		return excellentTeacherService;
+	}
+	public void setExcellentTeacherService(
+			ExcellentTeacherService excellentTeacherService) {
+		this.excellentTeacherService = excellentTeacherService;
+	}
+	public ExpandApplicationService getExpandApplicationService() {
+		return expandApplicationService;
+	}
+	public void setExpandApplicationService(
+			ExpandApplicationService expandApplicationService) {
+		this.expandApplicationService = expandApplicationService;
+	}
+	public ExcellentCourseService getExcellentCourseService() {
+		return excellentCourseService;
+	}
+	public void setExcellentCourseService(
+			ExcellentCourseService excellentCourseService) {
+		this.excellentCourseService = excellentCourseService;
+	}
+	public ExperimentCaseService getExperimentCaseService() {
+		return experimentCaseService;
+	}
+	public void setExperimentCaseService(ExperimentCaseService experimentCaseService) {
+		this.experimentCaseService = experimentCaseService;
+	}
+	public LessionBookService getLessionBookService() {
+		return lessionBookService;
+	}
+	public void setLessionBookService(LessionBookService lessionBookService) {
+		this.lessionBookService = lessionBookService;
+	}
+	public ReferenceDataService getReferenceDataService() {
+		return referenceDataService;
+	}
+	public void setReferenceDataService(ReferenceDataService referenceDataService) {
+		this.referenceDataService = referenceDataService;
+	}
+	public ExcellentVideoService getExcellentVideoService() {
+		return excellentVideoService;
+	}
+	public void setExcellentVideoService(ExcellentVideoService excellentVideoService) {
+		this.excellentVideoService = excellentVideoService;
+	}
+	public ImgCarouselService getImgCarouselService() {
+		return imgCarouselService;
+	}
+	public void setImgCarouselService(ImgCarouselService imgCarouselService) {
+		this.imgCarouselService = imgCarouselService;
+	}
+	public PostService getPostService() {
+		return postService;
+	}
+	public void setPostService(PostService postService) {
+		this.postService = postService;
+	}
+	public ResponseService getResponseService() {
+		return responseService;
+	}
+	public void setResponseService(ResponseService responseService) {
+		this.responseService = responseService;
+	}
+	public TypeService getTypeService() {
+		return typeService;
+	}
+	public void setTypeService(TypeService typeService) {
+		this.typeService = typeService;
+	}
+	public ClassRoomService getClassRoomService() {
+		return classRoomService;
+	}
+	public void setClassRoomService(ClassRoomService classRoomService) {
+		this.classRoomService = classRoomService;
+	}
+	public CourseService getCourseService() {
+		return courseService;
+	}
+	public void setCourseService(CourseService courseService) {
+		this.courseService = courseService;
+	}
+	public DepartmentService getDepartmentService() {
+		return departmentService;
+	}
+	public void setDepartmentService(DepartmentService departmentService) {
+		this.departmentService = departmentService;
+	}
+	public MajorService getMajorService() {
+		return majorService;
+	}
+	public void setMajorService(MajorService majorService) {
+		this.majorService = majorService;
+	}
+	public StudentService getStudentService() {
+		return studentService;
+	}
+	public void setStudentService(StudentService studentService) {
+		this.studentService = studentService;
+	}
+	public TeacherService getTeacherService() {
+		return teacherService;
+	}
+	public void setTeacherService(TeacherService teacherService) {
+		this.teacherService = teacherService;
+	}
+	public ClassifyService getClassifyService() {
+		return classifyService;
+	}
+	public void setClassifyService(ClassifyService classifyService) {
+		this.classifyService = classifyService;
+	}
+	public DifficultyService getDifficultyService() {
+		return difficultyService;
+	}
+	public void setDifficultyService(DifficultyService difficultyService) {
+		this.difficultyService = difficultyService;
+	}
+	public GroupingService getGroupingService() {
+		return groupingService;
+	}
+	public void setGroupingService(GroupingService groupingService) {
+		this.groupingService = groupingService;
+	}
+	public SourceService getSourceService() {
+		return sourceService;
+	}
+	public void setSourceService(SourceService sourceService) {
+		this.sourceService = sourceService;
+	}
+	public QuestionsService getQuestionsService() {
+		return questionsService;
+	}
+	public void setQuestionsService(QuestionsService questionsService) {
+		this.questionsService = questionsService;
+	}
+	public Questions_DuoXuanService getDuoXuanService() {
+		return duoXuanService;
+	}
+	public void setDuoXuanService(Questions_DuoXuanService duoXuanService) {
+		this.duoXuanService = duoXuanService;
+	}
+	public Questions_JianDaService getJianDaService() {
+		return jianDaService;
+	}
+	public void setJianDaService(Questions_JianDaService jianDaService) {
+		this.jianDaService = jianDaService;
+	}
+	public Questions_PanDuanService getPanDuanService() {
+		return panDuanService;
+	}
+	public void setPanDuanService(Questions_PanDuanService panDuanService) {
+		this.panDuanService = panDuanService;
+	}
+	public Questions_TianKongService getTianKongService() {
+		return tianKongService;
+	}
+	public void setTianKongService(Questions_TianKongService tianKongService) {
+		this.tianKongService = tianKongService;
+	}
+	public Questions_DanXuanService getDanXuanService() {
+		return danXuanService;
+	}
+	public void setDanXuanService(Questions_DanXuanService danXuanService) {
+		this.danXuanService = danXuanService;
+	}
+	public ExamPaperService getExamPaperService() {
+		return examPaperService;
+	}
+	public void setExamPaperService(ExamPaperService examPaperService) {
+		this.examPaperService = examPaperService;
+	}
+	public PaperClassifyService getPaperClassifyService() {
+		return paperClassifyService;
+	}
+	public void setPaperClassifyService(PaperClassifyService paperClassifyService) {
+		this.paperClassifyService = paperClassifyService;
+	}
+	public PaperGroupingService getPaperGroupingService() {
+		return paperGroupingService;
+	}
+	public void setPaperGroupingService(PaperGroupingService paperGroupingService) {
+		this.paperGroupingService = paperGroupingService;
+	}
+	public PaperSourceService getPaperSourceService() {
+		return paperSourceService;
+	}
+	public void setPaperSourceService(PaperSourceService paperSourceService) {
+		this.paperSourceService = paperSourceService;
+	}
+	public QuestionsGroupingService getQuestionsGroupingService() {
+		return questionsGroupingService;
+	}
+	public void setQuestionsGroupingService(
+			QuestionsGroupingService questionsGroupingService) {
+		this.questionsGroupingService = questionsGroupingService;
+	}
+	public AttendanceMainService getAttendanceMainService() {
+		return attendanceMainService;
+	}
+	public void setAttendanceMainService(AttendanceMainService attendanceMainService) {
+		this.attendanceMainService = attendanceMainService;
+	}
+	public AttendanceListService getAttendanceListService() {
+		return attendanceListService;
+	}
+	public void setAttendanceListService(AttendanceListService attendanceListService) {
+		this.attendanceListService = attendanceListService;
+	}
+	public ComputerRoomService getComputerRoomService() {
+		return computerRoomService;
+	}
+	public void setComputerRoomService(ComputerRoomService computerRoomService) {
+		this.computerRoomService = computerRoomService;
+	}
+	public void setModel(T model) {
+		this.model = model;
+	}
+	
+	
+	/////封装
+	
+	
+}

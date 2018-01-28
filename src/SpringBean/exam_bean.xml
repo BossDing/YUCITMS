@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- bean dao -->
+	<bean id="classifyDAO" class="com.yucitms.dao.impl.exam.ClassifyDAOImpl"
+		parent="baseDao" />
+	<bean id="difficultyDAO" class="com.yucitms.dao.impl.exam.DifficultyDAOImpl"
+		parent="baseDao" />
+	<bean id="groupingDAO" class="com.yucitms.dao.impl.exam.GroupingDAOImpl"
+		parent="baseDao" />
+	<bean id="questionsDAO" class="com.yucitms.dao.impl.exam.QuestionsDAOImpl"
+		parent="baseDao" />
+	<bean id="sourceDAO" class="com.yucitms.dao.impl.exam.SourceDAOImpl"
+		parent="baseDao" />
+	<bean id="jianDaDAO" class="com.yucitms.dao.impl.exam.Questions_JianDaDAOImpl"
+		parent="baseDao" />
+	<bean id="panDuanDAO" class="com.yucitms.dao.impl.exam.Questions_PanDuanDAOImpl"
+		parent="baseDao" />
+	<bean id="danXuanDAO" class="com.yucitms.dao.impl.exam.Questions_DanXuanDAOImpl"
+		parent="baseDao" />
+	<bean id="duoXuanDAO" class="com.yucitms.dao.impl.exam.Questions_DuoXuanDAOImpl"
+		parent="baseDao" />
+	<bean id="tianKongDAO" class="com.yucitms.dao.impl.exam.Questions_TianKongDAOImpl"
+		parent="baseDao" />
+		
+		<bean id="examPaperDAO" class="com.yucitms.dao.impl.exam.ExamPaperDAOImpl"
+		parent="baseDao" />
+	<bean id="paperClassifyDAO" class="com.yucitms.dao.impl.exam.PaperClassifyDAOImpl"
+		parent="baseDao" />
+	<bean id="paperGroupingDAO" class="com.yucitms.dao.impl.exam.PaperGroupingDAOImpl"
+		parent="baseDao" />
+	<bean id="paperSourceDAO" class="com.yucitms.dao.impl.exam.PaperSourceDAOImpl"
+		parent="baseDao" />
+		<bean id="questionsGroupingDAO" class="com.yucitms.dao.impl.exam.QuestionsGroupingDAOImpl"
+		parent="baseDao" />
+
+	<!-- service -->
+	<bean id="classifyService" class="com.yucitms.service.impl.exam.ClassifyServiceImpl" />
+	<bean id="difficultyService" class="com.yucitms.service.impl.exam.DifficultyServiceImpl" />
+	<bean id="groupingService" class="com.yucitms.service.impl.exam.GroupingServiceImpl" />
+	<bean id="sourceService" class="com.yucitms.service.impl.exam.SourceServiceImpl" />
+	<bean id="questionsService" class="com.yucitms.service.impl.exam.QuestionsServiceImpl" />
+	<bean id="duoXuanService"
+		class="com.yucitms.service.impl.exam.Questions_DuoXuanServiceImpl" />
+	<bean id="jianDaService"
+		class="com.yucitms.service.impl.exam.Questions_JianDaServiceImpl" />
+	<bean id="panDuanService"
+		class="com.yucitms.service.impl.exam.Questions_PanDuanServiceImpl" />
+	<bean id="tianKongService"
+		class="com.yucitms.service.impl.exam.Questions_TianKongServiceImpl" />
+	<bean id="danXuanService"
+		class="com.yucitms.service.impl.exam.Questions_DanXuanServiceImpl" />
+
+<bean id="examPaperService"
+		class="com.yucitms.service.impl.exam.ExamPaperServiceImpl" />
+	<bean id="paperClassifyService"
+		class="com.yucitms.service.impl.exam.PaperClassifyServiceImpl" />
+	<bean id="paperGroupingService"
+		class="com.yucitms.service.impl.exam.PaperGroupingServiceImpl" />
+	<bean id="paperSourceService"
+		class="com.yucitms.service.impl.exam.PaperSourceServiceImpl" />
+		
+		<bean id="questionsGroupingService"
+		class="com.yucitms.service.impl.exam.QuestionsGroupingServiceImpl" />
+
+</beans>

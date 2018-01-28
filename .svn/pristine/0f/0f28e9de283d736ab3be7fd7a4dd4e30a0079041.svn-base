@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="lesson" namespace="/"  extends="globalResult">
+	     <!--重难点解析 -->
+		<action name="difficulty_*" class="com.yucitms.action.netLesson.DifficultyGuidanceAction" method="{1}">
+		<result name="guidance">/WEB-INF/page/excellentCourse/difficultyGuidance.jsp</result>
+		<result name="getDifficultyGuidanceList">/WEB-INF/page/admin/course/DifficultyGuidance/DifficultyGuidanceList.jsp</result>
+		<result name="addDifficultyGuidancePage">/WEB-INF/page/admin/course/DifficultyGuidance/addDifficultyGuidance.jsp</result>
+		<result name="updateDifficultyGuidancePage">/WEB-INF/page/admin/course/DifficultyGuidance/updateDifficultyGuidance.jsp</result>
+		<result name="difficultyGuidanceList" type="redirectAction">difficulty_getDifficultyGuidanceList?courseId=${courseId}</result>
+		</action>
+		
+		<!--精品课程首页  -->
+		<action name="course_*" class="com.yucitms.action.netLesson.ExcellentCourseAction" method="{1}">
+		<result name="index">/WEB-INF/page/excellentCourse/index.jsp</result>
+		<result name="courseIntroduce">/WEB-INF/page/excellentCourse/courseIntroduce.jsp</result>
+		
+		<result name="getCourseList">/WEB-INF/page/admin/course/course/courseList.jsp</result>
+		<result name="addCoursePage">/WEB-INF/page/admin/course/course/addcourse.jsp</result>
+		<result name="updateCoursePage">/WEB-INF/page/admin/course/course/updatecourse.jsp</result>
+		<result name="courseList" type="redirectAction">course_getCourseList</result>
+		</action>
+		<!--参考资料  -->
+		<action name="data_*" class="com.yucitms.action.netLesson.ReferenceDataAction" method="{1}">
+		<result name="referenceData">/WEB-INF/page/excellentCourse/referencedata.jsp</result>
+		</action>
+		<!--视频  -->
+		<action name="video_*" class="com.yucitms.action.netLesson.ExcellentVideoAction" method="{1}">
+		<result name="excellentMP4">/WEB-INF/page/excellentCourse/excellentcourse.jsp</result>
+		</action>
+		
+		<!--教师团队  -->
+		<action name="excellentTeacher_*" class="com.yucitms.action.netLesson.ExcellentTeacherAction" method="{1}">
+		<interceptor-ref name="fileUpload">
+				<param name="maximumSize">48576000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		<result name="getExcellentTeacherList">/WEB-INF/page/admin/course/DifficultyTeacher/ExcellentTeacherList.jsp</result>
+		<result name="addExcellentTeacherPage">/WEB-INF/page/admin/course/DifficultyTeacher/addExcellentTeacher.jsp</result>
+		<result name="updateExcellentTeacherPage">/WEB-INF/page/admin/course/DifficultyTeacher/updateExcellentTeacher.jsp</result>
+		<result name="excellentTeacherList" type="redirectAction">excellentTeacher_getExcellentTeacherList?courseId=${courseId}</result>
+		</action>
+		<!--书籍  -->
+	    <action name="book_*" class="com.yucitms.action.netLesson.LessonBookAction" method="{1}">
+	    <interceptor-ref name="fileUpload">
+				<param name="maximumSize">48576000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		<result name="getLessonBookList">/WEB-INF/page/admin/course/book/bookList.jsp</result>
+		<result name="addLessonBookPage">/WEB-INF/page/admin/course/book/addbook.jsp</result>
+		<result name="updateLessonBookPage">/WEB-INF/page/admin/course/book/updatebook.jsp</result>
+		<result name="lessonBookList" type="redirectAction">book_getLessonBookList?courseId=${courseId}</result>
+	    </action>
+     </package> 
+</struts>    	

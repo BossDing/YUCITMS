@@ -1,0 +1,49 @@
+package com.yucitms.dao.school;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * 院系
+ * @author qiangzi
+ *
+ */
+public class Department implements java.io.Serializable{
+	private Integer id;
+	private String departmentName;//院系名称
+	private String departmentContent;
+	private Date createDate;
+	private Set<Major> majors = new HashSet<Major>();//专业
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public String getDepartmentContent() {
+		return departmentContent;
+	}
+	public void setDepartmentContent(String departmentContent) {
+		this.departmentContent = departmentContent;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Set<Major> getMajors() {
+		return majors;
+	}
+	public void setMajors(Set<Major> majors) {
+		this.majors = majors;
+	}
+	
+	}

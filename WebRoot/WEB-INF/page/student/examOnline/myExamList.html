@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+	</head>
+	<body>
+		<div class="sys_main">
+			<div class="sys_wrap clear">
+				<div class="sys_title">
+					<p>我的考试</p>
+				</div>
+				<div class="sys_select">
+					<form name="searchForm" action="exam_searchMyExam.asp" method="post">
+						<label for="paper.PName">试卷名：</label>
+						<input name="paper.PName" class="ipt"id="paper.PName" type="text" />
+		             	<label for="state">是否公布：</label>
+		             	<select name="state" class="select">
+                        	<option value="-1" selected="selected">--请选择--</option>
+                        	<option value="1">是</option>
+                         	<option value="0">否</option>
+                        </select>
+		                <a class="btn" onclick="searchForm.submit();">查&nbsp;&nbsp;询</a>
+                	</form>
+				</div>
+			</div>
+			<div class="sys_content">
+				<table height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0 >
+					<thead><tr><th>试卷名</th><th>开考时间</th><th>结束时间</th><th>总时长</th><th>总分</th><th>成绩公布时间</th><th>成绩</th><th>操作</th></tr></thead>
+					<tbody>
+						<tr>
+							<td>java期末考试</td>
+							<td>2016-04-20 14:43:00</td>
+							<td>2016-04-20 15:43:00</td>
+							<td>60</td>
+							<td>18</td>
+							<td>2016-04-30 15:43:00</td>
+							<td>0</td>
+							<td><a class="a" href="examResultDetail.html" >成绩详情</a></td>
+						</tr>
+						<tr>
+							<td>c基础期末考试</td>
+							<td>2016-04-16 14:43:00</td>
+							<td>2016-04-16 15:43:00</td>
+							<td>60</td>
+							<td>18</td>
+							<td>2016-04-16 15:43:00</td>
+							<td>0</td>
+							<td><a class="a" onclick="return examDetail(${entity.examResult.id})" >成绩详情</a></td>
+						</tr>
+						<tr>
+							<td>高一上学期高数期中考试</td>
+							<td>2016-04-18 14:43:00</td>
+							<td>2016-04-18 15:43:00</td>
+							<td>60</td>
+							<td>18</td>
+							<td>2016-04-18 15:43:00</td>
+							<td>0</td>
+							<td><a class="a" onclick="return examDetail(${entity.examResult.id})" >成绩详情</a></td>
+						</tr>
+					</tbody>
+					<tfoot><th colspan="8" style="text-align: right;"></th></tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

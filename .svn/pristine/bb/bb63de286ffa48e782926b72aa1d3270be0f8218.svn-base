@@ -1,0 +1,490 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+<title>精品课程</title>
+</head>
+<body>
+<jsp:include page="head/head.jsp"></jsp:include>
+<div class="container resource-menu">
+  <ul class="nav nav-tabs nav-justified" role="tablist" id="myTab">
+  <li role="presentation" class="active"><a href="#kj" aria-controls="kj" role="tab" data-toggle="tab">课件资源</a></li>
+  <li role="presentation"><a href="#sy" aria-controls="sy" role="tab" data-toggle="tab">实验资源</a></li>
+  <li role="presentation"><a href="#sp" aria-controls="sp" role="tab" data-toggle="tab">视频资源</a></li>
+  <li role="presentation"><a href="#wl" aria-controls="wl" role="tab" data-toggle="tab">网络资源</a></li>
+  <li role="presentation"><a href="#sj" aria-controls="sj" role="tab" data-toggle="tab">书籍资源</a></li>
+  <li role="presentation"><a href="#ks" aria-controls="ks" role="tab" data-toggle="tab">考试资源</a></li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="kj">
+     <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <label><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="sy">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="sp">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="wl">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="sj">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="ks">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> 
+          <div class="resource-img-panel">
+            <img class="resource-img" alt="300x200" src="img/resource.jpg">
+          </div>
+            <div class="caption">
+              <h3>哈佛结构</h3>
+              <p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+              <p><a class="btn btn-primary" href="#">浏览</a> 
+              <a class="btn btn-default" href="#">分享</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<footer class="navbar-fixed-bottom" style="background-color:white;text-align:center;">
+  <p class="footer-zzuli">Copyright © 2013 <a href="http://soft.zzuli.edu.cn/" target="_blank" title="-">  郑州轻工业学院软件学院  </a></p> 
+</footer>
+<style type="text/css">
+  html, body {
+    font: 14px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+    color: #14191E;
+}
+  body{
+    padding-top: 70px;
+
+  }
+  .brand-img{
+    height: 50px;
+    width: 250px;
+    margin-top: -15px;
+  }
+  .nnnnnn{
+    border-radius: 0px;
+  }
+  .carousel {
+    height: 400px;
+    margin-bottom: 50px;
+  }
+  .carousel .item {
+    height: 400px;
+  }
+  .carousel .item img {
+    width: 100%;
+  }      
+  #carousel-example-generic{
+    margin-top: -20px;
+  }
+  .tx{
+    width:100px;
+    height: 100px;
+    border: solid 6px rgba(99,99,99,0.2);
+    border-radius: 50px;
+    transition: border 1s;
+  }
+  .tx:hover{
+    border: solid 10px rgba(20,20,20,0.6);
+  }
+  #tx-row{
+    text-align: center;
+  }
+  .navbar-oracle{
+    background-color: white;
+  }
+  .dtx{
+    border-radius: 105px;
+    border:solid 10px #aaa;
+    float: left;
+  }
+  label h1{
+    float: left;
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+    
+  .resource-img-panel{
+    width: 300px;
+    height: 200px;
+    margin:auto;
+    margin-top: 10px;
+    overflow: hidden
+  }
+  .resource-img{
+    width: 300px;
+    height: 200px;
+    transition:all 0.54s;
+  }
+  .resource-img:hover{
+    width: 340px;
+    height: 240px;
+  }
+  .thumbnail{
+    margin-top: 20px; 
+  }
+  .page-cut{
+    margin-left:40%;
+  }
+  
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#zy .dropdown-menu a").click(function(){
+      var href = $(this).attr("href");
+      $("#myTab a[href='"+href+"']").tab("show");
+    });
+  });
+</script>
+</body>
+</html>

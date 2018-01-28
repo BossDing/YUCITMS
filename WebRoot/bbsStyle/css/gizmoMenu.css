@@ -1,0 +1,255 @@
+@charset "utf-8";
+
+
+.gizmoMenu.gizmoDropDown ul li{
+	transition:all 500ms ease;
+    background-color:#FFFFFF;
+	color:#222;  
+    cursor:pointer; 
+    }
+
+.gizmoMenu.gizmoDropDown ul li:hover{
+    background-color:#1530c2;
+	color:#FFF;
+    position:relative; }
+
+.gizmoMenu.gizmoDropDown ul li a{
+	color:inherit;
+	font-family:'Open Sans', sans-serif;
+    display:inline-block;
+    text-decoration:none; }
+	
+
+
+/**** SECOND LEVEL MENU ****/
+.gizmoMenu.gizmoDropDown ul li ul{
+    position:absolute;
+    display:none; }
+
+.gizmoMenu.gizmoDropDown ul li:hover ul{
+    left:120px;
+    top:0px;
+    display:block; 
+    }
+
+.gizmoMenu.gizmoDropDown ul li ul li{ background-color:#3f464e;width:80px; }
+.gizmoMenu.gizmoDropDown ul li:hover ul li:hover{ background-color:#9d9d9d; }
+
+.gizmoMenu.gizmoDropDown ul li ul li a{
+    color:#FFF;
+    display:inline-block;
+    }
+	
+.gizmoMenu.gizmoDropDown ul li ul li i { color:#FFF; }
+
+/**** THIRD LEVEL MENU ****/
+.gizmoMenu.gizmoDropDown ul li:hover ul li ul{
+    position:absolute;
+    display:none; }
+
+.gizmoMenu.gizmoDropDown ul li:hover ul li:hover ul{
+    display:block;
+    /**left:150px;*/
+    top:0; }
+
+.gizmoMenu.gizmoDropDown ul li:hover ul li:hover ul li{ background:#86d3fa; }
+.gizmoMenu.gizmoDropDown ul li:hover ul li:hover ul li:hover{ background:#358ebc; }
+.gizmoMenu.gizmoDropDown ul li:hover ul li:hover ul li a{ color:#ffffff; }
+.clear{ clear:both; }
+
+
+
+/**********************************/
+/* STYLE 2 - gizmoBurger */
+/**********************************/
+/* CONTAINER */
+	
+/* MAIN MENU */
+.gizmoMenu.gizmoBurger {
+	display:none;
+	opacity:0;
+	position:fixed;
+	padding:0;
+	margin:0;
+	height:auto;
+	 }
+	
+/* FIRST LEVEL */
+.gizmoMenu.gizmoBurger > li > a {
+	font-family:'Open Sans', sans-serif;
+	font-weight:400;	
+	display:block;
+	position:relative;
+	cursor:pointer; }
+
+	
+/* SECOND LEVEL */
+.gizmoMenu.gizmoBurger ul li a {
+	display:block;
+	position:relative;
+	font-family:'Open Sans', sans-serif;
+	font-weight:400;
+	color:#333;
+	cursor:pointer; }
+
+.gizmoMenu.gizmoBurger ul li a {
+	width:100%;
+	height:45px;
+	font-size:16px;	
+	line-height:46px;
+	text-indent:40px; }	
+
+/* SPAN */	
+.gizmoMenu.gizmoBurger > li > a span {
+	display:inline-block;
+	position:absolute;
+	color:#fff;
+	text-indent:0;
+	text-align:center;
+	font-weight:500; }
+
+.gizmoMenu.gizmoBurger > li > a span {
+	font-size:11px; 
+	right:12px;
+	top:50%; 
+	line-height:14px;
+	height:60px;
+
+	 }
+
+.gizmoMenu.gizmoBurger ul > li > a span {
+	display:inline-block;
+	position:absolute;
+	text-indent:0;
+	text-align:center;
+
+	text-shadow:0 0 0 rgba(255,255,255,.01)); }
+	
+.gizmoMenu.gizmoBurger ul > li > a span {
+	font-size:11px; 
+	right:12px;
+	top:50%;
+	line-height:16px;
+	height:60px;
+
+	 }
+	
+	
+/**********************************/
+/* STYLE 3 - gizmoHoritonztal */
+/**********************************/	
+/* GENERAL */
+.gizmoMenu.gizmoHorizontal { position:fixed; }
+.gizmoMenu.gizmoHorizontal,
+.gizmoMenu.gizmoHorizontal a,
+.gizmoMenu.gizmoHorizontal ul,
+.gizmoMenu.gizmoHorizontal li,
+.gizmoMenu.gizmoHorizontal div,
+.gizmoMenu.gizmoHorizontal form,
+.gizmoMenu.gizmoHorizontal input {
+    margin:0;
+    padding:0;
+    border:none;
+    outline:none; }
+.gizmoHorizontal a { text-decoration: none; }
+.gizmoHorizontal li { list-style: none; }
+.gizmoHorizontal {
+    position: relative;
+    cursor: default;
+    z-index: 500; }
+.gizmoHorizontal > li {
+    display: block;
+    float: left; }	
+
+/* LINKS */
+.gizmoMenu.gizmoHorizontal > li > a {
+	cursor:pointer;
+    position:relative;
+    display:block;
+    z-index:510;
+
+    line-height:54px;
+    font-family:'Open Sans', sans-serif;
+    font-weight:200;
+    font-size:17px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease; }	
+
+.gizmoHorizontal > li:first-child > a {
+
+    border-left: none; }	
+
+	
+	
+	
+	
+	
+/****************/
+/* COLOR THEMES */
+/****************/
+
+/* RED */
+.gizmoMenu_red > li > a:hover, 
+.gizmoMenu_red > li > a.active { background-color:#eb6363; }
+
+.gizmoMenu_red ul li a:hover {	background-color:#CCC; color:#FFF; }
+
+.gizmoMenu_red > li > a { background-color:#3f464e; color:#FFFFFF;  }
+
+.gizmoMenu_red ul > li > a span { color:#222; }
+
+/* PINK */
+.gizmoMenu_pink > li > a:hover, 
+.gizmoMenu_pink ul li a:hover { background-color:#ffc3d7; color:#FFF; }
+
+.gizmoMenu_pink > li > a { background-color:#3f464e; color:#FFFFFF;  }
+
+.gizmoMenu_pink ul > li > a span { color:#e91d62; }
+.gizmoMenu_pink > li > a { background:#e91d62; }
+
+/* PURPLE */
+.gizmoMenu_purple > li > a:hover, 
+
+
+.gizmoMenu_purple ul li a:hover { background-color:#9c26b0; color:#FFF; }
+
+.gizmoMenu_purple > li > a { background-color:#3f464e; color:#FFFFFF;  }
+.gizmoMenu_purple ul > li > a span { color:#6739b6; }
+
+.gizmoMenu_purple > li > a { background:#4912a8; }
+
+
+/* GRAY */
+.gizmoMenu_gray > li > a:hover, 
+
+
+.gizmoMenu_gray ul li a:hover { background-color:#cbcbcb; color:#222; }
+
+.gizmoMenu_gray > li > a { background-color:#3f464e; color:#FFFFFF;}
+.gizmoMenu_gray ul > li > a span { color:#6739b6; }
+
+.gizmoMenu_gray > li > a { background:#7d7d7d; }
+
+/* BLUE */
+.gizmoMenu_blue > li > a:hover, 
+
+.gizmoMenu_blue ul li a:hover { background-color:#e0f8ff; color:#222; }
+
+.gizmoMenu_blue > li > a { background-color:#b1e7ff; color:#FFFFFF;}
+.gizmoMenu_blue ul > li > a span { color:#02a8f4; }
+
+.gizmoMenu_blue > li > a { background:#2095f2; }
+
+/* GREEN */
+.gizmoMenu_green > li > a:hover, 
+
+
+.gizmoMenu_green ul li a:hover { background-color:#ccdb38; color:#4baf4f; }
+
+.gizmoMenu_green > li > a { background-color:#b1e7ff; color:#FFFFFF; }
+.gizmoMenu_green ul > li > a span { color:#8bc24a; }
+
+.gizmoMenu_green > li > a { background:#4baf4f; }

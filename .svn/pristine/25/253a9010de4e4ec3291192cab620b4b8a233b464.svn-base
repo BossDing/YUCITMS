@@ -1,0 +1,14 @@
+package com.yucitms.service.impl.school;
+
+import com.yucitms.orm.school.Student;
+import com.yucitms.service.BaseServiceImpl;
+import com.yucitms.service.school.StudentService;
+
+public class StudentServiceImpl extends BaseServiceImpl implements StudentService{
+
+	@Override
+	public Student login(String username, String password) {
+		return getStudentDao().login(username, password);
+	}
+
+}

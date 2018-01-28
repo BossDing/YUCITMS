@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-24 10:28:06 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yucitms.orm.exam.Questions" table="exam_QUESTIONS">
+        <id name="id" type="java.lang.Integer">
+            <column name="questions_Id" />
+            <generator class="native" />
+        </id>
+        <property name="questions" type="java.lang.String">
+            <column name="QUESTIONS" />
+        </property>
+        <property name="A" type="java.lang.String">
+            <column name="A" />
+        </property>
+        <property name="B" type="java.lang.String">
+            <column name="B" />
+        </property>
+        <property name="C" type="java.lang.String">
+            <column name="C" />
+        </property>
+        <property name="D" type="java.lang.String">
+            <column name="D" />
+        </property>
+        <property name="answer" type="java.lang.String">
+            <column name="ANSWER" />
+        </property>
+        <property name="parse" type="java.lang.String">
+            <column name="PARSE" />
+        </property>
+        <property name="answer_pd" type="int">
+            <column name="ANSWER_PD" />
+        </property>
+        <property name="studentAnswer" type="java.lang.String">
+            <column name="STUDENTANSWER" />
+        </property>
+        <property name="zhengque" type="boolean">
+            <column name="ZHENGQUE" />
+        </property>
+        <property name="fenzhi" type="float">
+            <column name="FENZHI" />
+        </property>
+        <property name="score" type="float">
+            <column name="SCORE" />
+        </property>
+        <property name="code" type="int">
+            <column name="CODE" />
+        </property>
+        <property name="qcode" type="integer">
+            <column name="qCODE" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <many-to-one name="questionsGrouping" class="com.yucitms.orm.exam.QuestionsGrouping" fetch="join">
+            <column name="qgrouping_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

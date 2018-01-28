@@ -1,0 +1,14 @@
+package com.yucitms.dao.impl.school;
+
+import com.yucitms.dao.BaseDaoImpl;
+import com.yucitms.dao.school.TeacherDao;
+import com.yucitms.orm.bbs.Post;
+import com.yucitms.orm.school.Teacher;
+/**
+ * 教师
+ * @author woxiaxiangyang
+ *
+ */
+public class TeacherDaoImpl extends BaseDaoImpl<Teacher> implements TeacherDao{
+
+}

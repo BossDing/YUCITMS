@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-5 14:19:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping default-lazy="false">
+ <class name="com.yucitms.orm.netLesson.DifficultyGuidance" table="lesson_DIFFICULTYGUIDANCE">
+  <id name="id" type="java.lang.Integer">
+   <column name="ID"/>
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" name="diffName" type="java.lang.String">
+   <column name="DIFFNAME"/>
+  </property>
+  <property generated="never" lazy="false" name="diffScheme" type="java.lang.String">
+   <column name="DIFFSCHEME"/>
+  </property>
+  <property generated="never" lazy="false" name="diffRemark" type="java.lang.String">
+   <column name="DIFFREMARK"/>
+  </property>
+  <property generated="never" lazy="false" name="createDate" type="java.util.Date">
+   <column name="CREATEDATE"/>
+  </property>
+  <many-to-one class="com.yucitms.orm.netLesson.ExcellentCourse"
+   fetch="join" name="course">
+   <column name="COURSE_ID"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

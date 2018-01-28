@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+	</head>
+	<body >
+		<h1>成绩详情</h1>
+		<div class="sys_content" align="center">
+		<table cellSpacing=0 cellPadding=0 width="70%" border=0>
+			<form action="#" method="post" id="userpaperform" exrsid="${id[0]}">
+				<thead>
+					<tr><th style="line-height:150%">
+						<h2>${paperData.paper.PName}</h2>
+						开始时间：<%=formater.format(paperData.getPaper().getStartTime()) %> &nbsp; 结束时间：<%=formater.format(paperData.getPaper().getEndTime()) %> <br/>
+						总分：<span class="label">${paperData.paper.totalScore}</span> 分 &nbsp;  &nbsp; 
+						得分：<span class="label"><u id="u_total_score"><%=map.get("student_total_score")%></u></span> 分&nbsp;  &nbsp; 
+						时长：<span class="label">${paperData.paper.minute}</span> 分钟 <br/>
+					</th></tr>
+				</thead>
+				<tbody>
+					<tr><td><%=section.getSectionName() %></td></tr>
+					<tr><td>
+						<div>
+							<b>第<%out.print(detail.getOrderId()+1);%>题 <font color="gray">(分值<%=detail.getScore()%>分)</font></b>
+						</div>
+						<b>答案：</b><%=detail.getTQuestions().getSkey()%><br/>
+						<b>选择：</b><%out.print(exam.getSAnwser());%><br/>
+						<b>得分：</b><span class="label"><%=exam.getScore()%></span>分
+					</td></tr>
+				</tbody>
+				<tfoot><tr><th><input type="submit" value="打印试卷" class="btn" onclick="window.print();" style="border: 1px solid #787d82;"/></th></tr></tfoot>
+			</form>
+		</table>
+		</div>
+	</body>
+</html>

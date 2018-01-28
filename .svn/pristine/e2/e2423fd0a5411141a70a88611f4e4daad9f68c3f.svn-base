@@ -1,0 +1,86 @@
+package com.yucitms.orm.practicalTraining;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yucitms.orm.school.ClassRoom;
+import com.yucitms.orm.school.Student;
+import com.yucitms.orm.school.Teacher;
+
+/**
+ * 实训任务表
+ * @author woxiaxiangyang
+ *
+ */
+public class PracticalTrainingTask implements java.io.Serializable{
+	private Integer id;
+	private String taskName;//任务名称
+	private String taskType;//任务类型
+	private Date creationTime;//创建时间
+	private java.sql.Date taskTimeLimit;//任务时限
+	private String describe;//描述
+	
+	private PracticalTrainingTemplate practicalTrainingTemplate;//模板
+	private Set<ClassRoom> classRooms = new HashSet<ClassRoom>();//班级
+	private Set<Student> students = new HashSet<Student>();//学生
+	private Teacher teacher;//创建教师（所属）
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getTaskName() {
+		return taskName;
+	}
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+	public Date getCreationTime() {
+		return creationTime;
+	}
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+	public java.sql.Date getTaskTimeLimit() {
+		return taskTimeLimit;
+	}
+	public void setTaskTimeLimit(java.sql.Date taskTimeLimit) {
+		this.taskTimeLimit = taskTimeLimit;
+	}
+	public String getDescribe() {
+		return describe;
+	}
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+	public PracticalTrainingTemplate getPracticalTrainingTemplate() {
+		return practicalTrainingTemplate;
+	}
+	public void setPracticalTrainingTemplate(
+			PracticalTrainingTemplate practicalTrainingTemplate) {
+		this.practicalTrainingTemplate = practicalTrainingTemplate;
+	}
+	public Set<ClassRoom> getClassRooms() {
+		return classRooms;
+	}
+	public void setClassRooms(Set<ClassRoom> classRooms) {
+		this.classRooms = classRooms;
+	}
+	public Set<Student> getStudents() {
+		return students;
+	}
+	public void setStudents(Set<Student> students) {
+		this.students = students;
+	}
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	
+	
+}

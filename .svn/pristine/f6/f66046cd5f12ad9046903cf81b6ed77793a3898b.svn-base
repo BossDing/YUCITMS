@@ -1,0 +1,106 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
+		<style type="text/css">
+			.sys_content tr:hover{background-color: #FFF;}
+			#sys_content_s td:hover{background-color: #EEE;}
+		</style>
+	</head>
+	<body>
+		<div class="sys_content" align="center">
+		<form action="course_addCourse.action" method="post">
+		<table id="sys_content_s" cellSpacing=0 cellPadding=0 width="70%" border=0>
+				<thead>
+					<tr><th colspan="2" style="line-height:150%"><h2>增加课程</h2></th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: left;">课程名称：
+							<input type="text" class="ipt" name="name"/>
+							<div id="taskNameTip" style="width: 170px"></div>
+						</td>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">教学思想：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="teachingThought"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">教学内容：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="teachingContent"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr><tr>
+						<tr>
+						<td style="text-align: left;">课程解析：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="courseParsing"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">教学目的：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="teachingAim"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">教学要求：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="teachingRequire"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">进度安排：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="scheduling"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">讲授实习：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="practice"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<tr>
+						<td style="text-align: left;">实验作业：
+						<textarea class="ipt" style=" width: 500px;height: 50px;" name="work"></textarea>
+						<div id="taskMessageTip" style="width: 190px"></div>
+						</td>
+					</tr>
+					</tr>
+				</tbody>
+				<tfoot><tr><th>
+					<input type="submit" value="确&nbsp;&nbsp;认" class="btn"  style="border: 1px solid #787d82;"/>
+					<input type="submit" value="重&nbsp;&nbsp;置" class="btn"  style="border: 1px solid #787d82;"/>
+				</th></tr></tfoot>
+		</table>
+		</form>
+		</div>
+	</body>
+</html>

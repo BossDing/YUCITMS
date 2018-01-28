@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.yucitms.orm.bbs">
+    <class name="Post" table="bbs_post">
+        <id name="id" column="id" type="integer">
+            <generator class="native" />
+        </id>
+        <property name="title" column="title" type="string" />
+        <property name="content" column="content" type="string" />
+        <property name="userName" column="user_name" type="string" />
+        <property name="createTime" column="create_time" type="timestamp" />
+        <property name="respCount" column="response_count" type="int" />
+        <property name="newresp" column="newresp" type="boolean" />
+        <set name="responses">
+            <key column="post_id" ></key>
+            <one-to-many class="com.yucitms.orm.bbs.Response" />
+        </set>
+        <many-to-one name="type" class="Type">
+        <column name="type_id"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

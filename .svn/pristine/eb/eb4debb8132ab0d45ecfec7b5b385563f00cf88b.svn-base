@@ -1,0 +1,12 @@
+package com.yucitms.dao.school;
+
+import com.yucitms.dao.BaseDao;
+import com.yucitms.orm.school.Student;
+/**
+ * 课程 学生
+ * @author woxiaxiangyang
+ *
+ */
+public interface StudentDao extends BaseDao<Student> {
+
+}

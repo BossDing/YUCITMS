@@ -1,0 +1,21 @@
+package com.yucitms.action.netLesson;
+
+import com.yucitms.action.BaseAction;
+import com.yucitms.orm.netLesson.DifficultyGuidance;
+/**
+ * 重难点
+ * @author qiangzi
+ *
+ */
+public class DifficultyGuidanceAction extends BaseAction<DifficultyGuidance>{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public String guidance(){
+		return "guidance";
+	}
+	
+}
